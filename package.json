@@ -2,7 +2,11 @@
   "name": "mui-builder",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "patch:form": "npm version patch packages/components/form",
+    "publish:form": " npm publish dist/packages/components/form --access=public",
+    "publish:core": " npm publish dist/packages/core --access=public"
+  },
   "private": true,
   "dependencies": {
     "react": "18.2.0",

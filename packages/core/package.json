@@ -1,9 +1,12 @@
 {
   "name": "@mui-builder/core",
-  "version": "0.0.1", 
+  "version": "0.0.3",
+  "dependencies": {
+    "@mui-builder/form": "*"
+  },
   "peerDependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0"
-  }
-
+  },
+  "private": false
 }

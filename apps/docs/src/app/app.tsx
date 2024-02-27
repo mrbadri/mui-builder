@@ -5,7 +5,8 @@ import NxWelcome from './nx-welcome';
 
 import { Route, Routes, Link } from 'react-router-dom';
 
-import { Core } from '@mui-builder/core';
+// import { Form } from '@mui-builder/form';
+import { Builder, GROUP_TYPE } from '@mui-builder/core';
 
 export function App() {
   return (
@@ -22,6 +23,9 @@ export function App() {
         <ul>
           <li>
             <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/form">Form</Link>
           </li>
           <li>
             <Link to="/core">Core</Link>
@@ -41,7 +45,18 @@ export function App() {
             </div>
           }
         />
-        <Route path="/core" element={<Core />} />
+        {/* <Route path="/form" element={<Form />} /> */}
+        <Route
+          path="/core"
+          element={
+            <Builder
+              groupList={[
+                { groupType: GROUP_TYPE.FORM, id: '1' },
+                { groupType: GROUP_TYPE.FORM, id: '2' },
+              ]}
+            />
+          }
+        />
         <Route
           path="/page-2"
           element={
