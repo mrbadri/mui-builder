@@ -5,6 +5,8 @@ import NxWelcome from './nx-welcome';
 
 import { Route, Routes, Link } from 'react-router-dom';
 
+import { Core } from '@mui-builder/core';
+
 export function App() {
   return (
     <div>
@@ -22,6 +24,9 @@ export function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/core">Core</Link>
+          </li>
+          <li>
             <Link to="/page-2">Page 2</Link>
           </li>
         </ul>
@@ -36,6 +41,7 @@ export function App() {
             </div>
           }
         />
+        <Route path="/core" element={<Core />} />
         <Route
           path="/page-2"
           element={
