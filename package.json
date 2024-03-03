@@ -3,15 +3,17 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "patch:form": "npm version patch packages/components/form",
-    "publish:form": " npm publish dist/packages/components/form --access=public",
-    "publish:core": " npm publish dist/packages/core --access=public"
+    "react:dev": "nx serve docs"
   },
   "private": true,
   "dependencies": {
     "@changesets/cli": "^2.27.1",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@mui/material": "^5.15.11",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-hook-form": "^7.51.0",
     "react-router-dom": "6.11.2",
     "tslib": "^2.3.0"
   },
