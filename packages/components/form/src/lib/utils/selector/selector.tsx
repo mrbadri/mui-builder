@@ -10,7 +10,6 @@ export interface ITextInputProps {
   fieldProps: TextFieldProps;
 }
 
-
 function Selector({ fieldType }: SelectorProps): React.ReactElement;
 function Selector({
   fieldType,
@@ -23,10 +22,7 @@ function Selector({
       SelectedComponent = lazy(() => import('../../components/text/text'));
       return (
         <Suspense fallback={<div>Loading...</div>}>
-          <SelectedComponent
-            textFieldProps={fieldProps}
-            // textFieldProps={{ variant: 'outlined', label: 'label', id: '2' }}
-          />
+          <SelectedComponent textFieldProps={fieldProps} />
         </Suspense>
       );
 

@@ -39,8 +39,18 @@ export function App() {
           element={
             <Builder
               groupList={[
-                { groupType: GROUP_TYPE.FORM, id: '1', fieldType: FIELD_TYPE.TEXT },
-                { groupType: GROUP_TYPE.FORM, id: '2', fieldType: FIELD_TYPE.TEXT },
+                {
+                  groupType: GROUP_TYPE.FORM,
+                  id: '1',
+                  fieldType: FIELD_TYPE.TEXT,
+                  fieldProps: { variant: 'outlined', label: 'label' },
+                },
+                {
+                  groupType: GROUP_TYPE.FORM,
+                  id: '2',
+                  fieldType: FIELD_TYPE.TEXT,
+                  fieldProps: { variant: 'outlined', label: 'label' },
+                },
               ]}
             />
           }

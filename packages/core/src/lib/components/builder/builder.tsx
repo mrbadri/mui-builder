@@ -11,6 +11,7 @@ export interface BuilderProps {
     id: string | number;
     groupType: GROUP_TYPE;
     fieldType: FIELD_TYPE;
+    fieldProps: object;
   }[];
 }
 
@@ -22,6 +23,7 @@ export const Builder: React.FC<BuilderProps> = ({ groupList }) => {
           key={`${data.id}-index-${index}`}
           groupType={data.groupType}
           fieldType={data.fieldType}
+          fieldProps={data.fieldProps}
         />
       ))}
     </>
