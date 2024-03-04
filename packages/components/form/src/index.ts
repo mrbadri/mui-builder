@@ -1,5 +1,3 @@
-import Form from './lib/form';
+import { Builder } from './lib/components/builder/builder';
 
-export * from './lib/form';
-
-export default Form;
+export default Builder;
