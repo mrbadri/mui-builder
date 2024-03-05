@@ -2,7 +2,7 @@ import { Route, Routes, Link } from 'react-router-dom';
 
 // import { Form } from '@mui-builder/form';
 import { Builder, GROUP_TYPE } from '@mui-builder/core';
-import { FIELD_TYPE } from 'packages/components/form/src/types/selector.types';
+import { FIELD_TYPE } from 'packages/components/form/src/types/public.types';
 
 export function App() {
   return (
@@ -40,16 +40,22 @@ export function App() {
             <Builder
               groupList={[
                 {
-                  groupType: GROUP_TYPE.FORM,
                   id: '1',
-                  fieldType: FIELD_TYPE.TEXT,
-                  fieldProps: { variant: 'outlined', label: 'label' },
+                  groupType: GROUP_TYPE.FORM,
+                  type: FIELD_TYPE.TEXT,
+                  props: {
+                    id: 'type-1',
+                    formId: '20',
+                  },
                 },
                 {
-                  groupType: GROUP_TYPE.FORM,
                   id: '2',
-                  fieldType: FIELD_TYPE.TEXT,
-                  fieldProps: { variant: 'outlined', label: 'label' },
+                  groupType: GROUP_TYPE.FORM,
+                  type: FIELD_TYPE.TEXT,
+                  props: {
+                    id: 'type-2',
+                    formId: '20',
+                  },
                 },
               ]}
             />

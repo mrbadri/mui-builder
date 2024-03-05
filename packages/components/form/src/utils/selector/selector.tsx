@@ -1,34 +1,28 @@
-import React, { Suspense, lazy } from 'react';
-import { FIELD_TYPE } from '../../../types/selector.types';
+import { FC, Fragment, Suspense, lazy } from 'react';
+import { TextProps } from '../../components/text/text.types';
+import { SelectorProps } from './selector.types';
 
-export interface SelectorProps {
-  fieldType: FIELD_TYPE;
-  fieldProps: object;
-}
-
-function Selector({
-  fieldType,
-  fieldProps,
-}: SelectorProps): React.ReactElement {
+const Selector: FC<SelectorProps> = ({ fieldType, fieldProps }) => {
   let SelectedComponent;
 
   switch (fieldType) {
     case 'text':
       SelectedComponent = lazy(() => import('../../components/text/text'));
+
       return (
         <Suspense fallback={<div>Loading...</div>}>
-          <SelectedComponent textFieldProps={fieldProps} />
+          <SelectedComponent {...(fieldProps as TextProps)} />
         </Suspense>
       );
 
     default:
-      SelectedComponent = React.Fragment;
+      SelectedComponent = Fragment;
+
       return (
         <Suspense fallback={<div>Loading...</div>}>
           <SelectedComponent />
         </Suspense>
       );
   }
-}
-
+};
 export default Selector;

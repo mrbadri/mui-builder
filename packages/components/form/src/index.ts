@@ -1,3 +1,3 @@
-import { Builder } from './lib/components/builder/builder';
+import Builder from './components/builder/builder';
 
 export default Builder;

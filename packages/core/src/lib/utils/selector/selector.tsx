@@ -1,16 +1,22 @@
-import { FIELD_TYPE } from 'packages/components/form/src/types/selector.types';
 import React, { Suspense, lazy } from 'react';
 import { GROUP_TYPE } from '../../components/builder/builder';
+import {
+  FIELD_TYPE,
+  FieldProps,
+} from 'packages/components/form/src/types/public.types';
 
-// Assuming these are the default exports from the respective modules.
 
 export interface SelectorProps {
   groupType: GROUP_TYPE;
   fieldType: FIELD_TYPE;
-  fieldProps: object;
+  fieldProps: FieldProps;
 }
 
-const Selector: React.FC<SelectorProps> = ({ groupType, fieldType, fieldProps }) => {
+const Selector: React.FC<SelectorProps> = ({
+  groupType,
+  fieldType,
+  fieldProps,
+}) => {
   let SelectedComponent;
 
   switch (groupType) {
@@ -18,7 +24,7 @@ const Selector: React.FC<SelectorProps> = ({ groupType, fieldType, fieldProps })
       SelectedComponent = lazy(() => import('@mui-builder/form'));
       return (
         <Suspense fallback={<div>Loading...</div>}>
-          <SelectedComponent field={fieldType} fieldProps={fieldProps} />
+          <SelectedComponent fieldType={fieldType} fieldProps={fieldProps} />
         </Suspense>
       );
 
