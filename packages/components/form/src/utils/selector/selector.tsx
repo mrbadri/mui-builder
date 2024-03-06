@@ -1,7 +1,6 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 import { TextProps } from '../../components/text/text.types';
 import { SelectorProps } from './selector.types';
-import Text from '../../components/text/text';
 
 const Selector: FC<SelectorProps> = ({ fieldType, fieldProps }) => {
   let SelectedComponent;
@@ -12,7 +11,7 @@ const Selector: FC<SelectorProps> = ({ fieldType, fieldProps }) => {
 
       return (
         <Suspense fallback={<div>Loading...</div>}>
-          <Text {...(fieldProps as TextProps)} />
+          <SelectedComponent {...(fieldProps as TextProps)} />
         </Suspense>
       );
 

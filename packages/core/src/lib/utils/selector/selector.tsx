@@ -1,4 +1,4 @@
-import React, { Suspense, lazy } from 'react';
+import { FC, Fragment, Suspense, lazy } from 'react';
 import { GROUP_TYPE } from '../../components/builder/builder';
 import {
   FIELD_TYPE,
@@ -11,7 +11,7 @@ export interface SelectorProps {
   fieldProps: FieldProps;
 }
 
-const Selector: React.FC<SelectorProps> = ({
+const Selector: FC<SelectorProps> = ({
   groupType,
   fieldType,
   fieldProps,
@@ -29,7 +29,7 @@ const Selector: React.FC<SelectorProps> = ({
       );
 
     default:
-      SelectedComponent = React.Fragment;
+      SelectedComponent = Fragment;
       return (
         <Suspense fallback={<div>Loading...</div>}>
           <SelectedComponent />
