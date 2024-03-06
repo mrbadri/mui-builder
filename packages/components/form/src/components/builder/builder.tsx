@@ -1,22 +1,18 @@
 import Selector from '../../utils/selector/selector';
-import FormProviderWrapper from '../../utils/formProvider/formProvider';
 import { useForm } from 'react-hook-form';
 import { BuilderProps } from './builder.types';
 import { FC } from 'react';
+import useForms from '../../hooks/useForms/useForms';
 
 const Builder: FC<BuilderProps> = ({ fieldType, fieldProps }) => {
-  const useFormMethods = useForm();
-  return (
-    <FormProviderWrapper
-      useFormMethods={useFormMethods}
-      onSubmit={useFormMethods.handleSubmit(() => {
-        console.log('onSubmit method');
-      })}
-      other={{ ...fieldProps }}
-    >
-      <Selector fieldType={fieldType} fieldProps={fieldProps} />
-    </FormProviderWrapper>
-  );
+  const formMethods = useForm();
+  const { forms, setForm } = useForms();
+
+  if (!forms?.[fieldProps.formId]) {
+    setForm(fieldProps.formId, formMethods);
+  }
+
+  return <Selector fieldType={fieldType} fieldProps={fieldProps} />;
 };
 
 export default Builder;

@@ -25,7 +25,7 @@ export function App() {
       </div>
       <Routes>
         <Route
-          path="/"
+          path="/core"
           element={
             <div>
               This is the generated root route.{' '}
@@ -35,7 +35,7 @@ export function App() {
         />
         {/* <Route path="/form" element={<Form />} /> */}
         <Route
-          path="/core"
+          path="/"
           element={
             <Builder
               groupList={[
@@ -54,7 +54,7 @@ export function App() {
                   type: FIELD_TYPE.TEXT,
                   props: {
                     id: 'type-2',
-                    formId: '20',
+                    formId: '21',
                   },
                 },
               ]}

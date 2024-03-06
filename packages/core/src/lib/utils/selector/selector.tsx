@@ -5,7 +5,6 @@ import {
   FieldProps,
 } from 'packages/components/form/src/types/public.types';
 
-
 export interface SelectorProps {
   groupType: GROUP_TYPE;
   fieldType: FIELD_TYPE;
@@ -22,6 +21,7 @@ const Selector: React.FC<SelectorProps> = ({
   switch (groupType) {
     case 'form':
       SelectedComponent = lazy(() => import('@mui-builder/form'));
+
       return (
         <Suspense fallback={<div>Loading...</div>}>
           <SelectedComponent fieldType={fieldType} fieldProps={fieldProps} />
