@@ -10,8 +10,10 @@ export type UseFormsState = {
 
 const useForms = create<UseFormsState>((set) => ({
   forms: {},
+
+  //TODO: it's better to use immer
   setForm: (id, form) =>
-    set((state) => ({ forms: { ...state.forms, [id]: form } })),
+    set((state) => ({ ...state, forms: { ...state.forms, [id]: form } })),
 }));
 
 export default useForms;

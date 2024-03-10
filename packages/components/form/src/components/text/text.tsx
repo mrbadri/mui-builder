@@ -8,20 +8,12 @@ const Text: FC<TextProps> = ({ formId, ...textFieldProps }) => {
   const { forms } = useForms();
   const formMethod = forms?.[formId];
   const { field } = useController({
-    name: formId,
+    name: textFieldProps.id,
     control: formMethod.control,
     rules: { required: true },
   });
-
-  return (
-    <TextField
-      onChange={field.onChange}
-      onBlur={field.onBlur}
-      value={field.value ?? ''}
-      name={field.name}
-      inputRef={field.ref}
-    />
-  );
+  
+  return <TextField {...field} {...textFieldProps} value={field.value ?? ''} />;
 };
 
 export default Text;

@@ -54,7 +54,18 @@ export function App() {
                   type: FIELD_TYPE.TEXT,
                   props: {
                     id: 'type-2',
+                    formId: '20',
+                    helperText: 'mmd',
+                  },
+                },
+                {
+                  id: '3',
+                  groupType: GROUP_TYPE.FORM,
+                  type: FIELD_TYPE.TEXT,
+                  props: {
+                    id: 'type-2',
                     formId: '21',
+                    helperText: 'mmd',
                   },
                 },
               ]}
