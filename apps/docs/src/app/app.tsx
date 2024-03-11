@@ -1,21 +1,12 @@
-// eslint-disable-next-line @typescript-eslint/no-unused-vars
-import styles from './app.module.scss';
-
-import NxWelcome from './nx-welcome';
-
 import { Route, Routes, Link } from 'react-router-dom';
 
 // import { Form } from '@mui-builder/form';
 import { Builder, GROUP_TYPE } from '@mui-builder/core';
+import { FIELD_TYPE } from 'packages/components/form/src/types/public.types';
 
 export function App() {
   return (
     <div>
-      <NxWelcome title="docs" />
-
-      {/* START: routes */}
-      {/* These routes and navigation have been generated for you */}
-      {/* Feel free to move and update them to fit your needs */}
       <br />
       <hr />
       <br />
@@ -30,14 +21,11 @@ export function App() {
           <li>
             <Link to="/core">Core</Link>
           </li>
-          <li>
-            <Link to="/page-2">Page 2</Link>
-          </li>
         </ul>
       </div>
       <Routes>
         <Route
-          path="/"
+          path="/core"
           element={
             <div>
               This is the generated root route.{' '}
@@ -47,12 +35,39 @@ export function App() {
         />
         {/* <Route path="/form" element={<Form />} /> */}
         <Route
-          path="/core"
+          path="/"
           element={
             <Builder
               groupList={[
-                { groupType: GROUP_TYPE.FORM, id: '1' },
-                { groupType: GROUP_TYPE.FORM, id: '2' },
+                {
+                  id: '1',
+                  groupType: GROUP_TYPE.FORM,
+                  type: FIELD_TYPE.TEXT,
+                  props: {
+                    id: 'type-1',
+                    formId: '20',
+                  },
+                },
+                {
+                  id: '2',
+                  groupType: GROUP_TYPE.FORM,
+                  type: FIELD_TYPE.TEXT,
+                  props: {
+                    id: 'type-2',
+                    formId: '20',
+                    helperText: 'mmd',
+                  },
+                },
+                {
+                  id: '3',
+                  groupType: GROUP_TYPE.FORM,
+                  type: FIELD_TYPE.TEXT,
+                  props: {
+                    id: 'type-2',
+                    formId: '21',
+                    helperText: 'mmd',
+                  },
+                },
               ]}
             />
           }
