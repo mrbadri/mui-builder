@@ -1,15 +1,58 @@
-import { Route, Routes, Link } from 'react-router-dom';
-
-// import { Form } from '@mui-builder/form';
-import { Builder, GROUP_TYPE } from '@mui-builder/core';
-import { FIELD_TYPE } from 'packages/components/form/src/types/public.types';
+import { Link, Route, Routes } from 'react-router-dom';
+import { Builder, IFormTextBuilderProps } from '@mui-builder/core';
 
 export function App() {
+  const groupList: IFormTextBuilderProps[] = [
+    {
+      id: '1',
+      groupType: 'form',
+      type: 'field-text',
+      props: {
+        id: 'type-1',
+        formId: '20',
+      },
+    },
+    {
+      id: '2',
+      groupType: 'form',
+      type: 'field-text',
+      props: {
+        id: 'type-2',
+        formId: '20',
+        helperText: 'mmd',
+      },
+    },
+    {
+      id: '3',
+      groupType: 'form',
+      type: 'field-text',
+      props: {
+        id: 'type-2',
+        formId: '21',
+        helperText: 'mmd',
+      },
+    },
+    {
+      id: '4',
+      groupType: 'form',
+      type: 'action-submit',
+      props: {
+        formId: '21',
+        children: 'submit 21',
+      },
+    },
+    {
+      id: '4',
+      groupType: 'form',
+      type: 'action-submit',
+      props: {
+        formId: '20',
+        children: 'submit 20',
+      },
+    },
+  ];
   return (
     <div>
-      <br />
-      <hr />
-      <br />
       <div role="navigation">
         <ul>
           <li>
@@ -33,55 +76,8 @@ export function App() {
             </div>
           }
         />
-        {/* <Route path="/form" element={<Form />} /> */}
-        <Route
-          path="/"
-          element={
-            <Builder
-              groupList={[
-                {
-                  id: '1',
-                  groupType: GROUP_TYPE.FORM,
-                  type: FIELD_TYPE.TEXT,
-                  props: {
-                    id: 'type-1',
-                    formId: '20',
-                  },
-                },
-                {
-                  id: '2',
-                  groupType: GROUP_TYPE.FORM,
-                  type: FIELD_TYPE.TEXT,
-                  props: {
-                    id: 'type-2',
-                    formId: '20',
-                    helperText: 'mmd',
-                  },
-                },
-                {
-                  id: '3',
-                  groupType: GROUP_TYPE.FORM,
-                  type: FIELD_TYPE.TEXT,
-                  props: {
-                    id: 'type-2',
-                    formId: '21',
-                    helperText: 'mmd',
-                  },
-                },
-              ]}
-            />
-          }
-        />
-        <Route
-          path="/page-2"
-          element={
-            <div>
-              <Link to="/">Click here to go back to root page.</Link>
-            </div>
-          }
-        />
+        <Route path="/" element={<Builder groupList={groupList} />} />
       </Routes>
-      {/* END: routes */}
     </div>
   );
 }

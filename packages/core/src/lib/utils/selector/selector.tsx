@@ -1,21 +1,17 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 import { GROUP_TYPE } from '../../components/builder/builder';
 import {
-  FIELD_TYPE,
+  FormTypes,
   FieldProps,
 } from 'packages/components/form/src/types/public.types';
 
 export interface SelectorProps {
   groupType: GROUP_TYPE;
-  fieldType: FIELD_TYPE;
+  fieldType: FormTypes;
   fieldProps: FieldProps;
 }
 
-const Selector: FC<SelectorProps> = ({
-  groupType,
-  fieldType,
-  fieldProps,
-}) => {
+const Selector: FC<SelectorProps> = ({ groupType, fieldType, fieldProps }) => {
   let SelectedComponent;
 
   switch (groupType) {

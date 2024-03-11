@@ -1,6 +1,6 @@
-import { FIELD_TYPE, FieldProps } from "../../types/public.types";
+import { FormTypes, FieldProps } from '../../types/public.types';
 
 export interface SelectorProps {
-    fieldType: FIELD_TYPE;
-    fieldProps: FieldProps;
-  }
+  fieldType: FormTypes;
+  fieldProps: FieldProps;
+}

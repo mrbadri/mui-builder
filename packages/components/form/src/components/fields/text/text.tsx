@@ -2,7 +2,7 @@ import { TextField } from '@mui/material';
 import { FC } from 'react';
 import { useController } from 'react-hook-form';
 import { TextProps } from './text.types';
-import useForms from '../../hooks/useForms/useForms';
+import useForms from '../../../hooks/useForms/useForms';
 
 const Text: FC<TextProps> = ({ formId, ...textFieldProps }) => {
   const { forms } = useForms();
@@ -12,7 +12,7 @@ const Text: FC<TextProps> = ({ formId, ...textFieldProps }) => {
     control: formMethod.control,
     rules: { required: true },
   });
-  
+
   return <TextField {...field} {...textFieldProps} value={field.value ?? ''} />;
 };
 
