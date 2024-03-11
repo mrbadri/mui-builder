@@ -1,29 +1,41 @@
-import React, { Suspense, lazy } from 'react';
-
-// Assuming these are the default exports from the respective modules.
+import { FC, Fragment, Suspense, lazy } from 'react';
+import { GROUP_TYPE } from '../../components/builder/builder';
+import {
+  FIELD_TYPE,
+  FieldProps,
+} from 'packages/components/form/src/types/public.types';
 
 export interface SelectorProps {
-  groupType: string;
+  groupType: GROUP_TYPE;
+  fieldType: FIELD_TYPE;
+  fieldProps: FieldProps;
 }
 
-const Selector: React.FC<SelectorProps> = ({ groupType }) => {
+const Selector: FC<SelectorProps> = ({
+  groupType,
+  fieldType,
+  fieldProps,
+}) => {
   let SelectedComponent;
 
   switch (groupType) {
     case 'form':
       SelectedComponent = lazy(() => import('@mui-builder/form'));
-      break;
+
+      return (
+        <Suspense fallback={<div>Loading...</div>}>
+          <SelectedComponent fieldType={fieldType} fieldProps={fieldProps} />
+        </Suspense>
+      );
 
     default:
-      SelectedComponent = React.Fragment;
-      break;
+      SelectedComponent = Fragment;
+      return (
+        <Suspense fallback={<div>Loading...</div>}>
+          <SelectedComponent />
+        </Suspense>
+      );
   }
-
-  return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <SelectedComponent />
-    </Suspense>
-  );
 };
 
 export default Selector;
