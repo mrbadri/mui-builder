@@ -1,9 +1,9 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
-import { GROUP_TYPE } from '../../components/builder/builder';
 import {
   FormTypes,
   FieldProps,
 } from 'packages/components/form/src/types/public.types';
+import { GROUP_TYPE } from '../../components/builder/builder.types';
 
 export interface SelectorProps {
   groupType: GROUP_TYPE;

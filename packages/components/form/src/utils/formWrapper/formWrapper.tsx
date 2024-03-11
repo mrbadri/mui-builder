@@ -11,7 +11,7 @@ const FormWrapper: FC<{ children: ReactNode; formId: string }> = ({
 
   useLayoutEffect(() => {
     setForm(formId, formMethods);
-  }, []);
+  }, [formId, formMethods, setForm]);
 
   if (forms?.[formId]) {
     return children;

@@ -1,16 +1,9 @@
-import { Button } from '@mui/material';
-import { FC } from 'react';
-import { ActionSubmitFieldProps } from './submit.types';
-import useForms, { Form } from '../../../hooks/useForms/useForms';
-import { FieldValues } from 'react-hook-form';
 import { convertFunction } from '@mui-builder/utils';
-
-export type DynamicAction = (
-  formMethods: Form,
-  forms: Record<string, Form>,
-  formId: string,
-  Value: FieldValues
-) => void;
+import { Button } from '@mui/material';
+import { FC, useCallback } from 'react';
+import { FieldValues } from 'react-hook-form';
+import useForms from '../../../hooks/useForms/useForms';
+import { ActionSubmitFieldProps, DynamicAction } from './submit.types';
 
 const ActionSubmit: FC<ActionSubmitFieldProps> = ({
   formId,
@@ -20,15 +13,22 @@ const ActionSubmit: FC<ActionSubmitFieldProps> = ({
 }) => {
   const forms = useForms((state) => state.forms);
   const formMethods = forms[formId];
-  const dynamicAction = convertFunction(
-    onAction,
-    'formMethods',
-    'forms',
-    'formId',
-    'values'
+
+  const dynamicActionFn = useCallback<DynamicAction>(
+    (formMethods, forms, formId, values) => {
+      convertFunction<DynamicAction>(
+        onAction,
+        'formMethods',
+        'forms',
+        'formId',
+        'values'
+      )(formMethods, forms, formId, values);
+    },
+    [formMethods, forms, formId, onAction]
   );
+
   const onSubmit = (values: FieldValues) => {
-    dynamicAction(formMethods, forms, formId, values);
+    dynamicActionFn(formMethods, forms, formId, values);
   };
 
   return (
