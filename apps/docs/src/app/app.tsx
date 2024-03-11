@@ -39,6 +39,7 @@ export function App() {
       props: {
         formId: '21',
         children: 'submit 21',
+        onAction: 'console.log(values)',
       },
     },
     {
@@ -48,6 +49,7 @@ export function App() {
       props: {
         formId: '20',
         children: 'submit 20',
+        onAction: 'console.log(values);',
       },
     },
   ];
@@ -57,6 +59,9 @@ export function App() {
         <ul>
           <li>
             <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/utils">Utils</Link>
           </li>
           <li>
             <Link to="/form">Form</Link>
