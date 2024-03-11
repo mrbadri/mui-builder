@@ -1,8 +1,8 @@
 import { Link, Route, Routes } from 'react-router-dom';
-import { Builder, IFormTextBuilderProps } from '@mui-builder/core';
+import { Builder, FormBuilderProps } from '@mui-builder/core';
 
 export function App() {
-  const groupList: IFormTextBuilderProps[] = [
+  const groupList: FormBuilderProps[] = [
     {
       id: '1',
       groupType: 'form',
@@ -42,7 +42,7 @@ export function App() {
       },
     },
     {
-      id: '4',
+      id: '5',
       groupType: 'form',
       type: 'action-submit',
       props: {

@@ -7,19 +7,15 @@ import {
 
 export type GROUP_TYPE = 'form';
 
-export enum SECTION_TYPE {
-  CARD = 'card',
-}
-
-export interface IFormTextBuilderProps {
+export type FormBuilderProps = {
   id: string;
   groupType: GROUP_TYPE;
   type: FormTypes;
   props: FieldProps;
 }
 
-export interface BuilderProps {
-  groupList: IFormTextBuilderProps[];
+export type BuilderProps = {
+  groupList: FormBuilderProps[];
 }
 
 export const Builder: React.FC<BuilderProps> = ({ groupList }) => {

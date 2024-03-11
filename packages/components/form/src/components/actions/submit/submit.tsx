@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { ActionSubmitFieldProps } from './submit.types';
 import useForms from '../../../hooks/useForms/useForms';
 import { FieldValues } from 'react-hook-form';
+import convertFunction from '../../../../../../utils/convertFunction/convertFunction';
 
 const ActionSubmit: FC<ActionSubmitFieldProps> = ({
   formId,
@@ -13,6 +14,7 @@ const ActionSubmit: FC<ActionSubmitFieldProps> = ({
   const { handleSubmit } = forms[formId];
   const onSubmit = (values: FieldValues) => {
     console.log(values);
+    // convertFunction(submitFieldProps.onAction, );
   };
 
   return (
