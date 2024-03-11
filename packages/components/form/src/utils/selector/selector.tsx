@@ -1,17 +1,31 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
-import { TextProps } from '../../components/text/text.types';
 import { SelectorProps } from './selector.types';
+import { TextProps } from '../../components/fields/text/text.types';
+import { ActionSubmitFieldProps } from '../../components/actions/submit/submit.types';
 
 const Selector: FC<SelectorProps> = ({ fieldType, fieldProps }) => {
   let SelectedComponent;
 
   switch (fieldType) {
-    case 'text':
-      SelectedComponent = lazy(() => import('../../components/text/text'));
+    case 'field-text':
+      SelectedComponent = lazy(
+        () => import('../../components/fields/text/text')
+      );
 
       return (
         <Suspense fallback={<div>Loading...</div>}>
           <SelectedComponent {...(fieldProps as TextProps)} />
+        </Suspense>
+      );
+
+    case 'action-submit':
+      SelectedComponent = lazy(
+        () => import('../../components/actions/submit/submit')
+      );
+
+      return (
+        <Suspense fallback={<div>Loading...</div>}>
+          <SelectedComponent {...(fieldProps as ActionSubmitFieldProps)} />
         </Suspense>
       );
 
