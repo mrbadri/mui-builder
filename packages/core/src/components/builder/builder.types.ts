@@ -1,4 +1,4 @@
-import { FieldProps, FormTypes } from "packages/components/form/src/types/public.types";
+import { FieldProps, FormTypes } from '@mui-builder/form';
 
 export type GROUP_TYPE = 'form';
 

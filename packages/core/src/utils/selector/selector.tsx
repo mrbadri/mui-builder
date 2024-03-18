@@ -1,9 +1,7 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
-import {
-  FormTypes,
-  FieldProps,
-} from 'packages/components/form/src/types/public.types';
+
 import { GROUP_TYPE } from '../../components/builder/builder.types';
+import { FieldProps, FormTypes } from '@mui-builder/form';
 
 export interface SelectorProps {
   groupType: GROUP_TYPE;
