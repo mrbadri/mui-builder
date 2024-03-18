@@ -1,6 +1,6 @@
 {
   "name": "@mui-builder/form",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "dependencies": {
     "@mui-builder/utils": "*"
   },
