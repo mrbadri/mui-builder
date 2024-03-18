@@ -4,53 +4,58 @@ import { FormBuilderProps } from 'packages/core/src/components/builder/builder.t
 
 export function App() {
   const groupList: FormBuilderProps[] = [
+    // Fields
     {
-      id: '1',
+      id: 'form-field-1',
       groupType: 'form',
       type: 'field-text',
       props: {
-        id: 'type-1',
+        id: 'Field-One',
         formId: '20',
+        label: 'Field One (Form Id: 20)',
       },
     },
     {
-      id: '2',
+      id: 'form-field-2',
       groupType: 'form',
       type: 'field-text',
       props: {
-        id: 'type-2',
+        id: 'Field-Two',
         formId: '20',
-        helperText: 'mmd',
+        label: 'Field Two (Form Id: 20)',
       },
     },
     {
-      id: '3',
+      id: 'form-field-3',
       groupType: 'form',
       type: 'field-text',
       props: {
-        id: 'type-2',
+        id: 'Field-Three',
         formId: '21',
-        helperText: 'mmd',
+        label: 'Field Three (Form Id: 21)',
+        helperText: 'Helper Text',
       },
     },
+
+    // Actions
     {
-      id: '4',
-      groupType: 'form',
-      type: 'action-submit',
-      props: {
-        formId: '21',
-        children: 'submit 21',
-        onAction: 'console.log(values)',
-      },
-    },
-    {
-      id: '5',
+      id: 'form-action-1',
       groupType: 'form',
       type: 'action-submit',
       props: {
         formId: '20',
-        children: 'submit 20',
-        onAction: 'console.log(values);',
+        children: 'Submit (20)',
+        onAction: 'console.log("Form 20: " , values);',
+      },
+    },
+    {
+      id: 'form-action-2',
+      groupType: 'form',
+      type: 'action-submit',
+      props: {
+        formId: '21',
+        children: 'Submit (21)',
+        onAction: 'console.log("Form 21: " , values)',
       },
     },
   ];
