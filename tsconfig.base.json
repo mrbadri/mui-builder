@@ -16,7 +16,8 @@
     "baseUrl": ".",
     "paths": {
       "@mui-builder/core": ["packages/core/src/index.ts"],
-      "@mui-builder/form": ["packages/components/form/src/index.ts"]
+      "@mui-builder/form": ["packages/components/form/src/index.ts"],
+      "@mui-builder/utils": ["packages/utils/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

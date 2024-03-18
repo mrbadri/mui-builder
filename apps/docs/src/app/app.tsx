@@ -1,8 +1,9 @@
 import { Link, Route, Routes } from 'react-router-dom';
-import { Builder, IFormTextBuilderProps } from '@mui-builder/core';
+import { Builder } from '@mui-builder/core';
+import { FormBuilderProps } from 'packages/core/src/components/builder/builder.types';
 
 export function App() {
-  const groupList: IFormTextBuilderProps[] = [
+  const groupList: FormBuilderProps[] = [
     {
       id: '1',
       groupType: 'form',
@@ -39,15 +40,17 @@ export function App() {
       props: {
         formId: '21',
         children: 'submit 21',
+        onAction: 'console.log(values)',
       },
     },
     {
-      id: '4',
+      id: '5',
       groupType: 'form',
       type: 'action-submit',
       props: {
         formId: '20',
         children: 'submit 20',
+        onAction: 'console.log(values);',
       },
     },
   ];
@@ -57,6 +60,9 @@ export function App() {
         <ul>
           <li>
             <Link to="/">Home</Link>
+          </li>
+          <li>
+            <Link to="/utils">Utils</Link>
           </li>
           <li>
             <Link to="/form">Form</Link>

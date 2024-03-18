@@ -1,22 +1,38 @@
+import { convertFunction } from '@mui-builder/utils';
 import { Button } from '@mui/material';
-import { FC } from 'react';
-import { ActionSubmitFieldProps } from './submit.types';
-import useForms from '../../../hooks/useForms/useForms';
+import { FC, useCallback } from 'react';
 import { FieldValues } from 'react-hook-form';
+import useForms from '../../../hooks/useForms/useForms';
+import { ActionSubmitFieldProps, DynamicAction } from './submit.types';
 
 const ActionSubmit: FC<ActionSubmitFieldProps> = ({
   formId,
   children,
+  onAction,
   ...submitFieldProps
 }) => {
   const forms = useForms((state) => state.forms);
-  const { handleSubmit } = forms[formId];
+  const formMethods = forms[formId];
+
+  const dynamicActionFn = useCallback<DynamicAction>(
+    (formMethods, forms, formId, values) => {
+      convertFunction<DynamicAction>(
+        onAction,
+        'formMethods',
+        'forms',
+        'formId',
+        'values'
+      )(formMethods, forms, formId, values);
+    },
+    [formMethods, forms, formId, onAction]
+  );
+
   const onSubmit = (values: FieldValues) => {
-    console.log(values);
+    dynamicActionFn(formMethods, forms, formId, values);
   };
 
   return (
-    <Button {...submitFieldProps} onClick={handleSubmit(onSubmit)}>
+    <Button {...submitFieldProps} onClick={formMethods.handleSubmit(onSubmit)}>
       {children}
     </Button>
   );
