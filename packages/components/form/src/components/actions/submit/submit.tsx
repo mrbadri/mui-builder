@@ -24,7 +24,7 @@ const ActionSubmit: FC<ActionSubmitFieldProps> = ({
         'values'
       )(formMethods, forms, formId, values);
     },
-    [formMethods, forms, formId, onAction]
+    [onAction]
   );
 
   const onSubmit = (values: FieldValues) => {
