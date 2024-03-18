@@ -11,6 +11,7 @@ const convertFunction = <T = unknown>(
 
   if (typeof fn === 'function') return fn as T;
 
+  // eslint-disable-next-line no-new-func
   return new Function(...props, fn) as T;
 };
 
