@@ -1,20 +1,19 @@
-import Selector from '../../utils/selector/selector';
-import { BuilderProps } from './builder.types';
 import { FC } from 'react';
-import useForms from '../../hooks/useForms/useForms';
+import useBuilder from './useBuilder';
+import { BuilderProps } from './builder.types';
+import Selector from '../../utils/selector/selector';
 import FormWrapper from '../../utils/formWrapper/formWrapper';
 
-const Builder: FC<BuilderProps> = ({ fieldType, fieldProps }) => {
-  const forms = useForms((state) => state.forms);
-  const hasForm = fieldProps.formId in forms;
+const Builder: FC<BuilderProps> = (props) => {
+  const { hasForm, getSelectorProps, getFormWrapperProps } = useBuilder(props);
 
   if (!hasForm)
     return (
-      <FormWrapper formId={fieldProps.formId}>
-        <Selector fieldType={fieldType} fieldProps={fieldProps} />
+      <FormWrapper {...getFormWrapperProps()}>
+        <Selector {...getSelectorProps()} />
       </FormWrapper>
     );
-  return <Selector fieldType={fieldType} fieldProps={fieldProps} />;
+  return <Selector {...getSelectorProps()} />;
 };
 
 export default Builder;
