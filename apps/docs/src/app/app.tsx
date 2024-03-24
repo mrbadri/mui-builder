@@ -13,6 +13,15 @@ export function App() {
         id: 'Field-One',
         formId: '20',
         label: 'Field One (Form Id: 20)',
+        script: {
+          fn: `
+          if(formMethods.getValues()?.FieldTwo === "erfan"){
+            return {
+                label: "blue"
+            }
+          }`,
+          dependesies: ['FieldTwo'],
+        },
       },
     },
     {
@@ -20,7 +29,7 @@ export function App() {
       groupType: 'form',
       type: 'field-text',
       props: {
-        id: 'Field-Two',
+        id: 'FieldTwo',
         formId: '20',
         label: 'Field Two (Form Id: 20)',
       },
