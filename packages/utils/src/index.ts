@@ -1,5 +1,4 @@
-import convertFunction from './convertFunctions/convertFunction';
+import convertFn from './convertFn/convertFn';
+import isStrFn from './isStrFn/isStrFn';
 
-export {
-  convertFunction,
-};
+export { convertFn, isStrFn };
