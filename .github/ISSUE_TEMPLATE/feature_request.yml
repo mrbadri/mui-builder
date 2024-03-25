@@ -1,8 +1,15 @@
 name: Feature request
+<<<<<<< HEAD
 title: '[Feat] YOUR_FEATURE_TITLE_HERE_REPLACE_ME'
 labels: [feature request]
 description: |
   💡 Suggest an idea for the `mui-builder` project
+=======
+title: '[Feature Request] YOUR_FEATURE_TITLE_HERE_REPLACE_ME'
+labels: [feature request]
+description: |
+  💡 Suggest an idea for the `NextUI` project
+>>>>>>> 64f89a26b25eae6085d73f17170e125dce20c79e
   Examples
     - propose a new component
     - improve an exiting component
