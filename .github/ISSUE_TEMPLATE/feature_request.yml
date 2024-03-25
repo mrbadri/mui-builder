@@ -1,14 +1,14 @@
 name: Feature request
-title: '[Feat] YOUR_FEATURE_TITLE_HERE_REPLACE_ME'
+title: '[FEAT] YOUR_FEATURE_TITLE_HERE_REPLACE_ME'
 labels: [feat]
 description: |
   💡 Suggest an idea for the `mui-builder` project
-labels: [feature request]
+labels: [feat]
 description: |
   💡 Suggest an idea for the `Mui Builder` project
 
   Examples
-    - propose a new component
+    - propose a new component'
     - improve an exiting component
     - ....etc
 body:
