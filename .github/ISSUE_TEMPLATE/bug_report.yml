@@ -1,5 +1,5 @@
 name: 'Bug report'
-title: "[BUG] - YOUR_ISSUE_TITLE_HERE_REPLACE_ME"
+title: '[BUG] - YOUR_ISSUE_TITLE_HERE_REPLACE_ME'
 description: Create a report to help us improve
 labels: [bug]
 body:
@@ -7,28 +7,15 @@ body:
     attributes:
       value: |
         Thank you for reporting an issue :pray:.
-
-        This issue tracker is for reporting bugs found in [NextUI github repository](https://github.com/nextui-org/nextui/)
-        If you have a question about how to achieve something and are struggling, please post a question
-        inside of either of the following places:
-          - NextUI's [Discussion's tab](https://github.com/nextui-org/nextui/discussions)
-          - NextUI's [Discord channel](https://discord.gg/9b6yyZKmH4)
-
-
-        Before submitting a new bug/issue, please check the links below to see if there is a solution or question posted there already:
-         - NextUI's [Issue's tab](https://github.com/nextui-org/nextui/pulls?q=is%3Apr+is%3Aopen+sort%3Aupdated-desc)
-         - NextUI's [closed issues tab](https://github.com/nextui-org/nextui/issues?q=is%3Aissue+sort%3Aupdated-desc+is%3Aclosed)
-         - NextUI's [Discussions tab](https://github.com/nextui-org/nextui/discussions)
-
         The more information you fill in, the better the community can help you.
   - type: input
     id: version
     attributes:
-      label: NextUI Version
+      label: mui-builder Version
       description: |
-        Please provide the version of NextUI you are using.
+        Please provide the version of mui-builder you are using.
         You can find the version number in the package.json file.
-      placeholder: ex. 2.0.10
+      placeholder: ex. 0.0.6
     validations:
       required: true
   - type: textarea
@@ -44,12 +31,9 @@ body:
       label: Your Example Website or App
       description: |
         Which website or app were you using when the bug happened?
-        Note:
-        - Your bug will may get fixed much faster if we can run your code and it doesn't have dependencies other than the `@nextui-org/react` npm package.
-        - To create a shareable code example you can use Stackblitz (https://stackblitz.com/). Please no localhost URLs.
-        - Please read these tips for providing a minimal example: https://stackoverflow.com/help/mcve.
+
       placeholder: |
-        e.g. https://stackblitz.com/edit/...... OR Github Repo
+        e.g. c/edit/...... OR Github Repo
     validations:
       required: false
   - type: textarea
@@ -62,8 +46,7 @@ body:
         2. Click on '....'
         3. Scroll down to '....'
         4. See error
-    validations:
-      required: true
+
   - type: textarea
     id: expected
     attributes:
@@ -72,7 +55,7 @@ body:
       placeholder: |
         As a user, I expected ___ behavior but i am seeing ___
     validations:
-      required: true
+
   - type: textarea
     id: screenshots_or_videos
     attributes:
@@ -91,18 +74,16 @@ body:
       placeholder: |
         - OS: [e.g. macOS, Windows, Linux]
     validations:
-      required: true
   - type: dropdown
     id: browser_type
     attributes:
       label: Browser
       description: Select the browsers where the issue can be reproduced (that you know of).
       options:
-        - "Chrome"
-        - "Firefox"
-        - "Safari"
-        - "Edge"
-        - "Opera"
-        - "Other (add additonal context)"
+        - 'Chrome'
+        - 'Firefox'
+        - 'Safari'
+        - 'Edge'
+        - 'Opera'
+        - 'Other (add additonal context)'
     validations:
-      required: true
