@@ -2,7 +2,7 @@ import { FieldValues } from 'react-hook-form';
 import useForms from '../../../hooks/useForms/useForms';
 import { SubmitFieldProps, DynamicAction } from './submit.types';
 import { useCallback } from 'react';
-import { convertFunction } from '@mui-builder/utils';
+import { convertFn } from '@mui-builder/utils';
 
 const useSubmit = (props: SubmitFieldProps) => {
   const { formId, children, onAction, ...submitFieldProps } = props;
@@ -13,7 +13,7 @@ const useSubmit = (props: SubmitFieldProps) => {
   // Funtionality
   const dynamicActionFn = useCallback<DynamicAction>(
     (formMethods, forms, formId, values) => {
-      convertFunction<DynamicAction>(
+      convertFn<DynamicAction>(
         onAction,
         'formMethods',
         'forms',
