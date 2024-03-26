@@ -1,5 +1,5 @@
 import { useCallback } from 'react';
-import { FormId, Script, ScriptFn } from '../../types/public.types';
+import { FormId, Forms, Script, ScriptFn } from '../../types/public.types';
 import { convertFn } from '@mui-builder/utils';
 import { useWatch } from 'react-hook-form';
 import { Form } from '../useForms/useForms';
@@ -7,7 +7,7 @@ import { Form } from '../useForms/useForms';
 export type UseScriptProps = {
   script?: Script;
   formMethod: Form;
-  forms: Record<string, Form>;
+  forms: Forms;
   formId: FormId;
 };
 

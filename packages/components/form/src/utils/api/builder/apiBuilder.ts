@@ -6,39 +6,63 @@ import {
   paramsBuilderFn,
   urlBuilderFn,
 } from './apiBuilder.types';
+import { AxiosHeaders } from 'axios';
 
 const apiBuilder = async ({
   apiInstance,
   apiConfigs,
   formMethods,
+  forms,
+  formId,
 }: ApiBuilderProps) => {
   const { url, data, params, headers, ...configs } = apiConfigs;
 
   const urlBuilder = () => {
     if (isStrFn(url))
-      return convertFn<urlBuilderFn>(url, 'formMethods')(formMethods);
+      return convertFn<urlBuilderFn>(
+        url,
+        'formMethods',
+        'fomrs',
+        'formId'
+      )(formMethods, forms, formId);
+
     return url;
   };
 
   const dataBuilder = () => {
     if (isStrFn(data))
-      return convertFn<dataBuilderFn>(data, 'formMethods')(formMethods);
+      return convertFn<dataBuilderFn>(
+        data,
+        'formMethods',
+        'fomrs',
+        'formId'
+      )(formMethods, forms, formId);
+
     return data;
   };
 
   const paramsBuilder = () => {
     if (isStrFn(params))
-      return convertFn<paramsBuilderFn>(params, 'formMethods')(formMethods);
+      return convertFn<paramsBuilderFn>(
+        params,
+        'formMethods',
+        'fomrs',
+        'formId'
+      )(formMethods, forms, formId);
+
     return params;
   };
 
   const headersBuilder = () => {
     if (isStrFn(headers))
       return convertFn<headersBuilderFn>(
-        JSON.stringify(headers),
-        'formMethods'
-      )(formMethods);
-    return headers;
+        headers as string,
+        'formMethods',
+        'fomrs',
+        'formId'
+      )(formMethods, forms, formId);
+
+    return headers as AxiosHeaders | undefined;
   };
 
   return apiInstance({

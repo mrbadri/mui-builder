@@ -4,6 +4,8 @@ import { Form } from '../hooks/useForms/useForms';
 
 export type FormId = string;
 
+export type Forms = Record<string, Form>;
+
 export type Id = string;
 
 export type FormTypes = 'field-text' | 'action-submit';

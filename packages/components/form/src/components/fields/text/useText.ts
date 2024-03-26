@@ -6,6 +6,7 @@ import { TextProps } from './text.types';
 const UseText = (props: TextProps) => {
   const { formId, script, ...textFieldProps } = props;
 
+  const {} = useController()
   const { forms } = useForms();
   const formMethod = forms?.[formId];
 
