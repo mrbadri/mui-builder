@@ -4,9 +4,13 @@ import UseScript from '../../../hooks/useScript/useScript';
 import { TextProps } from './text.types';
 
 const UseText = (props: TextProps) => {
-  const { formId, script, ...textFieldProps } = props;
+  const { formId, script, setProps, propsController, ...textFieldProps } =
+    props;
 
-  const {} = useController()
+  const controlledProps = propsController?.[props.id] ?? {};
+
+  console.log('controlledProps:', controlledProps);
+
   const { forms } = useForms();
   const formMethod = forms?.[formId];
 
@@ -15,6 +19,7 @@ const UseText = (props: TextProps) => {
     formMethod,
     forms,
     formId,
+    setProps,
   });
 
   const { field } = useController({
@@ -27,6 +32,7 @@ const UseText = (props: TextProps) => {
     ...textFieldProps,
     value: field.value ?? '',
     ...scriptResult,
+    ...controlledProps,
   });
 
   return { getFieldProps };

@@ -1,18 +1,22 @@
 import { create } from 'zustand';
 
+export type SetProps = (id: string, props: any) => void;
+
 export type UseControllerState = {
-  controller: Record<string, any>;
-  setController: (id: string, props: any) => void;
+  propsController: Record<string, any>;
+  setProps: (id: string, props: any) => void;
 };
 
 const usePropsController = create<UseControllerState>((set) => ({
-  controller: {},
+  propsController: {},
 
-  setController: (id, props) =>
-    set((state) => ({
+  setProps: (id, props) => {
+    console.log('props:', props);
+    return set((state) => ({
       ...state,
-      controller: { ...state.controller, [id]: props },
-    })),
+      propsController: { ...state.propsController, [id]: props },
+    }));
+  },
 }));
 
 export default usePropsController;
