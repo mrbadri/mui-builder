@@ -3,7 +3,6 @@
   "version": "0.0.11",
   "dependencies": {
     "@mui-builder/utils": "*",
-    "@tanstack/react-query": "^5.28.8",
     "axios": "^1.6.8"
   },
   "peerDependencies": {
