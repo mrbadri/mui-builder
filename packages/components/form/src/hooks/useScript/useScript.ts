@@ -1,34 +1,25 @@
-import { useCallback } from 'react';
-import { FormId, Forms, Script, ScriptFn } from '../../types/public.types';
 import { convertFn } from '@mui-builder/utils';
+import { useCallback } from 'react';
 import { useWatch } from 'react-hook-form';
+import { FormId, Forms, Script, ScriptFn } from '../../types/public.types';
 import { Form } from '../useForms/useForms';
-import { SetProps } from '../usePropsController/usePropsController';
 
 export type UseScriptProps = {
   script?: Script;
   formMethod: Form;
   forms: Forms;
   formId: FormId;
-  setProps: SetProps;
 };
 
-const UseScript = ({
-  script,
-  formMethod,
-  forms,
-  formId,
-  setProps,
-}: UseScriptProps) => {
+const UseScript = ({ script, formMethod, forms, formId }: UseScriptProps) => {
   const scriptFn = useCallback<ScriptFn>(
-    (formMethod, forms, formId, setProps) => {
+    (formMethod, forms, formId) => {
       return convertFn<ScriptFn>(
         script?.fn,
         'formMethods',
         'forms',
-        'formId',
-        'setProps'
-      )(formMethod, forms, formId, setProps);
+        'formId'
+      )(formMethod, forms, formId);
     },
     [script]
   );
@@ -38,7 +29,7 @@ const UseScript = ({
     name: script?.dependesies ?? [],
   });
 
-  return { scriptResult: scriptFn(formMethod, forms, formId, setProps) };
+  return { scriptResult: scriptFn(formMethod, forms, formId) };
 };
 
 export default UseScript;

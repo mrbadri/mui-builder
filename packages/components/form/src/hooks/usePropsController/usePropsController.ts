@@ -11,7 +11,6 @@ const usePropsController = create<UseControllerState>((set) => ({
   propsController: {},
 
   setProps: (id, props) => {
-    console.log('props:', props);
     return set((state) => ({
       ...state,
       propsController: { ...state.propsController, [id]: props },
