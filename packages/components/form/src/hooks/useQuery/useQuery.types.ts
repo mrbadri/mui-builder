@@ -3,7 +3,8 @@ export type QueryFunction<Data> = () => Promise<Data>;
 export interface UseQueryResult<Data> {
   data: Data | null;
   isLoading: boolean;
-  isError: Error | null;
+  isError: boolean;
+  error: Error | null;
   refetch: () => void;
 }
 

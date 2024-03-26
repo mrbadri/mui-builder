@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { UseQueryProps, UseQueryResult } from './useQuery.types';
 
 function useQuery<Data>({
@@ -9,9 +9,10 @@ function useQuery<Data>({
 }: UseQueryProps<Data>): UseQueryResult<Data> {
   const [data, setData] = useState<Data | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
-  const [isError, setIsError] = useState<Error | null>(null);
+  const [isError, setIsError] = useState<boolean>(false);
+  const [error, setError] = useState<Error | null>(null);
 
-  const fetchData = async () => {
+  const fetchData = useCallback(async () => {
     try {
       setIsLoading(true);
       const result = await queryFn();
@@ -19,23 +20,24 @@ function useQuery<Data>({
       setIsLoading(false);
       onSuccess?.(result);
     } catch (error: any) {
-      setIsError(error);
+      setIsError(true);
+      setError(error);
       setIsLoading(false);
       onError?.(error);
     }
-  };
+  }, [onError, onSuccess, queryFn]);
 
   useEffect(() => {
     if (enable) {
       fetchData();
     }
-  }, [enable]);
+  }, [enable, fetchData]);
 
   const refetch = () => {
     fetchData();
   };
 
-  return { data, isLoading, isError, refetch };
+  return { data, isLoading, isError, error, refetch };
 }
 
 export default useQuery;

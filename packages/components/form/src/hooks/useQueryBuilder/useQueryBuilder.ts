@@ -33,7 +33,7 @@ const useQueryBuilder = <T>({
       return convertFn<EnableBuilderFn>(
         enable as string,
         'formMethods',
-        'fomrs',
+        'forms',
         'formId'
       )(formMethods, forms, formId);
 
@@ -44,7 +44,7 @@ const useQueryBuilder = <T>({
       return convertFn<OnErrorBuilderFn>(
         onError,
         'formMethods',
-        'fomrs',
+        'forms',
         'formId'
       )(formMethods, forms, formId);
 
@@ -55,7 +55,7 @@ const useQueryBuilder = <T>({
       return convertFn<OnSuccessBuilderFn<AxiosResponse<T, any>>>(
         onSuccess,
         'formMethods',
-        'fomrs',
+        'forms',
         'formId'
       )(formMethods, forms, formId);
 

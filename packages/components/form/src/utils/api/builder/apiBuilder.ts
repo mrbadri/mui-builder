@@ -22,7 +22,7 @@ const apiBuilder = async <Data>({
       return convertFn<urlBuilderFn>(
         url,
         'formMethods',
-        'fomrs',
+        'forms',
         'formId'
       )(formMethods, forms, formId);
 
@@ -34,7 +34,7 @@ const apiBuilder = async <Data>({
       return convertFn<dataBuilderFn>(
         data,
         'formMethods',
-        'fomrs',
+        'forms',
         'formId'
       )(formMethods, forms, formId);
 
@@ -46,7 +46,7 @@ const apiBuilder = async <Data>({
       return convertFn<paramsBuilderFn>(
         params,
         'formMethods',
-        'fomrs',
+        'forms',
         'formId'
       )(formMethods, forms, formId);
 
@@ -58,7 +58,7 @@ const apiBuilder = async <Data>({
       return convertFn<headersBuilderFn>(
         headers as string,
         'formMethods',
-        'fomrs',
+        'forms',
         'formId'
       )(formMethods, forms, formId);
 
