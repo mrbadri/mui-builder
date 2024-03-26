@@ -8,7 +8,7 @@ import {
 } from './apiBuilder.types';
 import { AxiosHeaders } from 'axios';
 
-const apiBuilder = async ({
+const apiBuilder = async <Data>({
   apiInstance,
   apiConfigs,
   formMethods,
@@ -65,7 +65,7 @@ const apiBuilder = async ({
     return headers as AxiosHeaders | undefined;
   };
 
-  return apiInstance({
+  return apiInstance<Data>({
     ...configs,
     url: urlBuilder(),
     data: dataBuilder(),
