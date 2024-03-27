@@ -1,6 +1,6 @@
 import { FormId, Forms } from "../../types/public.types";
 import { ApiBuilderProps } from "../../utils/api/builder/apiBuilder.types";
-import { Form } from "../useForms/useForms";
+import { Form } from "../useForms/useForms.types";
 
 export type ApiQuery<Data> = {
   enable?: string | boolean;

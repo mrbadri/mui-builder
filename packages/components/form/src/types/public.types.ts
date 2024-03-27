@@ -1,7 +1,7 @@
 import { SubmitFieldProps } from '../components/actions/submit/submit.types';
 import { TextProps } from '../components/fields/text/text.types';
-import { Form } from '../hooks/useForms/useForms';
-import { SetProps } from '../hooks/usePropsController/usePropsController';
+import { Form } from '../hooks/useForms/useForms.types';
+import { SetProps } from '../hooks/usePropsController/usePropsController.types';
 
 export type FormId = string;
 
