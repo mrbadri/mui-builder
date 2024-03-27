@@ -9,7 +9,10 @@ const useBuilder = (props: BuilderProps) => {
   const hasForm = fieldProps.formId in forms;
 
   const getFormWrapperProps = () => ({ formId });
-  const getSelectorProps = () => ({ fieldProps, fieldType });
+  const getSelectorProps = () => ({
+    fieldProps,
+    fieldType,
+  });
 
   return { hasForm, getFormWrapperProps, getSelectorProps };
 };

@@ -2,7 +2,8 @@
   "name": "@mui-builder/form",
   "version": "0.0.11",
   "dependencies": {
-    "@mui-builder/utils": "*"
+    "@mui-builder/utils": "*",
+    "axios": "^1.6.8"
   },
   "peerDependencies": {
     "react": "18.2.0",

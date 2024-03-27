@@ -1,20 +1,14 @@
+import { convertFn } from '@mui-builder/utils';
 import { useCallback } from 'react';
-import { FormId, Script, ScriptFn } from '../../types/public.types';
-import { convertFunction } from '@mui-builder/utils';
 import { useWatch } from 'react-hook-form';
-import { Form } from '../useForms/useForms';
+import { ScriptFn } from '../../types/public.types';
+import { UseScriptProps } from './useScript.types';
 
-export type UseScriptProps = {
-  script?: Script;
-  formMethod: Form;
-  forms: Record<string, Form>;
-  formId: FormId;
-};
 
 const UseScript = ({ script, formMethod, forms, formId }: UseScriptProps) => {
   const scriptFn = useCallback<ScriptFn>(
     (formMethod, forms, formId) => {
-      return convertFunction<ScriptFn>(
+      return convertFn<ScriptFn>(
         script?.fn,
         'formMethods',
         'forms',

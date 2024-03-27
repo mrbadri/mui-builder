@@ -1,8 +1,11 @@
 import { SubmitFieldProps } from '../components/actions/submit/submit.types';
 import { TextProps } from '../components/fields/text/text.types';
-import { Form } from '../hooks/useForms/useForms';
+import { Form } from '../hooks/useForms/useForms.types';
+import { SetProps } from '../hooks/usePropsController/usePropsController.types';
 
 export type FormId = string;
+
+export type Forms = Record<string, Form>;
 
 export type Id = string;
 
@@ -18,5 +21,6 @@ export type Script = {
 export type ScriptFn = (
   formMethods: Form,
   forms: Record<string, Form>,
-  formId: string
+  formId: string,
+  setProps?: SetProps
 ) => any;

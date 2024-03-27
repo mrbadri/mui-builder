@@ -5,4 +5,5 @@ export type TextProps = TextFieldProps & {
   id: Id;
   formId: FormId;
   script?: Script;
+  propsController?: Record<string, any>;
 };
