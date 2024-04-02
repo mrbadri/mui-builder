@@ -8,27 +8,27 @@ const useSubmit = (props: SubmitFieldProps) => {
   const { formId, children, onAction, ...submitFieldProps } = props;
 
   const forms = useForms((state) => state.forms);
-  const formMethods = forms[formId];
+  const formMethod = forms[formId];
 
   // Funtionality
   const dynamicActionFn = useCallback<DynamicAction>(
-    (formMethods, forms, formId, values) => {
+    (formMethod, forms, formId, values) => {
       convertFn<DynamicAction>(
         onAction,
-        'formMethods',
+        'formMethod',
         'forms',
         'formId',
         'values'
-      )(formMethods, forms, formId, values);
+      )(formMethod, forms, formId, values);
     },
     [onAction]
   );
 
   const onSubmit = (values: FieldValues) => {
-    dynamicActionFn(formMethods, forms, formId, values);
+    dynamicActionFn(formMethod, forms, formId, values);
   };
 
-  const onClick = formMethods.handleSubmit(onSubmit);
+  const onClick = formMethod.handleSubmit(onSubmit);
 
   // props
   const getActionProps = () => ({

@@ -4,11 +4,11 @@ import { ActionProps } from '../action/action.types';
 import { Form } from '../../../hooks/useForms/useForms.types';
 
 export type SubmitFieldProps = ActionProps & {
-  formId: FormId
+  formId: FormId;
 };
 
 export type DynamicAction = (
-  formMethods: Form,
+  formMethod: Form,
   forms: Record<string, Form>,
   formId: FormId,
   Value: FieldValues

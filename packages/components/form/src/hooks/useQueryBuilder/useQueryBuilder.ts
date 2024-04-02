@@ -12,18 +12,18 @@ import {
 const useQueryBuilder = <T>({
   formId,
   forms,
-  formMethods,
+  formMethod,
   apiConfigs,
   apiInstance,
   apiQuery,
-}: UseQueryBuilderProps<AxiosResponse<T, any>>) => {
+}: UseQueryBuilderProps<AxiosResponse<T, unknown>>) => {
   const { enable, onError, onSuccess } = apiQuery;
 
   const api = async () =>
     apiBuilder<T>({
       formId,
       forms,
-      formMethods,
+      formMethod,
       apiConfigs,
       apiInstance,
     });
@@ -32,37 +32,37 @@ const useQueryBuilder = <T>({
     if (isStrFn(enable))
       return convertFn<EnableBuilderFn>(
         enable as string,
-        'formMethods',
+        'formMethod',
         'forms',
         'formId'
-      )(formMethods, forms, formId);
+      )(formMethod, forms, formId);
 
     return enable as boolean;
   };
   const onErrorBuilder = () => {
     if (isStrFn(onError))
       return convertFn<OnErrorBuilderFn>(
-        onError,
-        'formMethods',
+        onError as string,
+        'formMethod',
         'forms',
         'formId'
-      )(formMethods, forms, formId);
+      )(formMethod, forms, formId);
 
-    return onError;
+    return onError as (error: Error) => void;
   };
   const onSuccessBuilder = () => {
     if (isStrFn(onSuccess))
       return convertFn<OnSuccessBuilderFn<AxiosResponse<T, any>>>(
-        onSuccess,
-        'formMethods',
+        onSuccess as string,
+        'formMethod',
         'forms',
         'formId'
-      )(formMethods, forms, formId);
+      )(formMethod, forms, formId);
 
-    return onSuccess;
+    return onSuccess as (data: unknown) => void;
   };
 
-  return useQuery<AxiosResponse<T, any>>({
+  return useQuery<AxiosResponse<T, unknown>>({
     queryFn: api,
     enable: enableBuilder(),
     onError: onErrorBuilder(),

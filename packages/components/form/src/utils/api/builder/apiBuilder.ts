@@ -11,7 +11,7 @@ import { AxiosHeaders } from 'axios';
 const apiBuilder = async <Data>({
   apiInstance,
   apiConfigs,
-  formMethods,
+  formMethod,
   forms,
   formId,
 }: ApiBuilderProps) => {
@@ -21,10 +21,10 @@ const apiBuilder = async <Data>({
     if (isStrFn(url))
       return convertFn<urlBuilderFn>(
         url,
-        'formMethods',
+        'formMethod',
         'forms',
         'formId'
-      )(formMethods, forms, formId);
+      )(formMethod, forms, formId);
 
     return url;
   };
@@ -33,10 +33,10 @@ const apiBuilder = async <Data>({
     if (isStrFn(data))
       return convertFn<dataBuilderFn>(
         data,
-        'formMethods',
+        'formMethod',
         'forms',
         'formId'
-      )(formMethods, forms, formId);
+      )(formMethod, forms, formId);
 
     return data;
   };
@@ -45,10 +45,10 @@ const apiBuilder = async <Data>({
     if (isStrFn(params))
       return convertFn<paramsBuilderFn>(
         params,
-        'formMethods',
+        'formMethod',
         'forms',
         'formId'
-      )(formMethods, forms, formId);
+      )(formMethod, forms, formId);
 
     return params;
   };
@@ -57,10 +57,10 @@ const apiBuilder = async <Data>({
     if (isStrFn(headers))
       return convertFn<headersBuilderFn>(
         headers as string,
-        'formMethods',
+        'formMethod',
         'forms',
         'formId'
-      )(formMethods, forms, formId);
+      )(formMethod, forms, formId);
 
     return headers as AxiosHeaders | undefined;
   };

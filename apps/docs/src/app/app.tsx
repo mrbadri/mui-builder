@@ -15,12 +15,30 @@ export function App() {
         label: 'Field One (Form Id: 20)',
         script: {
           fn: `
-          if(formMethods.getValues()?.FieldTwo === "erfan"){
+          if(formMethod.getValues()?.FieldTwo === "erfan"){
             return {
                 label: "blue"
             }
           }`,
           dependesies: ['FieldTwo'],
+        },
+        api: {
+          configes: {
+            url: 'https://jsonplaceholder.typicode.com/todo8888s/ ',
+            // params: { id: 1 },
+            method: 'post',
+            data: {
+              test: '1',
+            },
+          },
+          queries: {
+            enable: `
+            if(!!formMethod.getValues()?.FieldTwo){
+              return true;
+            }
+            return false;
+            `,
+          },
         },
       },
     },

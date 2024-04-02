@@ -11,31 +11,31 @@ export type ApiConfigs = Omit<AxiosRequestConfig, 'headers'> & {
 export type ApiBuilderProps = {
   apiInstance: ApiInstance;
   apiConfigs: ApiConfigs;
-  formMethods: Form;
+  formMethod: Form;
   forms: Forms;
   formId: FormId;
 };
 
 export type urlBuilderFn = (
-  formMethods: Form,
+  formMethod: Form,
   forms: Forms,
   formId: FormId
 ) => string;
 
 export type dataBuilderFn = (
-  formMethods: Form,
+  formMethod: Form,
   forms: Forms,
   formId: FormId
 ) => unknown;
 
 export type paramsBuilderFn = (
-  formMethods: Form,
+  formMethod: Form,
   forms: Forms,
   formId: FormId
 ) => unknown;
 
 export type headersBuilderFn = (
-  formMethods: Form,
+  formMethod: Form,
   forms: Forms,
   formId: FormId
 ) => AxiosHeaders;

@@ -31,7 +31,7 @@ function useQuery<Data>({
     if (enable) {
       fetchData();
     }
-  }, [enable, fetchData]);
+  }, [enable]);
 
   const refetch = () => {
     fetchData();
