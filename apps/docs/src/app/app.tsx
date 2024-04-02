@@ -13,15 +13,13 @@ export function App() {
         id: 'Field-One',
         formId: '20',
         label: 'Field One (Form Id: 20)',
-        script: {
-          fn: `
+        dependesies: ['FieldTwo'],
+        script: `
           if(formMethod.getValues()?.FieldTwo === "erfan"){
             return {
                 label: "blue"
             }
           }`,
-          dependesies: ['FieldTwo'],
-        },
         api: {
           configes: {
             url: 'https://jsonplaceholder.typicode.com/todo8888s/ ',

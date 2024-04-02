@@ -20,10 +20,9 @@ export type Api = {
   queries: ApiQuery;
 };
 
-export type Script = {
-  fn: string;
-  dependesies?: string[];
-};
+export type Dependesies = string[];
+
+export type Script = string;
 
 export type ScriptFn = (
   formMethod: Form,

@@ -4,11 +4,17 @@ import { useWatch } from 'react-hook-form';
 import { ScriptFn } from '../../types/public.types';
 import { UseScriptProps } from './useScript.types';
 
-const UseScript = ({ script, formMethod, forms, formId }: UseScriptProps) => {
+const UseScript = ({
+  script,
+  dependesies,
+  formMethod,
+  forms,
+  formId,
+}: UseScriptProps) => {
   const scriptFn = useCallback<ScriptFn>(
     (formMethod, forms, formId) => {
       return convertFn<ScriptFn>(
-        script?.fn,
+        script,
         'formMethod',
         'forms',
         'formId'
@@ -19,7 +25,7 @@ const UseScript = ({ script, formMethod, forms, formId }: UseScriptProps) => {
 
   useWatch({
     control: formMethod.control,
-    name: script?.dependesies ?? [],
+    name: dependesies ?? [],
   });
 
   return { scriptResult: scriptFn(formMethod, forms, formId) };
