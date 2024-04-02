@@ -1,4 +1,4 @@
-import { FormTypes, FieldProps } from '../../types/public.types';
+import { FieldProps, FormTypes } from '../../types/public.types';
 
 export interface BuilderProps {
   fieldType: FormTypes;

@@ -1,12 +1,6 @@
-import { FieldValues, UseFormReturn } from 'react-hook-form';
 import { create } from 'zustand';
 
-export type Form = UseFormReturn<FieldValues, any, undefined>;
-
-export type UseFormsState = {
-  forms: Record<string, Form>;
-  setForm: (id: string, form: Form) => void;
-};
+import { UseFormsState } from './useForms.types';
 
 const useForms = create<UseFormsState>((set) => ({
   forms: {},

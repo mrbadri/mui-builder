@@ -1,10 +1,16 @@
-import { useController } from 'react-hook-form';
-import useForms from '../../../hooks/useForms/useForms';
-import UseScript from '../../../hooks/useScript/useScript';
+import { useController, useWatch } from 'react-hook-form';
+
+import axios from 'axios';
+
 import { TextProps } from './text.types';
 
+import useForms from '../../../hooks/useForms/useForms';
+import useQueryBuilder from '../../../hooks/useQueryBuilder/useQueryBuilder';
+import UseScript from '../../../hooks/useScript/useScript';
+
 const UseText = (props: TextProps) => {
-  const { formId, script, ...textFieldProps } = props;
+  const { formId, script, api, dependesies, ...textFieldProps } = props;
+  const { configs, queries } = api || {};
 
   const { forms } = useForms();
   const formMethod = forms?.[formId];
@@ -14,6 +20,22 @@ const UseText = (props: TextProps) => {
     formMethod,
     forms,
     formId,
+  });
+
+  // Handle Wtach Fields
+  useWatch({
+    control: formMethod.control,
+    name: dependesies ?? [],
+  });
+
+  // API Call
+  useQueryBuilder({
+    apiInstance: axios,
+    apiConfigs: configs || {},
+    apiQuery: queries || {},
+    formMethod,
+    formId,
+    forms,
   });
 
   const { field } = useController({

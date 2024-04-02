@@ -1,8 +1,10 @@
 import { FC } from 'react';
-import useBuilder from './useBuilder';
+
 import { BuilderProps } from './builder.types';
-import Selector from '../../utils/selector/selector';
+
 import FormWrapper from '../../utils/formWrapper/formWrapper';
+import Selector from '../../utils/selector/selector';
+import useBuilder from './useBuilder';
 
 const Builder: FC<BuilderProps> = (props) => {
   const { hasForm, getSelectorProps, getFormWrapperProps } = useBuilder(props);

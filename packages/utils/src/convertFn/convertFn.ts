@@ -1,9 +1,6 @@
-import { TConvertFunctionProps } from './convertFunction.types';
+import { ConvertFnProps } from './convertFn.types';
 
-const convertFunction = <T = unknown>(
-  fn: TConvertFunctionProps,
-  ...props: string[]
-): T => {
+const convertFn = <T = unknown>(fn: ConvertFnProps, ...props: string[]): T => {
   if (!fn)
     return (() => {
       return {};
@@ -15,4 +12,4 @@ const convertFunction = <T = unknown>(
   return new Function(...props, fn) as T;
 };
 
-export default convertFunction;
+export default convertFn;

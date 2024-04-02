@@ -1,4 +1,5 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
+
 import { SelectorProps } from './selector.types';
 
 const Selector: FC<SelectorProps> = ({ groupType, fieldType, fieldProps }) => {
