@@ -4,7 +4,8 @@
   "license": "MIT",
   "scripts": {
     "react:dev": "nx serve docs",
-    "build:all": "nx run-many --target=build"
+    "build:all": "nx run-many --target=build",
+    "add": "./scripts/add.sh"
   },
   "private": true,
   "dependencies": {
