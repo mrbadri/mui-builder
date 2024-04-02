@@ -1,10 +1,12 @@
+import { ApiError } from '../../types/public.types';
+
 export type QueryFunction<Data> = () => Promise<Data>;
 
 export interface UseQueryResult<Data> {
   data: Data | null;
   isLoading: boolean;
   isError: boolean;
-  error: Error | null;
+  error: ApiError | null;
   refetch: () => void;
 }
 
@@ -12,5 +14,5 @@ export interface UseQueryProps<Data> {
   queryFn: QueryFunction<Data>;
   enable?: boolean;
   onSuccess?: (data: Data) => void;
-  onError?: (error: Error) => void;
+  onError?: (error: ApiError) => void;
 }

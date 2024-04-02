@@ -7,7 +7,7 @@ import axios from 'axios';
 
 const UseText = (props: TextProps) => {
   const { formId, script, api, ...textFieldProps } = props;
-  const { configes, queries } = api || {};
+  const { configs, queries } = api || {};
 
   const { forms } = useForms();
   const formMethod = forms?.[formId];
@@ -24,7 +24,7 @@ const UseText = (props: TextProps) => {
   // API Call
   useQueryBuilder({
     apiInstance: axios,
-    apiConfigs: configes || {},
+    apiConfigs: configs || {},
     apiQuery: queries || {},
     formMethod,
     formId,

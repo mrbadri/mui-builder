@@ -8,6 +8,7 @@ import {
   OnSuccessBuilderFn,
   UseQueryBuilderProps,
 } from './useQueryBuilder.types';
+import { ApiError } from '../../types/public.types';
 
 const useQueryBuilder = <T>({
   formId,
@@ -48,11 +49,11 @@ const useQueryBuilder = <T>({
         'formId'
       )(formMethod, forms, formId);
 
-    return onError as (error: Error) => void;
+    return onError as (error: ApiError) => void;
   };
   const onSuccessBuilder = () => {
     if (isStrFn(onSuccess))
-      return convertFn<OnSuccessBuilderFn<AxiosResponse<T, any>>>(
+      return convertFn<OnSuccessBuilderFn<AxiosResponse<T, unknown>>>(
         onSuccess as string,
         'formMethod',
         'forms',

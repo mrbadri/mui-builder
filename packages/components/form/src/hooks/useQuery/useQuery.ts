@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 import { UseQueryProps, UseQueryResult } from './useQuery.types';
+import { ApiError } from '../../types/public.types';
 
 function useQuery<Data>({
   enable,
@@ -10,7 +11,7 @@ function useQuery<Data>({
   const [data, setData] = useState<Data | null>(null);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [isError, setIsError] = useState<boolean>(false);
-  const [error, setError] = useState<Error | null>(null);
+  const [error, setError] = useState<ApiError | null>(null);
 
   const fetchData = useCallback(async () => {
     try {
@@ -19,7 +20,7 @@ function useQuery<Data>({
       setData(result);
       setIsLoading(false);
       onSuccess?.(result);
-    } catch (error: any) {
+    } catch (error: unknown) {
       setIsError(true);
       setError(error);
       setIsLoading(false);

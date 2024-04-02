@@ -16,7 +16,7 @@ export type FormTypes = 'field-text' | 'action-submit';
 export type FieldProps = TextProps | SubmitFieldProps;
 
 export type Api = {
-  configes: ApiConfigs;
+  configs: ApiConfigs;
   queries: ApiQuery;
 };
 
@@ -30,3 +30,5 @@ export type ScriptFn = (
   formId: string,
   setProps?: SetProps
 ) => any;
+
+export type ApiError = Error | unknown;

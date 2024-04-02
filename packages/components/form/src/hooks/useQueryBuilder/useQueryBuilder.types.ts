@@ -1,11 +1,11 @@
-import { FormId, Forms } from '../../types/public.types';
+import { ApiError, FormId, Forms } from '../../types/public.types';
 import { ApiBuilderProps } from '../../utils/api/builder/apiBuilder.types';
 import { Form } from '../useForms/useForms.types';
 
 export type ApiQuery<Data = unknown> = {
   enable?: string | boolean;
   onSuccess?: string | ((data: Data) => void);
-  onError?: string | ((error: Error) => void);
+  onError?: string | ((error: ApiError) => void);
 };
 
 export type EnableBuilderFn = (
@@ -18,7 +18,7 @@ export type OnErrorBuilderFn = (
   formMethod: Form,
   forms: Forms,
   formId: FormId
-) => (error: Error) => void;
+) => (error: ApiError) => void;
 
 export type OnSuccessBuilderFn<Data> = (
   formMethod: Form,

@@ -21,7 +21,7 @@ export function App() {
             }
           }`,
         api: {
-          configes: {
+          configs: {
             url: 'https://jsonplaceholder.typicode.com/todo8888s/ ',
             // params: { id: 1 },
             method: 'post',
