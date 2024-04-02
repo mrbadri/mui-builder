@@ -1,4 +1,4 @@
-import { FieldValues, UseFormReturn } from "react-hook-form";
+import { FieldValues, UseFormReturn } from 'react-hook-form';
 
 export type Form = UseFormReturn<FieldValues, any, undefined>;
 

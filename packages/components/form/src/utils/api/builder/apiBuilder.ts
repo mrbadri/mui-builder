@@ -1,4 +1,7 @@
 import { convertFn, isStrFn } from '@mui-builder/utils';
+
+import { AxiosHeaders } from 'axios';
+
 import {
   ApiBuilderProps,
   dataBuilderFn,
@@ -6,7 +9,6 @@ import {
   paramsBuilderFn,
   urlBuilderFn,
 } from './apiBuilder.types';
-import { AxiosHeaders } from 'axios';
 
 const apiBuilder = async <Data>({
   apiInstance,

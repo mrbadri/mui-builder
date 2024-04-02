@@ -1,4 +1,5 @@
 import { create } from 'zustand';
+
 import { UseControllerState } from './usePropsController.types';
 
 const usePropsController = create<UseControllerState>((set) => ({

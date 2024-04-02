@@ -1,5 +1,7 @@
-import { convertFn } from '@mui-builder/utils';
 import { useCallback } from 'react';
+
+import { convertFn } from '@mui-builder/utils';
+
 import { ScriptFn } from '../../types/public.types';
 import { UseScriptProps } from './useScript.types';
 

@@ -1,3 +1,3 @@
-import { ReactNode } from "react";
+import { ReactNode } from 'react';
 
-export type FormWrapperProps = { children: ReactNode; formId: string }
+export type FormWrapperProps = { children: ReactNode; formId: string };

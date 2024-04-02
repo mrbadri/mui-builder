@@ -1,9 +1,12 @@
 import { useController, useWatch } from 'react-hook-form';
-import useForms from '../../../hooks/useForms/useForms';
-import UseScript from '../../../hooks/useScript/useScript';
-import { TextProps } from './text.types';
-import useQueryBuilder from '../../../hooks/useQueryBuilder/useQueryBuilder';
+
 import axios from 'axios';
+
+import { TextProps } from './text.types';
+
+import useForms from '../../../hooks/useForms/useForms';
+import useQueryBuilder from '../../../hooks/useQueryBuilder/useQueryBuilder';
+import UseScript from '../../../hooks/useScript/useScript';
 
 const UseText = (props: TextProps) => {
   const { formId, script, api, dependesies, ...textFieldProps } = props;

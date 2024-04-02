@@ -1,6 +1,8 @@
-import { Link, Route, Routes } from 'react-router-dom';
-import { Builder } from '@mui-builder/core';
 import { FormBuilderProps } from 'packages/core/src/components/builder/builder.types';
+
+import { Link, Route, Routes } from 'react-router-dom';
+
+import { Builder } from '@mui-builder/core';
 
 export function App() {
   const groupList: FormBuilderProps[] = [

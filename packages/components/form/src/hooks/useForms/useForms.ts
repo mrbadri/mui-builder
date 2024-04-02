@@ -1,7 +1,6 @@
 import { create } from 'zustand';
+
 import { UseFormsState } from './useForms.types';
-
-
 
 const useForms = create<UseFormsState>((set) => ({
   forms: {},

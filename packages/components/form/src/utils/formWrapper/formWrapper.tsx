@@ -1,7 +1,9 @@
 import { FC, useLayoutEffect } from 'react';
 import { useForm } from 'react-hook-form';
-import useForms from '../../hooks/useForms/useForms';
+
 import { FormWrapperProps } from './formWrapper.types';
+
+import useForms from '../../hooks/useForms/useForms';
 
 const FormWrapper: FC<FormWrapperProps> = ({ children, formId }) => {
   const formMethod = useForm();

@@ -1,3 +1,19 @@
 {
-  "singleQuote": true
+  "singleQuote": true,
+  "importOrder": [
+    "^next",
+    "^react",
+    "^@src/(.*)$",
+    "^@images/(.*)$",
+    "^@icons/(.*)$",
+    "^@mui/(.*)$",
+    "^@mui-builder/(.*)$",
+    "^@src/hooks/(.*)$",
+    "axios",
+    "react-hook-form",
+    "^[./].*\\.types$",
+    "^[./]"
+  ],
+  "importOrderSeparation": true,
+  "importOrderSortSpecifiers": true
 }

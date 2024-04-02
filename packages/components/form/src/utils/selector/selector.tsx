@@ -1,7 +1,8 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
-import { SelectorProps } from './selector.types';
-import { TextProps } from '../../components/fields/text/text.types';
+
 import { SubmitFieldProps } from '../../components/actions/submit/submit.types';
+import { TextProps } from '../../components/fields/text/text.types';
+import { SelectorProps } from './selector.types';
 
 const Selector: FC<SelectorProps> = ({ fieldType, fieldProps }) => {
   let SelectedComponent;

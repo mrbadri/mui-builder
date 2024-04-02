@@ -1,5 +1,6 @@
-import useForms from '../../hooks/useForms/useForms';
 import { BuilderProps } from './builder.types';
+
+import useForms from '../../hooks/useForms/useForms';
 
 const useBuilder = (props: BuilderProps) => {
   const { fieldProps, fieldType } = props;
