@@ -22,8 +22,7 @@ export function App() {
           }`,
         api: {
           configs: {
-            url: 'https://jsonplaceholder.typicode.com/todo8888s/ ',
-            // params: { id: 1 },
+            url: `return ("https://jsonplaceholder.typicode.com/todo8888s/" + formMethod.getValues()?.FieldTwo);`,
             method: 'post',
             data: {
               test: '1',
@@ -31,7 +30,7 @@ export function App() {
           },
           queries: {
             enable: `
-            if(!!formMethod.getValues()?.FieldTwo){
+            if(formMethod.getValues()?.FieldTwo === 'api'){
               return true;
             }
             return false;
@@ -71,6 +70,16 @@ export function App() {
         formId: '20',
         children: 'Submit (20)',
         onAction: 'console.log("Form 20: " , values);',
+        api: {
+          configs: {
+            url: `return ("https://jsonplaceholder.typicode.com/Actions/");`,
+            method: 'post',
+            data: `return formMethod.getValues();`,
+          },
+          queries: {
+            enable: false,
+          },
+        },
       },
     },
     {

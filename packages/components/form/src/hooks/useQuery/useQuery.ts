@@ -32,6 +32,7 @@ function useQuery<Data>({
     if (enable) {
       fetchData();
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [enable]);
 
   const refetch = () => {
