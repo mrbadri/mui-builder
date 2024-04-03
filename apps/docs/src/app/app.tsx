@@ -39,6 +39,7 @@ export function App() {
             `,
           },
         },
+        defaultValue: 'default value field one',
       },
     },
     {
@@ -60,6 +61,12 @@ export function App() {
         formId: '21',
         label: 'Field Three (Form Id: 21)',
         helperText: 'Helper Text',
+        rule: {
+          required: {
+            message: 'this is required',
+            value: true,
+          },
+        },
       },
     },
 
