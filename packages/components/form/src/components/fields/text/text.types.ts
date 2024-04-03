@@ -5,6 +5,7 @@ import {
   Dependesies,
   FormId,
   Id,
+  Rule,
   Script,
 } from '../../../types/public.types';
 
@@ -15,4 +16,6 @@ export type TextProps = TextFieldProps & {
   dependesies?: Dependesies;
   propsController?: Record<string, any>;
   api?: Api;
+  rule?: Rule;
+  show?: boolean;
 };

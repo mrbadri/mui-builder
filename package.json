@@ -5,7 +5,7 @@
   "scripts": {
     "react:dev": "nx serve docs",
     "build:all": "nx run-many --target=build",
-    "add": "./scripts/add.sh"
+    "add": "npx prettier --write . & git add . "
   },
   "private": true,
   "dependencies": {
