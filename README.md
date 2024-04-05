@@ -1,8 +1,10 @@
-# MUI Builder 
+# MUI Builder
 
 Create dynamic dashboards and forms with JSON using the `@mui-builder` package. 
 
 ## Installation
+
+Note: `@mui-builder` requires Node.js version `18` or higher.
 
 Before you start, make sure you have installed the `@mui-builder` package in your project. If not, you can add it using npm, yarn or pnpm:
 
@@ -150,7 +152,7 @@ The `type` and `props` are dependent on the `groupType` of each item. Below are 
     - `api`: Optional. Defines API interactions related to the item.
     - Additional props specific to each field type.
 
-### From Actions
+### Form Actions
 
 - **groupType**: `form`
   - **Types**:
