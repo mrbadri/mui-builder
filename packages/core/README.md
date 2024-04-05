@@ -8,14 +8,17 @@ Note: `@mui-builder` requires Node.js version `18` or higher.
 
 Before you start, make sure you have installed the `@mui-builder` package in your project. If not, you can add it using npm, yarn or pnpm:
 
+###  npm
 ```bash
 npm install @mui-builder/core 
 ```
- or
+
+### yarn
  ```bash
 yarn add @mui-builder/core 
 ```
- or
+
+### pnpm
  ```bash
 pnpm add @mui-builder/core 
 ```
