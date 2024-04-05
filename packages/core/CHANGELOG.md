@@ -1,5 +1,11 @@
 # @mui-builder/core
 
+## 0.0.6
+
+### Patch Changes
+
+- add document
+
 ## 0.0.5
 
 ### Patch Changes
