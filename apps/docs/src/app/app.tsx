@@ -1,6 +1,8 @@
-import { Link, Route, Routes } from 'react-router-dom';
-import { Builder } from '@mui-builder/core';
 import { FormBuilderProps } from 'packages/core/src/components/builder/builder.types';
+
+import { Link, Route, Routes } from 'react-router-dom';
+
+import { Builder } from '@mui-builder/core';
 
 export function App() {
   const groupList: FormBuilderProps[] = [
@@ -13,15 +15,31 @@ export function App() {
         id: 'Field-One',
         formId: '20',
         label: 'Field One (Form Id: 20)',
-        script: {
-          fn: `
-          if(formMethods.getValues()?.FieldTwo === "erfan"){
+        dependesies: ['FieldTwo'],
+        script: `
+          if(formMethod.getValues()?.FieldTwo === "erfan"){
             return {
                 label: "blue"
             }
           }`,
-          dependesies: ['FieldTwo'],
+        api: {
+          configs: {
+            url: `return ("https://jsonplaceholder.typicode.com/todo8888s/" + formMethod.getValues()?.FieldTwo);`,
+            method: 'post',
+            data: {
+              test: '1',
+            },
+          },
+          queries: {
+            enable: `
+            if(formMethod.getValues()?.FieldTwo === 'api'){
+              return true;
+            }
+            return false;
+            `,
+          },
         },
+        defaultValue: 'default value field one',
       },
     },
     {
@@ -43,6 +61,12 @@ export function App() {
         formId: '21',
         label: 'Field Three (Form Id: 21)',
         helperText: 'Helper Text',
+        rule: {
+          required: {
+            message: 'this is required',
+            value: true,
+          },
+        },
       },
     },
 
@@ -55,6 +79,16 @@ export function App() {
         formId: '20',
         children: 'Submit (20)',
         onAction: 'console.log("Form 20: " , values);',
+        api: {
+          configs: {
+            url: `return ("https://jsonplaceholder.typicode.com/Actions/");`,
+            method: 'post',
+            data: `return formMethod.getValues();`,
+          },
+          queries: {
+            enable: false,
+          },
+        },
       },
     },
     {
@@ -68,6 +102,7 @@ export function App() {
       },
     },
   ];
+
   return (
     <div>
       <div role="navigation">

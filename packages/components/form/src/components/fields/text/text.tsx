@@ -1,12 +1,17 @@
 import { FC } from 'react';
+
 import { TextField } from '@mui/material';
+
 import { TextProps } from './text.types';
+
 import UseText from './useText';
 
 const Text: FC<TextProps> = (props) => {
-  const { getFieldProps } = UseText(props);
+  const { getFieldProps, show } = UseText(props);
 
-  return <TextField {...getFieldProps()} />;
+  if (show) return <TextField {...getFieldProps()} />;
+
+  return <></>;
 };
 
 export default Text;

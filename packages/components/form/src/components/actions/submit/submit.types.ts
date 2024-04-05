@@ -1,14 +1,16 @@
 import { FieldValues } from 'react-hook-form';
-import { Form } from '../../../hooks/useForms/useForms';
-import { FormId } from '../../../types/public.types';
+
+import { Form } from '../../../hooks/useForms/useForms.types';
+import { Api, FormId } from '../../../types/public.types';
 import { ActionProps } from '../action/action.types';
 
 export type SubmitFieldProps = ActionProps & {
-  formId: FormId
+  formId: FormId;
+  api?: Api;
 };
 
 export type DynamicAction = (
-  formMethods: Form,
+  formMethod: Form,
   forms: Record<string, Form>,
   formId: FormId,
   Value: FieldValues
