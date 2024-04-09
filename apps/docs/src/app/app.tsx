@@ -107,6 +107,13 @@ export function App() {
         formId: '21',
         children: 'Submit (21)',
         onAction: 'console.log("Form 21: " , values)',
+        loadingProps: {
+          sx: {
+            width: 50,
+            mx: 1,
+            bgcolor: '#563'
+          },
+        },
       },
       configs: {
         loading: {

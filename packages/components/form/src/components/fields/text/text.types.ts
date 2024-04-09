@@ -14,4 +14,5 @@ export type TextProps = TextFieldProps & {
   api?: Api;
   rule?: Rule;
   show?: boolean;
+  loadingProps?: LoadingProps;
 };

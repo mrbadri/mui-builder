@@ -1,7 +1,5 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
-import { SubmitFieldProps } from '../../components/actions/submit/submit.types';
-import { TextProps } from '../../components/fields/text/text.types';
 import { SelectorProps } from './selector.types';
 
 import SubmitLoading from '../../components/actions/submit/submit.loading';
