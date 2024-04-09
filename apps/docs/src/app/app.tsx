@@ -73,7 +73,7 @@ export function App() {
           validate: `
           if(value === 'val')
             return 'rule validate';
-          `
+          `,
         },
       },
     },
@@ -107,6 +107,15 @@ export function App() {
         formId: '21',
         children: 'Submit (21)',
         onAction: 'console.log("Form 21: " , values)',
+      },
+      configs: {
+        loading: {
+          sx: {
+            width: '10px',
+            height: '10px',
+            bgcolor: '#ff0000',
+          },
+        },
       },
     },
   ];
