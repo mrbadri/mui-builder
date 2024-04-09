@@ -1,5 +1,4 @@
-import { MainRule, Rule, Validate } from "../../types/validation.types";
-
+import { MainRule, Rule, Validate } from '../../types/validation.types';
 
 export type UseRoleProps = Rule;
 

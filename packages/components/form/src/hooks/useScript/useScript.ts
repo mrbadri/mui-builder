@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 
 import { convertFn } from '@mui-builder/utils';
 
-import { UseScriptProps } from './useScript.types';
 import { ScriptFn } from '../../types/script.types';
+import { UseScriptProps } from './useScript.types';
 
 const UseScript = ({ script, formMethod, forms, formId }: UseScriptProps) => {
   const scriptFn = useCallback<ScriptFn>(

@@ -7,6 +7,7 @@ const Selector: FC<SelectorProps> = ({
   fieldType,
   fieldProps,
   fieldId,
+  configs,
 }) => {
   let SelectedComponent;
 
@@ -20,6 +21,7 @@ const Selector: FC<SelectorProps> = ({
             fieldType={fieldType}
             fieldProps={fieldProps}
             fieldId={fieldId}
+            configs={configs}
           />
         </Suspense>
       );
