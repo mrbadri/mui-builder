@@ -1,4 +1,5 @@
-import { ApiError, FormId, Forms } from '../../types/public.types';
+import { ApiError } from '../../types/api.types';
+import { FormId, Forms } from '../../types/public.types';
 import { ApiBuilderProps } from '../../utils/api/builder/apiBuilder.types';
 import { Form } from '../useForms/useForms.types';
 

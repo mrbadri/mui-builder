@@ -62,10 +62,18 @@ export function App() {
         label: 'Field Three (Form Id: 21)',
         helperText: 'Helper Text',
         rule: {
-          required: {
-            message: 'this is required',
-            value: true,
-          },
+          // required: {
+          //   message: 'this is required',
+          //   value: true,
+          // },
+          // validate: (value, formValues) => {
+          //   if(value === 'val')
+          //   return 'rule validate';
+          // },
+          validate: `
+          if(value === 'val')
+            return 'rule validate';
+          `
         },
       },
     },

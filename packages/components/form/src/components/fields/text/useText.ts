@@ -7,6 +7,7 @@ import { TextProps } from './text.types';
 import useForms from '../../../hooks/useForms/useForms';
 import useQueryBuilder from '../../../hooks/useQueryBuilder/useQueryBuilder';
 import UseScript from '../../../hooks/useScript/useScript';
+import useRule from '../../../hooks/useRule/useRule';
 
 const UseText = (props: TextProps) => {
   const {
@@ -56,7 +57,7 @@ const UseText = (props: TextProps) => {
     name: textFieldProps.id,
     control: formMethod.control,
     disabled: textFieldProps.disabled,
-    rules: textFieldProps?.rule,
+    rules: useRule(textFieldProps?.rule),
     defaultValue,
   });
 

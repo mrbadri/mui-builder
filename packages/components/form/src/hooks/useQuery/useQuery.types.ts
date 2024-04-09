@@ -1,4 +1,4 @@
-import { ApiError } from '../../types/public.types';
+import { ApiError } from "../../types/api.types";
 
 export type QueryFunction<Data> = () => Promise<Data>;
 
