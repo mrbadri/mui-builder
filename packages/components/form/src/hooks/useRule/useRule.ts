@@ -20,7 +20,7 @@ const useRule = (rule?: UseRoleProps): UseRoleReturn => {
       return convertFn<Validate>(
         validate as string,
         'value',
-        'formValuse'
+        'formValues'
       )(value, formValues);
 
     return (validate as Validate)(value, formValues);
