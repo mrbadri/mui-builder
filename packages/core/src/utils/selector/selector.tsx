@@ -2,7 +2,13 @@ import { FC, Fragment, Suspense, lazy } from 'react';
 
 import { SelectorProps } from './selector.types';
 
-const Selector: FC<SelectorProps> = ({ groupType, fieldType, fieldProps }) => {
+const Selector: FC<SelectorProps> = ({
+  groupType,
+  fieldType,
+  fieldProps,
+  fieldId,
+  configs,
+}) => {
   let SelectedComponent;
 
   switch (groupType) {
@@ -10,8 +16,13 @@ const Selector: FC<SelectorProps> = ({ groupType, fieldType, fieldProps }) => {
       SelectedComponent = lazy(() => import('@mui-builder/form'));
 
       return (
-        <Suspense fallback={<div>Loading...</div>}>
-          <SelectedComponent fieldType={fieldType} fieldProps={fieldProps} />
+        <Suspense>
+          <SelectedComponent
+            fieldType={fieldType}
+            fieldProps={fieldProps}
+            fieldId={fieldId}
+            configs={configs}
+          />
         </Suspense>
       );
 

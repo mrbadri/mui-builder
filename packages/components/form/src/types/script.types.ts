@@ -1,5 +1,5 @@
-import { Form } from "../hooks/useForms/useForms.types";
-import { SetProps } from "../hooks/usePropsController/usePropsController.types";
+import { Form } from '../hooks/useForms/useForms.types';
+import { SetProps } from '../hooks/usePropsController/usePropsController.types';
 
 export type Script = string;
 

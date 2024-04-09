@@ -6,8 +6,8 @@ import { TextProps } from './text.types';
 
 import useForms from '../../../hooks/useForms/useForms';
 import useQueryBuilder from '../../../hooks/useQueryBuilder/useQueryBuilder';
-import UseScript from '../../../hooks/useScript/useScript';
 import useRule from '../../../hooks/useRule/useRule';
+import UseScript from '../../../hooks/useScript/useScript';
 
 const UseText = (props: TextProps) => {
   const {

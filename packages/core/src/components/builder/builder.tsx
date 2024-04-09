@@ -11,6 +11,8 @@ export const Builder: React.FC<BuilderProps> = ({ groupList }) => {
       groupType={data.groupType}
       fieldType={data.type}
       fieldProps={data.props}
+      fieldId={data.id}
+      configs={data.configs}
     />
   ));
 };

@@ -2,12 +2,12 @@ import { FieldValues, RegisterOptions } from 'react-hook-form';
 
 import { convertFn, isStrFn } from '@mui-builder/utils';
 
+import { Validate } from '../../types/validation.types';
 import {
   UseRoleProps,
   UseRoleReturn,
   ValidateBuilderProps,
 } from './useRule.types';
-import { Validate } from '../../types/validation.types';
 
 const useRule = (rule?: UseRoleProps): UseRoleReturn => {
   if (!rule) return undefined;

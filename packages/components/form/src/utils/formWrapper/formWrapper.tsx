@@ -17,7 +17,7 @@ const FormWrapper: FC<FormWrapperProps> = ({ children, formId }) => {
     return children;
   }
 
-  return <></>;
+  return null;
 };
 
 export default FormWrapper;
