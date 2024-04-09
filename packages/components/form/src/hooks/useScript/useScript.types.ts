@@ -1,4 +1,5 @@
-import { FormId, Forms, Script } from '../../types/public.types';
+import { FormId, Forms } from '../../types/public.types';
+import { Script } from '../../types/script.types';
 import { Form } from '../useForms/useForms.types';
 
 export type UseScriptProps = {

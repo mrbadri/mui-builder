@@ -2,7 +2,6 @@ import { convertFn, isStrFn } from '@mui-builder/utils';
 
 import { AxiosResponse } from 'axios';
 
-import { ApiError } from '../../types/public.types';
 import {
   EnableBuilderFn,
   OnErrorBuilderFn,
@@ -12,6 +11,7 @@ import {
 
 import apiBuilder from '../../utils/api/builder/apiBuilder';
 import useQuery from '../useQuery/useQuery';
+import { ApiError } from '../../types/api.types';
 
 const useQueryBuilder = <T>({
   formId,
