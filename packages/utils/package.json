@@ -1,4 +1,9 @@
 {
   "name": "@mui-builder/utils",
-  "version": "0.0.2"
+  "version": "0.0.3",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mrbadri/mui-builder"
+  },
+  "homepage": "https://github.com/mrbadri/mui-builder#readme"
 }

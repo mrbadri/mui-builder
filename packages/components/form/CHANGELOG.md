@@ -1,5 +1,13 @@
 # @mui-builder/form
 
+## 0.0.12
+
+### Patch Changes
+
+- add repo and homepage in package.json
+- Updated dependencies
+  - @mui-builder/utils@0.0.3
+
 ## 0.0.11
 
 ### Patch Changes
