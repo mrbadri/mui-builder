@@ -2,6 +2,8 @@ import { FormBuilderProps } from 'packages/core/src/components/builder/builder.t
 
 import { Link, Route, Routes } from 'react-router-dom';
 
+import { Stack } from '@mui/material';
+
 import { Builder } from '@mui-builder/core';
 
 export function App() {
@@ -18,9 +20,8 @@ export function App() {
         dependesies: ['FieldTwo'],
         script: `
           if(formMethod.getValues()?.FieldTwo === "erfan"){
-            return {
-                label: "blue"
-            }
+            setProps('FieldTwo' , {label:'i can'});
+            return {};
           }`,
         api: {
           configs: {
@@ -60,7 +61,7 @@ export function App() {
         id: 'Field-Three',
         formId: '21',
         label: 'Field Three (Form Id: 21)',
-        helperText: 'Helper Text',
+        // helperText: 'Helper Text',
         rule: {
           // required: {
           //   message: 'this is required',
@@ -111,9 +112,6 @@ export function App() {
       configs: {
         loading: {
           sx: {
-            width: '100px',
-            height: '50px',
-            mx: 1,
             bgcolor: '#c28d2b',
           },
         },
@@ -149,7 +147,14 @@ export function App() {
             </div>
           }
         />
-        <Route path="/" element={<Builder groupList={groupList} />} />
+        <Route
+          path="/"
+          element={
+            <Stack direction="row" alignItems="flex-end">
+              <Builder groupList={groupList} />
+            </Stack>
+          }
+        />
       </Routes>
     </div>
   );

@@ -1,5 +1,7 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
+import { SubmitFieldProps } from '../../components/actions/submit/submit.types';
+import { TextProps } from '../../components/fields/text/text.types';
 import { SelectorProps } from './selector.types';
 
 import SubmitLoading from '../../components/actions/submit/submit.loading';
@@ -22,8 +24,7 @@ const Selector: FC<SelectorProps> = ({
 
       return (
         <Suspense key={fieldId} fallback={<TextLoading {...loading} />}>
-          {/* <SelectedComponent {...(fieldProps as TextProps)} /> */}
-          <TextLoading {...loading} />
+          <SelectedComponent {...(fieldProps as TextProps)} />
         </Suspense>
       );
 
@@ -34,8 +35,7 @@ const Selector: FC<SelectorProps> = ({
 
       return (
         <Suspense key={fieldId} fallback={<SubmitLoading {...loading} />}>
-          {/* <SelectedComponent {...(fieldProps as SubmitFieldProps)} /> */}
-          <SubmitLoading {...loading} />
+          <SelectedComponent {...(fieldProps as SubmitFieldProps)} />
         </Suspense>
       );
 

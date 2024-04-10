@@ -1,9 +1,19 @@
 import { LoadingProps } from '../../../types/configs.type';
 
 const useTextLoading = (props: LoadingProps) => {
+  const { animation = 'wave', sx, ...otherProps } = props;
+
   const getTextLoadingProps = () => ({
-    ...props,
-    sx: { display: 'inline-block', width: 300, height: 50, mx: 1, ...props.sx },
+    sx: {
+      display: 'inline-block',
+      transform: 'unset',
+      width: '255px',
+      height: '56px',
+      mx: 0.5,
+      ...sx,
+    },
+    animation,
+    ...otherProps,
   });
 
   return { getTextLoadingProps };

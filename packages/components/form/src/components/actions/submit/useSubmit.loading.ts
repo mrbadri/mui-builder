@@ -1,9 +1,19 @@
 import { LoadingProps } from '../../../types/configs.type';
 
 const useSubmitLoading = (props: LoadingProps) => {
+  const { animation = 'wave', sx, ...otherProps } = props;
+
   const getSubmitLoadingProps = () => ({
-    ...props,
-    sx: { display: 'inline-block', width: 100, height: 50, ...props.sx },
+    sx: {
+      display: 'inline-block',
+      transform: 'unset',
+      width: '101px',
+      height: '56px',
+      mx: 0.5,
+      ...sx,
+    },
+    animation,
+    ...otherProps,
   });
 
   return {
