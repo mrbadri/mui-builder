@@ -3,6 +3,7 @@ import { FormBuilderProps } from 'packages/core/src/components/builder/builder.t
 import { Link, Route, Routes } from 'react-router-dom';
 
 import { Builder } from '@mui-builder/core';
+import { Grid } from '@mui-builder/grid';
 
 export function App() {
   const groupList: FormBuilderProps[] = [
@@ -111,6 +112,9 @@ export function App() {
             <Link to="/">Home</Link>
           </li>
           <li>
+            <Link to="/grid">Grid</Link>
+          </li>
+          <li>
             <Link to="/utils">Utils</Link>
           </li>
           <li>
@@ -131,6 +135,7 @@ export function App() {
             </div>
           }
         />
+        <Route path="/grid" element={<Grid />} />
         <Route path="/" element={<Builder groupList={groupList} />} />
       </Routes>
     </div>
