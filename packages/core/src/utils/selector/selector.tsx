@@ -1,8 +1,11 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
+import { FieldProps, FormTypes } from '@mui-builder/form';
+import { GridProps, GridTypes } from '@mui-builder/grid';
+
 import { SelectorProps } from './selector.types';
 
-const Selector: FC<SelectorProps> = ({ groupType, fieldType, fieldProps }) => {
+const Selector: FC<SelectorProps> = ({ groupType, type, props }) => {
   let SelectedComponent;
 
   switch (groupType) {
@@ -11,7 +14,10 @@ const Selector: FC<SelectorProps> = ({ groupType, fieldType, fieldProps }) => {
 
       return (
         <Suspense fallback={<div>Loading...</div>}>
-          <SelectedComponent fieldType={fieldType} fieldProps={fieldProps} />
+          <SelectedComponent
+            fieldType={type as FormTypes}
+            fieldProps={props as FieldProps}
+          />
         </Suspense>
       );
 
@@ -20,7 +26,10 @@ const Selector: FC<SelectorProps> = ({ groupType, fieldType, fieldProps }) => {
 
       return (
         <Suspense fallback={<div>Loading...</div>}>
-          <SelectedComponent fieldType={fieldType} fieldProps={fieldProps} />
+          <SelectedComponent
+            gridType={type as GridTypes}
+            gridProps={props as GridProps}
+          />
         </Suspense>
       );
 

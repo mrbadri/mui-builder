@@ -9,8 +9,8 @@ export const Builder: React.FC<BuilderProps> = ({ groupList }) => {
     <Selector
       key={`${data.id}-index-${index}`}
       groupType={data.groupType}
-      fieldType={data.type}
-      fieldProps={data.props}
+      type={data.type}
+      props={data.props}
     />
   ));
 };

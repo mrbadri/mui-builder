@@ -1,7 +1,7 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
-import { ContainerProps } from '../../components/Container/container.types';
-import { ItemProps } from '../../components/item/item.types';
+import type { ContainerProps } from '../../components/Container/container.types';
+import type { ItemProps } from '../../components/item/item.types';
 import { SelectorProps } from './selector.types';
 
 const Selector: FC<SelectorProps> = ({ gridType, gridProps }) => {
