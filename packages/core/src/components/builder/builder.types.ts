@@ -1,6 +1,6 @@
 import { FieldProps, FormTypes } from '@mui-builder/form';
 
-export type GROUP_TYPE = 'form';
+export type GROUP_TYPE = 'form' | 'grid';
 
 export type FormBuilderProps = {
   id: string;

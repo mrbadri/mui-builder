@@ -53,6 +53,40 @@ export function App() {
         label: 'Field Two (Form Id: 20)',
       },
     },
+
+    {
+      id: 'grid-container-1',
+      groupType: 'grid',
+      type: 'container',
+      props: {
+        // Grid props
+        children: {
+          id: 'grid-otem-1',
+          groupType: 'grid',
+          type: 'item',
+          props: {
+            // Grid props
+            children: {
+              id: 'form-field-3',
+              groupType: 'form',
+              type: 'field-text',
+              props: {
+                id: 'Field-Three',
+                formId: '21',
+                label: 'Field Three (Form Id: 21)',
+                rule: {
+                  validate: `
+                  if(value === 'val')
+                    return 'rule validate';
+                  `,
+                },
+              },
+            },
+          },
+        },
+      },
+    },
+
     {
       id: 'form-field-3',
       groupType: 'form',

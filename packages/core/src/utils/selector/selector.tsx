@@ -15,6 +15,15 @@ const Selector: FC<SelectorProps> = ({ groupType, fieldType, fieldProps }) => {
         </Suspense>
       );
 
+    case 'grid':
+      SelectedComponent = lazy(() => import('@mui-builder/grid'));
+
+      return (
+        <Suspense fallback={<div>Loading...</div>}>
+          <SelectedComponent fieldType={fieldType} fieldProps={fieldProps} />
+        </Suspense>
+      );
+
     default:
       SelectedComponent = Fragment;
       return (
