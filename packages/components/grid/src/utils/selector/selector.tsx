@@ -1,6 +1,6 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
-import type { ContainerProps } from '../../components/Container/container.types';
+import type { ContainerProps } from '../../components/container/container.types';
 import type { ItemProps } from '../../components/item/item.types';
 import { SelectorProps } from './selector.types';
 
@@ -10,7 +10,7 @@ const Selector: FC<SelectorProps> = ({ gridType, gridProps }) => {
   switch (gridType) {
     case 'container':
       SelectedComponent = lazy(
-        () => import('../../components/Container/container')
+        () => import('../../components/container/container')
       );
 
       return (
