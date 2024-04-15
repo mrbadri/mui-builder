@@ -1,8 +1,8 @@
 import { Unstable_Grid2 as Grid2 } from '@mui/material';
 
-// eslint-disable-next-line @nx/enforce-module-boundaries
-import { Builder, FormBuilderProps } from '@mui-builder/core';
+import { FormBuilderProps } from '../coreBuilder/builder.types';
 
+import { CoreBuilder as Builder } from '../coreBuilder/builder';
 import { GridProps } from './grid.type';
 
 const Grid = (props: GridProps) => {

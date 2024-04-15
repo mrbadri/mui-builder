@@ -1,6 +1,9 @@
 {
   "name": "@mui-builder/grid",
   "version": "0.0.1",
+  "dependencies": {
+    "@mui-builder/form": "*"
+  },
   "peerDependencies": {
     "react": "18.2.0",
     "react-dom": "18.2.0",

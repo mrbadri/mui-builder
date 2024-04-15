@@ -1,7 +1,9 @@
 import { FieldProps, FormTypes } from '@mui-builder/form';
-import { GridProps, GridTypes } from '@mui-builder/grid';
 
-export type GROUP_TYPE = 'form' | 'grid';
+import { GridTypes } from '../../types/public.types';
+import { GROUP_TYPE } from '../../utils/coreSelector/selector.types';
+
+import { GridProps } from '../grid/grid.type';
 
 export type FormBuilderProps = {
   id: string;
