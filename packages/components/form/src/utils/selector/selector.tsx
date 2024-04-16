@@ -7,16 +7,11 @@ import { SelectorProps } from './selector.types';
 import SubmitLoading from '../../components/actions/submit/submit.loading';
 import TextLoading from '../../components/fields/text/text.loading';
 
-const Selector: FC<SelectorProps> = ({
-  fieldType,
-  fieldProps,
-  fieldId,
-  configs,
-}) => {
+const Selector: FC<SelectorProps> = ({ type, props, fieldId, configs }) => {
   let SelectedComponent;
   const { loading } = configs || {};
 
-  switch (fieldType) {
+  switch (type) {
     case 'field-text':
       SelectedComponent = lazy(
         () => import('../../components/fields/text/text')
@@ -24,7 +19,7 @@ const Selector: FC<SelectorProps> = ({
 
       return (
         <Suspense key={fieldId} fallback={<TextLoading {...loading} />}>
-          <SelectedComponent {...(fieldProps as TextProps)} />
+          <SelectedComponent {...(props as TextProps)} />
         </Suspense>
       );
 
@@ -35,7 +30,7 @@ const Selector: FC<SelectorProps> = ({
 
       return (
         <Suspense key={fieldId} fallback={<SubmitLoading {...loading} />}>
-          <SelectedComponent {...(fieldProps as SubmitFieldProps)} />
+          <SelectedComponent {...(props as SubmitFieldProps)} />
         </Suspense>
       );
 

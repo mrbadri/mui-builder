@@ -2,17 +2,17 @@ import { BuilderProps } from './builder.types';
 
 import useForms from '../../hooks/useForms/useForms';
 
-const useBuilder = (props: BuilderProps) => {
-  const { fieldProps, fieldType, fieldId, configs } = props;
+const useBuilder = (allProps: BuilderProps) => {
+  const { props, type, fieldId, configs } = allProps;
 
-  const formId = fieldProps.formId;
+  const formId = props.formId;
   const forms = useForms((state) => state.forms);
-  const hasForm = fieldProps.formId in forms;
+  const hasForm = props.formId in forms;
 
   const getFormWrapperProps = () => ({ formId });
   const getSelectorProps = () => ({
-    fieldProps,
-    fieldType,
+    props,
+    type,
     fieldId,
     configs,
   });

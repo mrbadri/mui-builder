@@ -21,8 +21,8 @@ const Selector: FC<SelectorProps> = ({
       return (
         <Suspense fallback={<div>Loading...</div>}>
           <SelectedComponent
-            fieldType={type as FormTypes}
-            fieldProps={props as FieldProps}
+            type={type as FormTypes}
+            props={props as FieldProps}
             fieldId={fieldId}
             configs={configs}
           />
