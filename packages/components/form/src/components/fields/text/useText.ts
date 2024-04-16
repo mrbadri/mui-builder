@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import { useController, useWatch } from 'react-hook-form';
 
 import axios from 'axios';
@@ -5,7 +6,9 @@ import axios from 'axios';
 import { TextProps } from './text.types';
 
 import useForms from '../../../hooks/useForms/useForms';
+import usePropsController from '../../../hooks/usePropsController/usePropsController';
 import useQueryBuilder from '../../../hooks/useQueryBuilder/useQueryBuilder';
+import useRule from '../../../hooks/useRule/useRule';
 import UseScript from '../../../hooks/useScript/useScript';
 
 const UseText = (props: TextProps) => {
@@ -23,6 +26,15 @@ const UseText = (props: TextProps) => {
 
   const { forms } = useForms();
   const formMethod = forms?.[formId];
+  const { setProps, propsController } = usePropsController();
+
+  const newProps = propsController?.[textFieldProps?.id] || {};
+
+  console.log(
+    { propsController, newProps },
+    textFieldProps?.id,
+    textFieldProps
+  );
 
   // Handle Script
   const { scriptResult } = UseScript({
@@ -30,6 +42,7 @@ const UseText = (props: TextProps) => {
     formMethod,
     forms,
     formId,
+    setProps,
   });
 
   // Handle Wtach Fields
@@ -56,7 +69,7 @@ const UseText = (props: TextProps) => {
     name: textFieldProps.id,
     control: formMethod.control,
     disabled: textFieldProps.disabled,
-    rules: textFieldProps?.rule,
+    rules: useRule(textFieldProps?.rule),
     defaultValue,
   });
 
@@ -70,6 +83,7 @@ const UseText = (props: TextProps) => {
     error: !!error,
     value: field.value ?? '',
     ...scriptResult,
+    ...newProps,
   });
 
   return { getFieldProps, show };

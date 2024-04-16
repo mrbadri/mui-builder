@@ -4,8 +4,17 @@ import { SubmitFieldProps } from '../../components/actions/submit/submit.types';
 import { TextProps } from '../../components/fields/text/text.types';
 import { SelectorProps } from './selector.types';
 
-const Selector: FC<SelectorProps> = ({ fieldType, fieldProps }) => {
+import SubmitLoading from '../../components/actions/submit/submit.loading';
+import TextLoading from '../../components/fields/text/text.loading';
+
+const Selector: FC<SelectorProps> = ({
+  fieldType,
+  fieldProps,
+  fieldId,
+  configs,
+}) => {
   let SelectedComponent;
+  const { loading } = configs || {};
 
   switch (fieldType) {
     case 'field-text':
@@ -14,7 +23,7 @@ const Selector: FC<SelectorProps> = ({ fieldType, fieldProps }) => {
       );
 
       return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense key={fieldId} fallback={<TextLoading {...loading} />}>
           <SelectedComponent {...(fieldProps as TextProps)} />
         </Suspense>
       );
@@ -25,7 +34,7 @@ const Selector: FC<SelectorProps> = ({ fieldType, fieldProps }) => {
       );
 
       return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense key={fieldId} fallback={<SubmitLoading {...loading} />}>
           <SelectedComponent {...(fieldProps as SubmitFieldProps)} />
         </Suspense>
       );

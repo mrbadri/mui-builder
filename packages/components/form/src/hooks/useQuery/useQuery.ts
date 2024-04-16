@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react';
 
-import { ApiError } from '../../types/public.types';
+import { ApiError } from '../../types/api.types';
 import { UseQueryProps, UseQueryResult } from './useQuery.types';
 
 function useQuery<Data>({

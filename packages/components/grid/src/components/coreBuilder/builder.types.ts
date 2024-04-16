@@ -1,4 +1,4 @@
-import { FieldProps, FormTypes } from '@mui-builder/form';
+import { Configs, FieldProps, FormTypes } from '@mui-builder/form';
 
 import { GridTypes } from '../../types/public.types';
 import { GROUP_TYPE } from '../../utils/coreSelector/selector.types';
@@ -10,6 +10,7 @@ export type FormBuilderProps = {
   groupType: GROUP_TYPE;
   type: FormTypes | GridTypes;
   props: FieldProps | GridProps;
+  configs?: Configs;
 };
 
 export type BuilderProps = {

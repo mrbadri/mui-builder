@@ -3,7 +3,7 @@ import { BuilderProps } from './builder.types';
 import useForms from '../../hooks/useForms/useForms';
 
 const useBuilder = (props: BuilderProps) => {
-  const { fieldProps, fieldType } = props;
+  const { fieldProps, fieldType, fieldId, configs } = props;
 
   const formId = fieldProps.formId;
   const forms = useForms((state) => state.forms);
@@ -13,6 +13,8 @@ const useBuilder = (props: BuilderProps) => {
   const getSelectorProps = () => ({
     fieldProps,
     fieldType,
+    fieldId,
+    configs,
   });
 
   return { hasForm, getFormWrapperProps, getSelectorProps };

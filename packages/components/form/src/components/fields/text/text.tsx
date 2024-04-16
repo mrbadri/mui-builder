@@ -4,14 +4,14 @@ import { TextField } from '@mui/material';
 
 import { TextProps } from './text.types';
 
-import UseText from './useText';
+import useText from './useText';
 
 const Text: FC<TextProps> = (props) => {
-  const { getFieldProps, show } = UseText(props);
+  const { getFieldProps, show } = useText(props);
 
   if (show) return <TextField {...getFieldProps()} />;
 
-  return <></>;
+  return null;
 };
 
 export default Text;

@@ -2,6 +2,8 @@ import { FormBuilderProps } from 'packages/core/src/components/builder/builder.t
 
 import { Link, Route, Routes } from 'react-router-dom';
 
+import { Stack } from '@mui/material';
+
 import { Builder } from '@mui-builder/core';
 
 export function App() {
@@ -18,9 +20,8 @@ export function App() {
         dependesies: ['FieldTwo'],
         script: `
           if(formMethod.getValues()?.FieldTwo === "erfan"){
-            return {
-                label: "blue"
-            }
+            setProps('FieldTwo' , {label:'i can'});
+            return {};
           }`,
         api: {
           configs: {
@@ -86,12 +87,20 @@ export function App() {
         id: 'Field-Three',
         formId: '21',
         label: 'Field Three (Form Id: 21)',
-        helperText: 'Helper Text',
+        // helperText: 'Helper Text',
         rule: {
-          required: {
-            message: 'this is required',
-            value: true,
-          },
+          // required: {
+          //   message: 'this is required',
+          //   value: true,
+          // },
+          // validate: (value, formValues) => {
+          //   if(value === 'val')
+          //   return 'rule validate';
+          // },
+          validate: `
+          if(value === 'val')
+            return 'rule validate';
+          `,
         },
       },
     },
@@ -125,6 +134,13 @@ export function App() {
         formId: '21',
         children: 'Submit (21)',
         onAction: 'console.log("Form 21: " , values)',
+      },
+      configs: {
+        loading: {
+          sx: {
+            bgcolor: '#c28d2b',
+          },
+        },
       },
     },
   ];
@@ -160,7 +176,14 @@ export function App() {
             </div>
           }
         />
-        <Route path="/" element={<Builder groupList={groupList} />} />
+        <Route
+          path="/"
+          element={
+            <Stack direction="row" alignItems="flex-end">
+              <Builder groupList={groupList} />
+            </Stack>
+          }
+        />
       </Routes>
     </div>
   );

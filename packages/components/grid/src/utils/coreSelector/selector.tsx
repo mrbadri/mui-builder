@@ -7,7 +7,13 @@ import { SelectorProps } from './selector.types';
 
 import { GridProps } from '../../components/grid/grid.type';
 
-const CoreSelector: FC<SelectorProps> = ({ groupType, type, props }) => {
+const CoreSelector: FC<SelectorProps> = ({
+  groupType,
+  type,
+  props,
+  fieldId,
+  configs,
+}) => {
   let SelectedComponent;
 
   switch (groupType) {
@@ -19,6 +25,8 @@ const CoreSelector: FC<SelectorProps> = ({ groupType, type, props }) => {
           <SelectedComponent
             fieldType={type as FormTypes}
             fieldProps={props as FieldProps}
+            fieldId={fieldId}
+            configs={configs}
           />
         </Suspense>
       );

@@ -1,7 +1,8 @@
 import { FieldValues } from 'react-hook-form';
 
 import { Form } from '../../../hooks/useForms/useForms.types';
-import { Api, FormId } from '../../../types/public.types';
+import { Api } from '../../../types/api.types';
+import { FormId } from '../../../types/public.types';
 import { ActionProps } from '../action/action.types';
 
 export type SubmitFieldProps = ActionProps & {

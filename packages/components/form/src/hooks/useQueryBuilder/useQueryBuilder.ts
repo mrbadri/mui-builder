@@ -2,7 +2,7 @@ import { convertFn, isStrFn } from '@mui-builder/utils';
 
 import { AxiosResponse } from 'axios';
 
-import { ApiError } from '../../types/public.types';
+import { ApiError } from '../../types/api.types';
 import {
   EnableBuilderFn,
   OnErrorBuilderFn,

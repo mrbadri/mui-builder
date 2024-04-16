@@ -1,13 +1,9 @@
 import { TextFieldProps } from '@mui/material';
 
-import {
-  Api,
-  Dependesies,
-  FormId,
-  Id,
-  Rule,
-  Script,
-} from '../../../types/public.types';
+import { Api } from '../../../types/api.types';
+import { Dependesies, FormId, Id } from '../../../types/public.types';
+import { Script } from '../../../types/script.types';
+import { Rule } from '../../../types/validation.types';
 
 export type TextProps = TextFieldProps & {
   id: Id;
