@@ -1,0 +1,16 @@
+{
+  "name": "@mui-builder/grid",
+  "version": "0.0.1",
+  "dependencies": {
+    "@mui-builder/form": "*"
+  },
+  "peerDependencies": {
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "@mui/lab": "^5.0.0-alpha.167",
+    "@mui/material": "^5.15.11",
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "zustand": "^4.5.2"
+  }
+}

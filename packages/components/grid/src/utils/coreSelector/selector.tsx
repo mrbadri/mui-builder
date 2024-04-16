@@ -1,11 +1,13 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
 import { FieldProps, FormTypes } from '@mui-builder/form';
-import { GridProps, GridTypes } from '@mui-builder/grid';
 
+import { GridTypes } from '../../types/public.types';
 import { SelectorProps } from './selector.types';
 
-const Selector: FC<SelectorProps> = ({
+import { GridProps } from '../../components/grid/grid.type';
+
+const CoreSelector: FC<SelectorProps> = ({
   groupType,
   type,
   props,
@@ -30,7 +32,9 @@ const Selector: FC<SelectorProps> = ({
       );
 
     case 'grid':
-      SelectedComponent = lazy(() => import('@mui-builder/grid'));
+      SelectedComponent = lazy(
+        () => import('../../components/builder/builder')
+      );
 
       return (
         <Suspense fallback={<div>Loading...</div>}>
@@ -51,4 +55,4 @@ const Selector: FC<SelectorProps> = ({
   }
 };
 
-export default Selector;
+export default CoreSelector;
