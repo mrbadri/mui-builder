@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "react:dev": "nx serve docs",
+    "dev:docs": "nx serve docs",
     "build:all": "nx run-many --target=build",
     "add": "npx prettier --write . & git add . ",
     "change": "npx changeset",
