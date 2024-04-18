@@ -8,9 +8,11 @@ import { GridProps } from './grid.type';
 const Grid = (props: GridProps) => {
   const { children, ...restProps } = props;
 
+  const groupList = Array.isArray(children) ? children : [children];
+
   return (
     <Grid2 {...restProps}>
-      <Builder groupList={[children as FormBuilderProps]} />
+      <Builder groupList={groupList as FormBuilderProps[]} />
     </Grid2>
   );
 };

@@ -6,6 +6,18 @@ import { Stack } from '@mui/material';
 
 import { Builder } from '@mui-builder/core';
 
+// const createGridContainer = (children, option) => {
+//   return {
+//     id: Math.random() * Math.random(),
+//     groupType: 'grid',
+//     type: 'container',
+//     props: {
+//       children,
+//       ...option,
+//     },
+//   };
+// };
+
 export function App() {
   const groupList: FormBuilderProps[] = [
     // Fields
@@ -59,23 +71,45 @@ export function App() {
       groupType: 'grid',
       type: 'container',
       props: {
-        children: {
-          id: 'form-field-2',
-          groupType: 'grid',
-          type: 'item',
-          props: {
-            children: {
-              id: 'form-field-4',
-              groupType: 'form',
-              type: 'field-text',
-              props: {
-                id: 'Field4',
-                formId: '20',
-                label: 'Field Four (Form Id: 20)',
+        rowSpacing: 2,
+        columnSpacing: 2,
+        children: [
+          {
+            id: 'form-field-4',
+            groupType: 'grid',
+            type: 'item',
+            props: {
+              children: {
+                id: 'form-field-4',
+                groupType: 'form',
+                type: 'field-text',
+                props: {
+                  id: 'Field4',
+                  formId: '20',
+                  label: 'Field 4 (Form Id: 20)',
+                },
               },
             },
           },
-        },
+
+          {
+            id: 'form-field-5',
+            groupType: 'grid',
+            type: 'item',
+            props: {
+              children: {
+                id: 'form-field-4',
+                groupType: 'form',
+                type: 'field-text',
+                props: {
+                  id: 'Field4',
+                  formId: '20',
+                  label: 'Field 5 (Form Id: 20)',
+                },
+              },
+            },
+          },
+        ],
       },
     },
 
