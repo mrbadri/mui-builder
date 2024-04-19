@@ -5,178 +5,275 @@ import { Link, Route, Routes } from 'react-router-dom';
 import { Stack } from '@mui/material';
 
 import { Builder } from '@mui-builder/core';
-
-// const createGridContainer = (children, option) => {
-//   return {
-//     id: Math.random() * Math.random(),
-//     groupType: 'grid',
-//     type: 'container',
-//     props: {
-//       children,
-//       ...option,
-//     },
-//   };
-// };
+import {
+  generateActionSubmit,
+  generateFieldText,
+  generateGridContainer,
+  generateGridItem,
+} from '@mui-builder/generator';
 
 export function App() {
   const groupList: FormBuilderProps[] = [
+    generateGridContainer({
+      children: [
+        generateGridItem({
+          children: [
+            generateFieldText({
+              props: {
+                id: 'Field-One',
+                formId: '20',
+                label: 'Field One (Form Id: 20)',
+                dependesies: ['FieldTwo'],
+                script: `
+              if(formMethod.getValues()?.FieldTwo === "erfan"){
+                setProps('FieldTwo' , {label:'i can'});
+                return {};
+              }`,
+                api: {
+                  configs: {
+                    url: `return ("https://jsonplaceholder.typicode.com/todo8888s/" + formMethod.getValues()?.FieldTwo);`,
+                    method: 'post',
+                    data: {
+                      test: '1',
+                    },
+                  },
+                  queries: {
+                    enable: `
+                if(formMethod.getValues()?.FieldTwo === 'api'){
+                  return true;
+                }
+                return false;
+                `,
+                  },
+                },
+                defaultValue: 'default value field one',
+              },
+            }),
+          ],
+        }),
+
+        generateGridItem({
+          children: generateFieldText({
+            props: {
+              id: 'FieldTwo',
+              formId: '20',
+              label: 'Field Two (Form Id: 20)',
+            },
+          }),
+        }),
+        generateGridItem({
+          children: generateFieldText({
+            props: {
+              id: 'Field-Three',
+              formId: '21',
+              label: 'Field Three (Form Id: 21)',
+              // helperText: 'Helper Text',
+              rule: {
+                // required: {
+                //   message: 'this is required',
+                //   value: true,
+                // },
+
+                validate: `
+             if(value === 'val')
+                return 'rule validate';
+              `,
+              },
+            },
+          }),
+        }),
+        generateGridItem({
+          children: generateActionSubmit({
+            props: {
+              formId: '20',
+              children: 'Submit (20)',
+              onAction: 'console.log("Form 20: " , values);',
+              api: {
+                configs: {
+                  url: `return ("https://jsonplaceholder.typicode.com/Actions/");`,
+                  method: 'post',
+                  data: `return formMethod.getValues();`,
+                },
+                queries: {
+                  enable: false,
+                },
+              },
+            },
+          }),
+        }),
+        generateGridItem({
+          children: generateActionSubmit({
+            props: {
+              formId: '21',
+              children: 'Submit (21)',
+              onAction: 'console.log("Form 21: " , values)',
+            },
+            configs: {
+              loading: {
+                sx: {
+                  bgcolor: '#c28d2b',
+                },
+              },
+            },
+          }),
+        }),
+      ],
+    }),
+
     // Fields
-    {
-      id: 'form-field-1',
-      groupType: 'form',
-      type: 'field-text',
-      props: {
-        id: 'Field-One',
-        formId: '20',
-        label: 'Field One (Form Id: 20)',
-        dependesies: ['FieldTwo'],
-        script: `
-          if(formMethod.getValues()?.FieldTwo === "erfan"){
-            setProps('FieldTwo' , {label:'i can'});
-            return {};
-          }`,
-        api: {
-          configs: {
-            url: `return ("https://jsonplaceholder.typicode.com/todo8888s/" + formMethod.getValues()?.FieldTwo);`,
-            method: 'post',
-            data: {
-              test: '1',
-            },
-          },
-          queries: {
-            enable: `
-            if(formMethod.getValues()?.FieldTwo === 'api'){
-              return true;
-            }
-            return false;
-            `,
-          },
-        },
-        defaultValue: 'default value field one',
-      },
-    },
-    {
-      id: 'form-field-2',
-      groupType: 'form',
-      type: 'field-text',
-      props: {
-        id: 'FieldTwo',
-        formId: '20',
-        label: 'Field Two (Form Id: 20)',
-      },
-    },
+    // {
+    //   id: 'form-field-1',
+    //   groupType: 'form',
+    //   type: 'field-text',
+    //   props: {
+    //     id: 'Field-One',
+    //     formId: '20',
+    //     label: 'Field One (Form Id: 20)',
+    //     dependesies: ['FieldTwo'],
+    //     script: `
+    //       if(formMethod.getValues()?.FieldTwo === "erfan"){
+    //         setProps('FieldTwo' , {label:'i can'});
+    //         return {};
+    //       }`,
+    //     api: {
+    //       configs: {
+    //         url: `return ("https://jsonplaceholder.typicode.com/todo8888s/" + formMethod.getValues()?.FieldTwo);`,
+    //         method: 'post',
+    //         data: {
+    //           test: '1',
+    //         },
+    //       },
+    //       queries: {
+    //         enable: `
+    //         if(formMethod.getValues()?.FieldTwo === 'api'){
+    //           return true;
+    //         }
+    //         return false;
+    //         `,
+    //       },
+    //     },
+    //     defaultValue: 'default value field one',
+    //   },
+    // },
+    // {
+    //   id: 'form-field-2',
+    //   groupType: 'form',
+    //   type: 'field-text',
+    //   props: {
+    //     id: 'FieldTwo',
+    //     formId: '20',
+    //     label: 'Field Two (Form Id: 20)',
+    //   },
+    // },
 
-    {
-      id: 'form-field-2',
-      groupType: 'grid',
-      type: 'container',
-      props: {
-        rowSpacing: 2,
-        columnSpacing: 2,
-        children: [
-          {
-            id: 'form-field-4',
-            groupType: 'grid',
-            type: 'item',
-            props: {
-              children: {
-                id: 'form-field-4',
-                groupType: 'form',
-                type: 'field-text',
-                props: {
-                  id: 'Field4',
-                  formId: '20',
-                  label: 'Field 4 (Form Id: 20)',
-                },
-              },
-            },
-          },
+    // {
+    //   id: 'form-field-2',
+    //   groupType: 'grid',
+    //   type: 'container',
+    //   props: {
+    //     rowSpacing: 2,
+    //     columnSpacing: 2,
+    //     children: [
+    //       {
+    //         id: 'form-field-4',
+    //         groupType: 'grid',
+    //         type: 'item',
+    //         props: {
+    //           children: {
+    //             id: 'form-field-4',
+    //             groupType: 'form',
+    //             type: 'field-text',
+    //             props: {
+    //               id: 'Field4',
+    //               formId: '20',
+    //               label: 'Field 4 (Form Id: 20)',
+    //             },
+    //           },
+    //         },
+    //       },
 
-          {
-            id: 'form-field-5',
-            groupType: 'grid',
-            type: 'item',
-            props: {
-              children: {
-                id: 'form-field-4',
-                groupType: 'form',
-                type: 'field-text',
-                props: {
-                  id: 'Field4',
-                  formId: '20',
-                  label: 'Field 5 (Form Id: 20)',
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
+    //       {
+    //         id: 'form-field-5',
+    //         groupType: 'grid',
+    //         type: 'item',
+    //         props: {
+    //           children: {
+    //             id: 'form-field-4',
+    //             groupType: 'form',
+    //             type: 'field-text',
+    //             props: {
+    //               id: 'Field4',
+    //               formId: '20',
+    //               label: 'Field 5 (Form Id: 20)',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
 
-    {
-      id: 'form-field-3',
-      groupType: 'form',
-      type: 'field-text',
-      props: {
-        id: 'Field-Three',
-        formId: '21',
-        label: 'Field Three (Form Id: 21)',
-        // helperText: 'Helper Text',
-        rule: {
-          // required: {
-          //   message: 'this is required',
-          //   value: true,
-          // },
-          // validate: (value, formValues) => {
-          //   if(value === 'val')
-          //   return 'rule validate';
-          // },
-          validate: `
-          if(value === 'val')
-            return 'rule validate';
-          `,
-        },
-      },
-    },
+    // {
+    //   id: 'form-field-3',
+    //   groupType: 'form',
+    //   type: 'field-text',
+    //   props: {
+    //     id: 'Field-Three',
+    //     formId: '21',
+    //     label: 'Field Three (Form Id: 21)',
+    //     // helperText: 'Helper Text',
+    //     rule: {
+    //       // required: {
+    //       //   message: 'this is required',
+    //       //   value: true,
+    //       // },
 
-    // Actions
-    {
-      id: 'form-action-1',
-      groupType: 'form',
-      type: 'action-submit',
-      props: {
-        formId: '20',
-        children: 'Submit (20)',
-        onAction: 'console.log("Form 20: " , values);',
-        api: {
-          configs: {
-            url: `return ("https://jsonplaceholder.typicode.com/Actions/");`,
-            method: 'post',
-            data: `return formMethod.getValues();`,
-          },
-          queries: {
-            enable: false,
-          },
-        },
-      },
-    },
-    {
-      id: 'form-action-2',
-      groupType: 'form',
-      type: 'action-submit',
-      props: {
-        formId: '21',
-        children: 'Submit (21)',
-        onAction: 'console.log("Form 21: " , values)',
-      },
-      configs: {
-        loading: {
-          sx: {
-            bgcolor: '#c28d2b',
-          },
-        },
-      },
-    },
+    //       validate: `
+    //       if(value === 'val')
+    //         return 'rule validate';
+    //       `,
+    //     },
+    //   },
+    // },
+
+    // // Actions
+    // {
+    //   id: 'form-action-1',
+    //   groupType: 'form',
+    //   type: 'action-submit',
+    //   props: {
+    //     formId: '20',
+    //     children: 'Submit (20)',
+    //     onAction: 'console.log("Form 20: " , values);',
+    //     api: {
+    //       configs: {
+    //         url: `return ("https://jsonplaceholder.typicode.com/Actions/");`,
+    //         method: 'post',
+    //         data: `return formMethod.getValues();`,
+    //       },
+    //       queries: {
+    //         enable: false,
+    //       },
+    //     },
+    //   },
+    // },
+    // {
+    //   id: 'form-action-2',
+    //   groupType: 'form',
+    //   type: 'action-submit',
+    //   props: {
+    //     formId: '21',
+    //     children: 'Submit (21)',
+    //     onAction: 'console.log("Form 21: " , values)',
+    //   },
+    //   configs: {
+    //     loading: {
+    //       sx: {
+    //         bgcolor: '#c28d2b',
+    //       },
+    //     },
+    //   },
+    // },
   ];
 
   return (

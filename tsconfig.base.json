@@ -17,6 +17,7 @@
     "paths": {
       "@mui-builder/core": ["packages/core/src/index.ts"],
       "@mui-builder/form": ["packages/components/form/src/index.ts"],
+      "@mui-builder/generator": ["packages/generator/src/index.ts"],
       "@mui-builder/grid": ["packages/components/grid/src/index.ts"],
       "@mui-builder/utils": ["packages/utils/src/index.ts"]
     }
