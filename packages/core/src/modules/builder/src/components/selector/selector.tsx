@@ -2,17 +2,11 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
 import { FieldProps, FormTypes } from '@mui-builder/form';
-import { GridProps, GridTypes } from '@mui-builder/grid';
+import Grid, { GridProps, GridTypes } from '@mui-builder/grid';
 
 import { SelectorProps } from './selector.types';
 
-const Selector: FC<SelectorProps> = ({
-  groupType,
-  type,
-  props,
-  fieldId,
-  configs,
-}) => {
+const Selector: FC<SelectorProps> = ({ groupType, type, props, configs }) => {
   let SelectedComponent;
 
   switch (groupType) {
@@ -20,35 +14,28 @@ const Selector: FC<SelectorProps> = ({
       SelectedComponent = lazy(() => import('@mui-builder/form'));
 
       return (
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense>
           <SelectedComponent
             fieldType={type as FormTypes}
             fieldProps={props as FieldProps}
-            fieldId={fieldId}
             configs={configs}
           />
         </Suspense>
       );
 
     case 'grid':
-      SelectedComponent = lazy(() => import('@mui-builder/grid'));
+      SelectedComponent = Grid;
 
       return (
-        <Suspense fallback={<div>Loading...</div>}>
-          <SelectedComponent
-            gridType={type as GridTypes}
-            gridProps={props as GridProps}
-          />
-        </Suspense>
+        <SelectedComponent
+          gridType={type as GridTypes}
+          gridProps={props as GridProps}
+        />
       );
 
     default:
       SelectedComponent = Fragment;
-      return (
-        <Suspense fallback={<div>Loading...</div>}>
-          <SelectedComponent />
-        </Suspense>
-      );
+      return <SelectedComponent />;
   }
 };
 

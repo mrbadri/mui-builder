@@ -2,10 +2,10 @@ import { Link, Route, Routes } from 'react-router-dom';
 
 import { Stack } from '@mui/material';
 
-import { Builder, BuilderProps } from '@mui-builder/core';
+import Builder, { BuilderProps } from '@mui-builder/core';
 
 export function App() {
-  const groupList: BuilderProps[] = [
+  const children: BuilderProps[] = [
     // Fields
     {
       id: 'form-field-1',
@@ -53,7 +53,7 @@ export function App() {
     },
 
     {
-      id: 'form-field-2',
+      id: 'form-field-273',
       groupType: 'grid',
       type: 'container',
       props: {
@@ -61,7 +61,7 @@ export function App() {
         columnSpacing: 2,
         children: [
           {
-            id: 'form-field-4',
+            id: 'form-field-4kldjd',
             groupType: 'grid',
             type: 'item',
             props: {
@@ -200,7 +200,7 @@ export function App() {
           path="/"
           element={
             <Stack direction="row" alignItems="flex-end">
-              <Builder groupList={groupList} />
+              <Builder children={children} />
             </Stack>
           }
         />

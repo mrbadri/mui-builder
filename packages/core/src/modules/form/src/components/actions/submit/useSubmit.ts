@@ -1,4 +1,4 @@
-import { convertFn } from 'packages/core/src/utils/src';
+import { convertFn } from 'packages/core/src/utils';
 
 import { useCallback } from 'react';
 import { FieldValues } from 'react-hook-form';

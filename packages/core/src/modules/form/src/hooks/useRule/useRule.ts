@@ -1,4 +1,4 @@
-import { convertFn, isStrFn } from 'packages/core/src/utils/src';
+import { convertFn, isStrFn } from 'packages/core/src/utils';
 
 import { FieldValues, RegisterOptions } from 'react-hook-form';
 

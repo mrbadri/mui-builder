@@ -1,4 +1,4 @@
-import { convertFn } from 'packages/core/src/utils/src';
+import { convertFn } from 'packages/core/src/utils';
 
 import { useCallback, useMemo } from 'react';
 
