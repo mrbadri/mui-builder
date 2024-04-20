@@ -8,7 +8,7 @@ const generateGridItem: Generator<GridProps> = ({ children, props }) => {
   return {
     id: generateID(),
     groupType: 'grid',
-    type: 'container',
+    type: 'item',
     props: {
       rowSpacing: 2,
       columnSpacing: 2,

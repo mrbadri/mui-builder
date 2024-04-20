@@ -120,7 +120,7 @@ export function App() {
       ],
     }),
 
-    // Fields
+    // // Fields
     // {
     //   id: 'form-field-1',
     //   groupType: 'form',

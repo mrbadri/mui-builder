@@ -10,8 +10,8 @@ const generateGridContainer: Generator<GridProps> = ({ children, props }) => {
     groupType: 'grid',
     type: 'container',
     props: {
-      rowSpacing: 20,
-      columnSpacing: 20,
+      rowSpacing: 2,
+      columnSpacing: 2,
       children,
       ...props,
     },
