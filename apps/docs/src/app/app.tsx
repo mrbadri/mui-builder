@@ -1,25 +1,11 @@
-import { FormBuilderProps } from 'packages/core/src/components/builder/builder.types';
-
 import { Link, Route, Routes } from 'react-router-dom';
 
 import { Stack } from '@mui/material';
 
-import { Builder } from '@mui-builder/core';
-
-// const createGridContainer = (children, option) => {
-//   return {
-//     id: Math.random() * Math.random(),
-//     groupType: 'grid',
-//     type: 'container',
-//     props: {
-//       children,
-//       ...option,
-//     },
-//   };
-// };
+import { Builder, BuilderProps } from '@mui-builder/core';
 
 export function App() {
-  const groupList: FormBuilderProps[] = [
+  const groupList: BuilderProps[] = [
     // Fields
     {
       id: 'form-field-1',

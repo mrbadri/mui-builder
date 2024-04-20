@@ -8,7 +8,8 @@
   "homepage": "https://github.com/mrbadri/mui-builder#readme",
   "dependencies": {
     "@mui-builder/form": "*",
-    "@mui-builder/grid": "*"
+    "@mui-builder/grid": "*",
+    "@mui-builder/utils": "*"
   },
   "peerDependencies": {
     "react": "18.2.0",
