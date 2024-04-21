@@ -1,4 +1,3 @@
-import { convertFn, isStrFn } from 'packages/core/src/utils';
 
 import { AxiosHeaders } from 'axios';
 
@@ -9,6 +8,8 @@ import {
   paramsBuilderFn,
   urlBuilderFn,
 } from './apiBuilder.types';
+import convertFn from 'packages/core/src/utils/convertFn/convertFn';
+import isStrFn from 'packages/core/src/utils/isStrFn/isStrFn';
 
 const apiBuilder = async <Data>({
   apiInstance,

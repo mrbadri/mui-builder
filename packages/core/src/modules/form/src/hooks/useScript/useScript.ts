@@ -1,9 +1,9 @@
-import { convertFn } from 'packages/core/src/utils';
 
 import { useCallback, useMemo } from 'react';
 
 import { ScriptFn } from '../../types/script.types';
 import { UseScriptProps } from './useScript.types';
+import convertFn from 'packages/core/src/utils/convertFn/convertFn';
 
 const UseScript = ({
   script,

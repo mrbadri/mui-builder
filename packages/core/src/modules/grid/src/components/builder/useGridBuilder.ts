@@ -1,6 +1,6 @@
-import { BuilderProps } from './builder.types';
+import { GridBuilderProps } from './gridBuilder.types';
 
-const useBuilder = (props: BuilderProps) => {
+const useGridBuilder = (props: GridBuilderProps) => {
   const { gridProps, gridType } = props;
 
   const getSelectorProps = () => ({
@@ -11,4 +11,4 @@ const useBuilder = (props: BuilderProps) => {
   return { getSelectorProps };
 };
 
-export default useBuilder;
+export default useGridBuilder;

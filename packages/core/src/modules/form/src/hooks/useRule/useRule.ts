@@ -1,7 +1,7 @@
-import { convertFn, isStrFn } from 'packages/core/src/utils';
 
-import { FieldValues, RegisterOptions } from 'react-hook-form';
 
+import convertFn from 'packages/core/src/utils/convertFn/convertFn';
+import isStrFn from 'packages/core/src/utils/isStrFn/isStrFn';
 import { Validate } from '../../types/validation.types';
 import {
   UseRoleProps,

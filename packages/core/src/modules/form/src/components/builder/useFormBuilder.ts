@@ -1,8 +1,8 @@
-import { BuilderProps } from './builder.types';
+import { FormBuilderProps } from './formBuilder.types';
 
 import useForms from '../../hooks/useForms/useForms';
 
-const useBuilder = (props: BuilderProps) => {
+const useFormBuilder = (props: FormBuilderProps) => {
   const { fieldProps, fieldType, configs } = props;
 
   const formId = fieldProps.formId;
@@ -19,4 +19,4 @@ const useBuilder = (props: BuilderProps) => {
   return { hasForm, getFormWrapperProps, getSelectorProps };
 };
 
-export default useBuilder;
+export default useFormBuilder;

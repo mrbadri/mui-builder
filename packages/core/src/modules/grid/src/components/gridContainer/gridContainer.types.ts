@@ -1,3 +1,3 @@
 import { GridProps } from '../grid/grid.type';
 
-export type ContainerProps = GridProps;
+export type GridContainerProps = GridProps;

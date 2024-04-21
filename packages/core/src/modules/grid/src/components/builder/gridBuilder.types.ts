@@ -2,7 +2,7 @@ import { GridTypes } from '../../types/public.types';
 
 import { GridProps } from '../grid/grid.type';
 
-export interface BuilderProps {
+export interface GridBuilderProps {
   gridType: GridTypes;
   gridProps: GridProps;
 }

@@ -1,3 +1,3 @@
-import { BuilderProps } from '../../components/builder/builder.types';
+import { FormBuilderProps } from '../../components/builder/formBuilder.types';
 
-export type SelectorProps = BuilderProps;
+export type SelectorProps = FormBuilderProps;

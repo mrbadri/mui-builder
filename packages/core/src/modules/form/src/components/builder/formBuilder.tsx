@@ -1,13 +1,14 @@
 import { FC } from 'react';
 
-import { BuilderProps } from './builder.types';
+import { FormBuilderProps } from './formBuilder.types';
 
 import FormWrapper from '../../utils/formWrapper/formWrapper';
 import Selector from '../../utils/selector/selector';
-import useBuilder from './useBuilder';
+import useFormBuilder from './useFormBuilder';
 
-const Builder: FC<BuilderProps> = (props) => {
-  const { hasForm, getSelectorProps, getFormWrapperProps } = useBuilder(props);
+const FormBuilder: FC<FormBuilderProps> = (props) => {
+  const { hasForm, getSelectorProps, getFormWrapperProps } =
+    useFormBuilder(props);
 
   if (!hasForm)
     return (
@@ -19,4 +20,4 @@ const Builder: FC<BuilderProps> = (props) => {
   return <Selector {...getSelectorProps()} />;
 };
 
-export default Builder;
+export default FormBuilder;

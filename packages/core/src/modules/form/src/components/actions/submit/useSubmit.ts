@@ -1,4 +1,4 @@
-import { convertFn } from 'packages/core/src/utils';
+
 
 import { useCallback } from 'react';
 import { FieldValues } from 'react-hook-form';
@@ -9,6 +9,7 @@ import { DynamicAction, SubmitFieldProps } from './submit.types';
 
 import useForms from '../../../hooks/useForms/useForms';
 import useQueryBuilder from '../../../hooks/useQueryBuilder/useQueryBuilder';
+import convertFn from 'packages/core/src/utils/convertFn/convertFn';
 
 const useSubmit = (props: SubmitFieldProps) => {
   const { formId, children, onAction, api, ...submitFieldProps } = props;
