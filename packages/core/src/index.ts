@@ -1,2 +1,2 @@
 export * from './components/builder/builder';
-export * from './components/builder/builder.types';
+export type * from './components/builder/builder.types';
