@@ -1,0 +1,27 @@
+version: '1.0.0'
+services:
+  docs:
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "3000:4200"
+    environment:
+      - NODE_ENV=production
+    command: npx nx serve docs --host=0.0.0.0 --port=4200
+
+  docs-dev:
+      build:
+        context: .
+        dockerfile: Dockerfile.dev
+      volumes:
+        - .:/app
+        - /app/node_modules
+      ports:
+        - "4200:4200"
+      environment:
+        - NODE_ENV=development
+      # entrypoint: /usr/local/bin/entrypoint.sh
+      command: npx nx serve docs --host=0.0.0.0 --port=4200
+
+

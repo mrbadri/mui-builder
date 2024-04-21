@@ -5,6 +5,11 @@
   "scripts": {
     "dev:docs": "nx serve docs",
     "build:all": "nx run-many --target=build",
+    "docker:init:docs": "docker compose up docs-dev -d --build",
+    "docker:node:docs": "sudo  docker cp mui-builder-docs-dev-1:app/node_modules .",
+    "docker:dev:docs": "docker compose up docs-dev -d & docker compose logs docs-dev -f",
+    "docker:down:docs": "docker compose down docs-dev ",
+    "docker:log:docs": "docker compose logs docs-dev -f",
     "add": "npx prettier --write . & git add . ",
     "change": "npx changeset",
     "change:version": "npx changeset version",
