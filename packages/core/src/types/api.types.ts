@@ -1,5 +1,5 @@
-import { ApiQuery } from '../hooks/useQueryBuilder/useQueryBuilder.types';
 import { ApiConfigs } from '../utils/api/builder/apiBuilder.types';
+import { ApiQuery } from '../utils/useQueryBuilder/useQueryBuilder.types';
 
 export type Api = {
   configs: ApiConfigs;

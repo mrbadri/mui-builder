@@ -1,7 +1,6 @@
 import { AxiosHeaders, AxiosRequestConfig, AxiosStatic } from 'axios';
-
-import { Form } from '../../../hooks/useForms/useForms.types';
-import { FormId, Forms } from '../../../types/public.types';
+import { Form } from 'packages/core/src/modules/form/src/hooks/useForms/useForms.types';
+import { FormId, Forms } from 'packages/core/src/modules/form/src/types/public.types';
 
 export type ApiInstance = AxiosStatic;
 

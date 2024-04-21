@@ -2,12 +2,16 @@ import { FC, Fragment, Suspense, lazy } from 'react';
 
 import { SubmitFieldProps } from '../../components/actions/submit/submit.types';
 import { TextProps } from '../../components/fields/text/text.types';
-import { SelectorProps } from './selector.types';
+import { FormSelectorProps } from './formSelector.types';
 
 import SubmitLoading from '../../components/actions/submit/submit.loading';
 import TextLoading from '../../components/fields/text/text.loading';
 
-const Selector: FC<SelectorProps> = ({ fieldType, fieldProps, configs }) => {
+const FormSelector: FC<FormSelectorProps> = ({
+  fieldType,
+  fieldProps,
+  configs,
+}) => {
   let SelectedComponent;
   const { loading } = configs || {};
 
@@ -44,4 +48,4 @@ const Selector: FC<SelectorProps> = ({ fieldType, fieldProps, configs }) => {
       );
   }
 };
-export default Selector;
+export default FormSelector;

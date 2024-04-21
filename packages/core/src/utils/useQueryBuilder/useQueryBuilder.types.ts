@@ -1,7 +1,7 @@
+import { Form } from '../../modules/form/src/hooks/useForms/useForms.types';
+import { FormId, Forms } from '../../modules/form/src/types/public.types';
 import { ApiError } from '../../types/api.types';
-import { FormId, Forms } from '../../types/public.types';
-import { ApiBuilderProps } from '../../utils/api/builder/apiBuilder.types';
-import { Form } from '../useForms/useForms.types';
+import { ApiBuilderProps } from '../api/builder/apiBuilder.types';
 
 export type ApiQuery<Data = unknown> = {
   enable?: string | boolean;

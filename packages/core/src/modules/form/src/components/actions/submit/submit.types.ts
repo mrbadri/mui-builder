@@ -1,7 +1,7 @@
 import { FieldValues } from 'react-hook-form';
 
+import { Api } from '../../../../../../types/api.types';
 import { Form } from '../../../hooks/useForms/useForms.types';
-import { Api } from '../../../types/api.types';
 import { FormId } from '../../../types/public.types';
 import { ActionProps } from '../action/action.types';
 

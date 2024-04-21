@@ -1,3 +1,5 @@
+import convertFn from 'packages/core/src/utils/convertFn/convertFn';
+import isStrFn from 'packages/core/src/utils/isStrFn/isStrFn';
 
 import { AxiosResponse } from 'axios';
 
@@ -9,10 +11,8 @@ import {
   UseQueryBuilderProps,
 } from './useQueryBuilder.types';
 
-import apiBuilder from '../../utils/api/builder/apiBuilder';
 import useQuery from '../useQuery/useQuery';
-import convertFn from 'packages/core/src/utils/convertFn/convertFn';
-import isStrFn from 'packages/core/src/utils/isStrFn/isStrFn';
+import apiBuilder from '../api/builder/apiBuilder';
 
 const useQueryBuilder = <T>({
   formId,

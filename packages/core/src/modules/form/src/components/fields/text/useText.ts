@@ -5,11 +5,11 @@ import axios from 'axios';
 
 import { TextProps } from './text.types';
 
+import useQueryBuilder from '../../../../../../utils/useQueryBuilder/useQueryBuilder';
+import UseScript from '../../../../../../utils/useScript/useScript';
 import useForms from '../../../hooks/useForms/useForms';
 import usePropsController from '../../../hooks/usePropsController/usePropsController';
-import useQueryBuilder from '../../../hooks/useQueryBuilder/useQueryBuilder';
 import useRule from '../../../hooks/useRule/useRule';
-import UseScript from '../../../hooks/useScript/useScript';
 
 const UseText = (props: TextProps) => {
   const {

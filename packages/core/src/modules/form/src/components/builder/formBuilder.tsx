@@ -3,7 +3,7 @@ import { FC } from 'react';
 import { FormBuilderProps } from './formBuilder.types';
 
 import FormWrapper from '../../utils/formWrapper/formWrapper';
-import Selector from '../../utils/selector/selector';
+import FormSelector from '../../utils/selector/formSelector';
 import useFormBuilder from './useFormBuilder';
 
 const FormBuilder: FC<FormBuilderProps> = (props) => {
@@ -13,11 +13,11 @@ const FormBuilder: FC<FormBuilderProps> = (props) => {
   if (!hasForm)
     return (
       <FormWrapper {...getFormWrapperProps()}>
-        <Selector {...getSelectorProps()} />
+        <FormSelector {...getSelectorProps()} />
       </FormWrapper>
     );
 
-  return <Selector {...getSelectorProps()} />;
+  return <FormSelector {...getSelectorProps()} />;
 };
 
 export default FormBuilder;
