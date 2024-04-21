@@ -1,6 +1,6 @@
-import DynamicChildren from 'packages/core/src/modules/builder/src';
-
 import { Unstable_Grid2 as Grid2 } from '@mui/material';
+
+import DynamicChildren from '@mui-builder/core';
 
 import { GridProps } from './grid.type';
 

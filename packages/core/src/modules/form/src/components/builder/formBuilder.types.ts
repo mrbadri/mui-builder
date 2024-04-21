@@ -1,6 +1,6 @@
-import { FieldProps, FormTypes } from '../../types/public.types';
+import { Configs } from '@mui-builder/form';
 
-import { Configs } from '../../../../../types/configs.type';
+import { FieldProps, FormTypes } from '../../types/public.types';
 
 export type FormBuilderProps = {
   fieldType: FormTypes;

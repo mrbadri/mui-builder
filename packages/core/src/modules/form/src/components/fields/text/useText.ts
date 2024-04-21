@@ -1,12 +1,12 @@
-import { useEffect, useState } from 'react';
 import { useController, useWatch } from 'react-hook-form';
+
+import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
+import UseScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
 import { TextProps } from './text.types';
 
-import useQueryBuilder from '../../../../../../utils/useQueryBuilder/useQueryBuilder';
-import UseScript from '../../../../../../utils/useScript/useScript';
 import useForms from '../../../hooks/useForms/useForms';
 import usePropsController from '../../../hooks/usePropsController/usePropsController';
 import useRule from '../../../hooks/useRule/useRule';
@@ -54,8 +54,8 @@ const UseText = (props: TextProps) => {
   // API Call
   useQueryBuilder({
     apiInstance: axios,
-    apiConfigs: configs || {},
-    apiQuery: queries || {},
+    apiConfigs: configs ?? {},
+    apiQuery: queries ?? {},
     formMethod,
     formId,
     forms,

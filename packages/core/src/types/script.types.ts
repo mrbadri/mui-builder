@@ -1,5 +1,4 @@
-import { Form } from '../hooks/useForms/useForms.types';
-import { SetProps } from '../hooks/usePropsController/usePropsController.types';
+import { Form, SetProps } from '@mui-builder/form';
 
 export type Script = string;
 

@@ -1,3 +1,3 @@
-import { BuilderProps } from './../../../../../types/builder.type';
+import { BuilderProps } from '@mui-builder/types/builder.type';
 
 export type SelectorProps = BuilderProps;

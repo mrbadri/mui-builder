@@ -1,7 +1,6 @@
-import { Form } from '../../modules/form/src/hooks/useForms/useForms.types';
-import { FormId, Forms } from '../../modules/form/src/types/public.types';
-import { ApiError } from '../../types/api.types';
-import { ApiBuilderProps } from '../api/builder/apiBuilder.types';
+import { Form, FormId, Forms } from '@mui-builder/form';
+import { ApiError } from '@mui-builder/types/api.types';
+import { ApiBuilderProps } from '@mui-builder/utils/api/builder/apiBuilder.types';
 
 export type ApiQuery<Data = unknown> = {
   enable?: string | boolean;

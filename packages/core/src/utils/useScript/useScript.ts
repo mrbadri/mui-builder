@@ -1,8 +1,8 @@
-import convertFn from 'packages/core/src/utils/convertFn/convertFn';
-
 import { useCallback, useMemo } from 'react';
 
-import { ScriptFn } from '../../modules/form/src/types/script.types';
+import convertFn from '@mui-builder/utils/convertFn/convertFn';
+
+import { ScriptFn } from '../../types/script.types';
 import { UseScriptProps } from './useScript.types';
 
 const UseScript = ({

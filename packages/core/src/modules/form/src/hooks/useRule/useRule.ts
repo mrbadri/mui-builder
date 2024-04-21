@@ -1,7 +1,6 @@
+import convertFn from '@mui-builder/utils/convertFn/convertFn';
+import isStrFn from '@mui-builder/utils/isStrFn/isStrFn';
 
-
-import convertFn from 'packages/core/src/utils/convertFn/convertFn';
-import isStrFn from 'packages/core/src/utils/isStrFn/isStrFn';
 import { Validate } from '../../types/validation.types';
 import {
   UseRoleProps,

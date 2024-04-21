@@ -1,18 +1,17 @@
-import convertFn from 'packages/core/src/utils/convertFn/convertFn';
-import isStrFn from 'packages/core/src/utils/isStrFn/isStrFn';
+import { ApiError } from '@mui-builder/types/api.types';
+import apiBuilder from '@mui-builder/utils/api/builder/apiBuilder';
+import convertFn from '@mui-builder/utils/convertFn/convertFn';
+import isStrFn from '@mui-builder/utils/isStrFn/isStrFn';
+import useQuery from '@mui-builder/utils/useQuery/useQuery';
 
 import { AxiosResponse } from 'axios';
 
-import { ApiError } from '../../types/api.types';
 import {
   EnableBuilderFn,
   OnErrorBuilderFn,
   OnSuccessBuilderFn,
   UseQueryBuilderProps,
 } from './useQueryBuilder.types';
-
-import useQuery from '../useQuery/useQuery';
-import apiBuilder from '../api/builder/apiBuilder';
 
 const useQueryBuilder = <T>({
   formId,

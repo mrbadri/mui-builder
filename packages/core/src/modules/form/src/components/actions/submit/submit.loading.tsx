@@ -1,6 +1,7 @@
 import { Skeleton } from '@mui/material';
 
-import { LoadingProps } from '../../../../../../types/configs.type';
+import { LoadingProps } from '@mui-builder/types/configs.type';
+
 import useSubmitLoading from './useSubmit.loading';
 
 const SubmitLoading = (props: LoadingProps) => {

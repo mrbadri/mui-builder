@@ -1,4 +1,4 @@
-import { LoadingProps } from '../../../../../../types/configs.type';
+import { LoadingProps } from '@mui-builder/types/configs.type';
 
 const useTextLoading = (props: LoadingProps) => {
   const { animation = 'wave', sx, ...otherProps } = props;

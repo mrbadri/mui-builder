@@ -1,4 +1,4 @@
-import { BuilderProps } from 'packages/core/src/types/builder.type';
+import { BuilderProps } from '@mui-builder/types/builder.type';
 
 export type DynamicChildrenProps = {
   children: BuilderProps | BuilderProps[];

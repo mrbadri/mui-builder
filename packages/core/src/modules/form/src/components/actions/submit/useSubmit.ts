@@ -1,13 +1,13 @@
-import convertFn from 'packages/core/src/utils/convertFn/convertFn';
-
 import { useCallback } from 'react';
 import { FieldValues } from 'react-hook-form';
+
+import convertFn from '@mui-builder/utils/convertFn/convertFn';
+import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
 
 import axios from 'axios';
 
 import { DynamicAction, SubmitFieldProps } from './submit.types';
 
-import useQueryBuilder from '../../../../../../utils/useQueryBuilder/useQueryBuilder';
 import useForms from '../../../hooks/useForms/useForms';
 
 const useSubmit = (props: SubmitFieldProps) => {
@@ -20,8 +20,8 @@ const useSubmit = (props: SubmitFieldProps) => {
   // API Call
   const { refetch, isLoading } = useQueryBuilder({
     apiInstance: axios,
-    apiConfigs: configs || {},
-    apiQuery: queries || {},
+    apiConfigs: configs ?? {},
+    apiQuery: queries ?? {},
     formMethod,
     formId,
     forms,
