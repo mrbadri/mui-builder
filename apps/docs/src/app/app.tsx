@@ -1,25 +1,11 @@
-import { FormBuilderProps } from 'packages/core/src/components/builder/builder.types';
-
 import { Link, Route, Routes } from 'react-router-dom';
 
 import { Stack } from '@mui/material';
 
-import { Builder } from '@mui-builder/core';
-
-// const createGridContainer = (children, option) => {
-//   return {
-//     id: Math.random() * Math.random(),
-//     groupType: 'grid',
-//     type: 'container',
-//     props: {
-//       children,
-//       ...option,
-//     },
-//   };
-// };
+import Builder, { BuilderProps } from '@mui-builder/core';
 
 export function App() {
-  const groupList: FormBuilderProps[] = [
+  const children: BuilderProps[] = [
     // Fields
     {
       id: 'form-field-1',
@@ -67,7 +53,7 @@ export function App() {
     },
 
     {
-      id: 'form-field-2',
+      id: 'form-field-273',
       groupType: 'grid',
       type: 'container',
       props: {
@@ -75,7 +61,7 @@ export function App() {
         columnSpacing: 2,
         children: [
           {
-            id: 'form-field-4',
+            id: 'form-field-4kldjd',
             groupType: 'grid',
             type: 'item',
             props: {
@@ -214,7 +200,7 @@ export function App() {
           path="/"
           element={
             <Stack direction="row" alignItems="flex-end">
-              <Builder groupList={groupList} />
+              <Builder children={children} />
             </Stack>
           }
         />

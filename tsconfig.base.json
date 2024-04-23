@@ -16,9 +16,10 @@
     "baseUrl": ".",
     "paths": {
       "@mui-builder/core": ["packages/core/src/index.ts"],
-      "@mui-builder/form": ["packages/components/form/src/index.ts"],
-      "@mui-builder/grid": ["packages/components/grid/src/index.ts"],
-      "@mui-builder/utils": ["packages/utils/src/index.ts"]
+      "@mui-builder/form": ["packages/core/src/modules/form/src/index.ts"],
+      "@mui-builder/grid": ["packages/core/src/modules/grid/src/index.ts"],
+      "@mui-builder/utils/*": ["packages/core/src/utils/*"],
+      "@mui-builder/types/*": ["packages/core/src/types/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]
