@@ -163,6 +163,39 @@ export function App() {
         },
       },
     },
+    {
+      id: 'form-auto-complete-1',
+      groupType: 'form',
+      type: 'auto-complete',
+      props: {
+        id: 'auto-complete-1',
+        formId: '18',
+        options: [
+          { value: 'fo val', label: 'folan lab' },
+          { value: 'fo val22', label: 'folan lab22' },
+        ],
+        innerTextFieldProps: {
+          sx: {
+            width: '200px',
+          },
+        },
+      },
+    },
+    {
+      id: 'form-checkbox-1',
+      groupType: 'form',
+      type: 'checkbox',
+      props: {
+        id: 'checkbox-1',
+        formId: '18',
+        checkboxProps: {
+
+        },
+        formControlLabelProps: {
+          label: 'label 1'
+        }
+      }
+    }
   ];
 
   return (
