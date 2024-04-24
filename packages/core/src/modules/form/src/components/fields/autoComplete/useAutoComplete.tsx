@@ -6,13 +6,13 @@ import UseScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
-import { AutoCompleteProps } from './autoComplete.types';
+import { AutoCompleteOptions, AutoCompleteProps } from './autoComplete.types';
 
 import useForms from '../../../hooks/useForms/useForms';
 import usePropsController from '../../../hooks/usePropsController/usePropsController';
 import useRule from '../../../hooks/useRule/useRule';
 
-const useAutoComplete = (props: AutoCompleteProps<any>) => {
+const useAutoComplete = (props: AutoCompleteProps<AutoCompleteOptions>) => {
   const {
     formId,
     script,
@@ -73,12 +73,17 @@ const useAutoComplete = (props: AutoCompleteProps<any>) => {
 
   // Props Methods
   // -- Handle Option
-  const getOptionLabel = (option: any) => option?.name ?? '';
+  const getOptionLabel = (option: AutoCompleteOptions) => option?.name ?? '';
 
-  const isOptionEqualToValue = (option: any, value: any) =>
-    option.id === value.id;
+  const isOptionEqualToValue = (
+    option: AutoCompleteOptions,
+    value: AutoCompleteOptions
+  ) => option.id === value.id;
 
-  const onChange: AutoCompleteProps<unknown>['onChange'] = (_, value) => {
+  const onChange: AutoCompleteProps<AutoCompleteOptions>['onChange'] = (
+    _,
+    value
+  ) => {
     field.onChange(value ?? null);
   };
 

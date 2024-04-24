@@ -1,7 +1,10 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
 import { SubmitFieldProps } from '../../components/actions/submit/submit.types';
-import { AutoCompleteProps } from '../../components/fields/autoComplete/autoComplete.types';
+import {
+  AutoCompleteOptions,
+  AutoCompleteProps,
+} from '../../components/fields/autoComplete/autoComplete.types';
 import { CheckboxProps } from '../../components/fields/checkbox/checkbox.types';
 import { TextProps } from '../../components/fields/text/text.types';
 import { FormSelectorProps } from './formSelector.types';
@@ -47,7 +50,9 @@ const FormSelector: FC<FormSelectorProps> = ({
 
       return (
         <Suspense key={fieldProps.id} fallback={<SubmitLoading {...loading} />}>
-          <SelectedComponent {...(fieldProps as AutoCompleteProps<any>)} />
+          <SelectedComponent
+            {...(fieldProps as AutoCompleteProps<AutoCompleteOptions>)}
+          />
         </Suspense>
       );
 

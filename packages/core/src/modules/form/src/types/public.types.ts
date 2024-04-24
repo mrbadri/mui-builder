@@ -1,7 +1,10 @@
 import { SkeletonOwnProps } from '@mui/material';
 
 import { SubmitFieldProps } from '../components/actions/submit/submit.types';
-import { AutoCompleteProps } from '../components/fields/autoComplete/autoComplete.types';
+import {
+  AutoCompleteOptions,
+  AutoCompleteProps,
+} from '../components/fields/autoComplete/autoComplete.types';
 import { CheckboxProps } from '../components/fields/checkbox/checkbox.types';
 import { TextProps } from '../components/fields/text/text.types';
 import { Form } from '../hooks/useForms/useForms.types';
@@ -21,7 +24,7 @@ export type FormTypes =
 export type FieldProps =
   | TextProps
   | SubmitFieldProps
-  | AutoCompleteProps<any>
+  | AutoCompleteProps<AutoCompleteOptions>
   | CheckboxProps;
 
 export type Dependesies = string[];
