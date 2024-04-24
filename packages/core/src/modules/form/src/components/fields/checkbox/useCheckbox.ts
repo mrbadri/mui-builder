@@ -9,17 +9,19 @@ import { CheckboxProps } from './checkbox.types';
 
 import useForms from '../../../hooks/useForms/useForms';
 import usePropsController from '../../../hooks/usePropsController/usePropsController';
+import useRule from '../../../hooks/useRule/useRule';
 
 const useCheckbox = (props: CheckboxProps) => {
   const {
-    checkboxProps,
-    formControlLabelProps,
-    formId,
-    script,
+    id,
     api,
+    rule,
+    script,
+    formId,
     show = true,
     dependesies,
-    ...CheckboxProps
+    checkboxProps,
+    ...formControlLabelProps
   } = props;
 
   const { configs, queries } = api || {};
@@ -28,7 +30,7 @@ const useCheckbox = (props: CheckboxProps) => {
   const formMethod = forms?.[formId];
   const { setProps, propsController } = usePropsController();
 
-  const newProps = propsController?.[CheckboxProps?.id] || {};
+  const newProps = propsController?.[id] || {};
 
   // Handle Script
   const { scriptResult } = UseScript({
@@ -60,30 +62,29 @@ const useCheckbox = (props: CheckboxProps) => {
     field,
     formState: { errors },
   } = useController({
-    name: CheckboxProps.id,
+    name: id,
     control: formMethod.control,
     disabled: checkboxProps.disabled,
-    // rules: useRule(checkboxProps?.rule),
+    defaultValue: !!checkboxProps.checked,
+    rules: useRule(rule),
   });
 
-  const error = errors?.[CheckboxProps.id];
+  const error = errors?.[id];
 
   // Props
-
   const getFormControlLabelProps = () => ({
     ...field,
-    ...formControlLabelProps,
     error: error,
-    value: field.value ?? '',
     ...scriptResult,
     ...newProps,
+    ...formControlLabelProps,
   });
 
   const getCheckboxProps = () => ({
     ...checkboxProps,
   });
 
-  return { getCheckboxProps, getFormControlLabelProps };
+  return { show, getCheckboxProps, getFormControlLabelProps };
 };
 
 export default useCheckbox;

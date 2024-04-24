@@ -30,12 +30,6 @@ const UseText = (props: TextProps) => {
 
   const newProps = propsController?.[textFieldProps?.id] || {};
 
-  console.log(
-    { propsController, newProps },
-    textFieldProps?.id,
-    textFieldProps
-  );
-
   // Handle Script
   const { scriptResult } = UseScript({
     script,

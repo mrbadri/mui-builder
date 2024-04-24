@@ -11,6 +11,11 @@ import { Script } from '@mui-builder/types/script.types';
 import { Dependesies, FormId, Id } from '../../../types/public.types';
 import { Rule } from '../../../types/validation.types';
 
+export type AutoCompleteOptions = {
+  name: number | string;
+  id: number | string;
+};
+
 export type AutoCompleteProps<
   Value,
   Multiple extends boolean | undefined = false,
@@ -29,7 +34,7 @@ export type AutoCompleteProps<
   api?: Api;
   rule?: Rule;
   show?: boolean;
-  options: any;
+  options: AutoCompleteOptions[];
   renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
   innerTextFieldProps?: Partial<TextFieldProps>;
 };

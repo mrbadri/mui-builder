@@ -22,7 +22,7 @@ const useAutoComplete = (props: AutoCompleteProps<any>) => {
     defaultValue,
     options,
     innerTextFieldProps,
-    ...autoCompleteProps
+    ...restAutoCompleteProps
   } = props;
 
   const { configs, queries } = api || {};
@@ -30,10 +30,8 @@ const useAutoComplete = (props: AutoCompleteProps<any>) => {
   const { forms } = useForms();
   const formMethod = forms?.[formId];
 
-  console.log(formMethod.getValues());
-
   const { setProps, propsController } = usePropsController();
-  const newProps = propsController?.[autoCompleteProps?.id] || {};
+  const newProps = propsController?.[restAutoCompleteProps?.id] || {};
 
   useQueryBuilder({
     apiInstance: axios,
@@ -55,12 +53,14 @@ const useAutoComplete = (props: AutoCompleteProps<any>) => {
     field,
     formState: { errors },
   } = useController({
-    name: autoCompleteProps.id,
+    name: restAutoCompleteProps.id,
     control: formMethod.control,
-    disabled: autoCompleteProps.disabled,
-    rules: useRule(autoCompleteProps?.rule),
+    disabled: restAutoCompleteProps.disabled,
+    rules: useRule(restAutoCompleteProps?.rule),
     defaultValue,
   });
+
+  const error = errors?.[restAutoCompleteProps.id];
 
   // Handle Script
   const { scriptResult } = UseScript({
@@ -71,36 +71,40 @@ const useAutoComplete = (props: AutoCompleteProps<any>) => {
     setProps,
   });
 
-  const error = errors?.[autoCompleteProps.id];
+  // Props Methods
+  // -- Handle Option
+  const getOptionLabel = (option: any) => option?.name ?? '';
 
-  //Value
-  const selectedValues = useMemo(
-    () =>
-      options.filter((v: any) => {
-        console.log(v);
-        return v.value;
-      }),
-    [options]
-  );
+  const isOptionEqualToValue = (option: any, value: any) =>
+    option.id === value.id;
 
-  const getOptionLabel = (option: any) => {
-    return option.label ?? ''
-  }
+  const onChange: AutoCompleteProps<unknown>['onChange'] = (_, value) => {
+    field.onChange(value ?? null);
+  };
+
+  const hanldeHelperText = () =>
+    (error?.message as string) ?? innerTextFieldProps?.helperText ?? null;
 
   // Props
   const getFieldProps = () => ({
     ...field,
-    ...autoCompleteProps,
+    value: field.value ?? null,
+    onChange: onChange,
+    isOptionEqualToValue,
+    getOptionLabel,
+    error: error,
+    options,
+    ...restAutoCompleteProps,
     ...scriptResult,
     ...newProps,
-    // helperText: error?.message,
-    error: error,
-    value: field.value,
-    options,
-    getOptionLabel
   });
 
-  return { getFieldProps, show, innerTextFieldProps };
+  const getInnerTextFieldProps = () => ({
+    ...innerTextFieldProps,
+    helperText: hanldeHelperText(),
+  });
+
+  return { getFieldProps, show, getInnerTextFieldProps };
 };
 
 export default useAutoComplete;

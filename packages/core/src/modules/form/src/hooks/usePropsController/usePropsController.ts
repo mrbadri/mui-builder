@@ -7,8 +7,6 @@ const usePropsController = create<UseControllerState>((set) => ({
 
   setProps: (id, props) => {
     return set((state) => {
-      console.log('state:', state);
-
       return {
         ...state,
         propsController: { ...state.propsController, [id]: props },

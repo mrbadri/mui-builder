@@ -171,13 +171,14 @@ export function App() {
         id: 'auto-complete-1',
         formId: '18',
         options: [
-          { value: 'fo val', label: 'folan lab' },
-          { value: 'fo val22', label: 'folan lab22' },
+          { name: 'folan lab', id: 'fo val' },
+          { name: 'folan lab22', id: 'fo val22' },
         ],
         innerTextFieldProps: {
           sx: {
             width: '200px',
           },
+          label: 'autoComplete',
         },
       },
     },
@@ -188,14 +189,34 @@ export function App() {
       props: {
         id: 'checkbox-1',
         formId: '18',
-        checkboxProps: {
-
-        },
-        formControlLabelProps: {
-          label: 'label 1'
-        }
-      }
-    }
+        label: 'label 1',
+        checkboxProps: {},
+        children: [
+          {
+            id: 'form-checkbox-1-nested-1',
+            groupType: 'form',
+            type: 'checkbox',
+            props: {
+              id: 'checkbox-1-nested-1',
+              formId: '18',
+              label: 'label 2',
+              checkboxProps: {},
+            },
+          },
+          {
+            id: 'form-checkbox-1-nested-13',
+            groupType: 'form',
+            type: 'checkbox',
+            props: {
+              id: 'checkbox-1-nested-13',
+              formId: '18',
+              label: 'label 23',
+              checkboxProps: {},
+            },
+          },
+        ],
+      },
+    },
   ];
 
   return (

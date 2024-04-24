@@ -13,7 +13,7 @@ const Checkbox: FC<CheckboxProps> = (props) => {
     <FormControlLabel
       {...getFormControlLabelProps()}
       control={<MuiCheckbox {...getCheckboxProps()} />}
-    ></FormControlLabel>
+    />
   );
 };
 

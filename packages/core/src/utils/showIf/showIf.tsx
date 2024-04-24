@@ -1,8 +1,8 @@
-import { ShowIf } from './showIf.types';
+import { ShowIfProps } from './showIf.types';
 
-const ShowIf = ({ children, show }: ShowIf) => {
+const ShowIf = ({ children, show }: ShowIfProps) => {
   if (!show) return null;
-  
+
   return children;
 };
 

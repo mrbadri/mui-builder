@@ -1,3 +1,3 @@
 import { ReactNode } from 'react';
 
-export type ShowIf = { children: ReactNode; show: boolean };
+export type ShowIfProps = { children: ReactNode; show: boolean };
