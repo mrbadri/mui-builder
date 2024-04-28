@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 
 import { Stack } from '@mui/material';
 
 import Builder, { BuilderProps } from '@mui-builder/core';
+import Tabs, { TabData } from '@mui-builder/tab';
 
 export function App() {
   const children: BuilderProps[] = [
@@ -219,24 +221,19 @@ export function App() {
     },
   ];
 
+  const [tabs, setTabs] = useState<TabData[]>([
+    { label: 'Tab 1', content: 'Content for Tab 1' },
+  ]);
+
   return (
     <div>
       <div role="navigation">
+        ----
+        <Tabs tabs={tabs} setTabs={setTabs} />
+        ---
         <ul>
           <li>
             <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/grid">Grid</Link>
-          </li>
-          <li>
-            <Link to="/utils">Utils</Link>
-          </li>
-          <li>
-            <Link to="/form">Form</Link>
-          </li>
-          <li>
-            <Link to="/core">Core</Link>
           </li>
         </ul>
       </div>
