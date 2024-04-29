@@ -163,6 +163,21 @@ export function App() {
         },
       },
     },
+    {
+      id: 'form-radio-1',
+      groupType: 'form',
+      type: 'radio',
+      props: {
+        formId: '18',
+        id: 'radio-1',
+        name: 'fol',
+        defaultValue: '2',
+        radioInputsList: [
+          { label: 'radio-num-1', value: '1' },
+          { label: 'radio-num-2', value: '2' },
+        ],
+      },
+    },
   ];
 
   return (

@@ -1,6 +1,7 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
 import { SubmitFieldProps } from '../../components/actions/submit/submit.types';
+import { RadioGroupProps } from '../../components/fields/radio/radio.types';
 import { TextProps } from '../../components/fields/text/text.types';
 import { FormSelectorProps } from './formSelector.types';
 
@@ -35,6 +36,17 @@ const FormSelector: FC<FormSelectorProps> = ({
       return (
         <Suspense key={fieldProps.id} fallback={<SubmitLoading {...loading} />}>
           <SelectedComponent {...(fieldProps as SubmitFieldProps)} />
+        </Suspense>
+      );
+
+    case 'radio':
+      SelectedComponent = lazy(
+        () => import('../../components/fields/radio/radioGroup')
+      );
+
+      return (
+        <Suspense key={fieldProps.id} fallback={<SubmitLoading {...loading} />}>
+          <SelectedComponent {...(fieldProps as RadioGroupProps)} />
         </Suspense>
       );
 
