@@ -9,7 +9,7 @@ const Grid = (props: GridProps) => {
 
   return (
     <Grid2 {...restProps}>
-      <DynamicChildren children={children} />
+      <DynamicChildren>{children}</DynamicChildren>
     </Grid2>
   );
 };

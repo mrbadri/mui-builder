@@ -163,6 +163,60 @@ export function App() {
         },
       },
     },
+    {
+      id: 'form-auto-complete-1',
+      groupType: 'form',
+      type: 'auto-complete',
+      props: {
+        id: 'auto-complete-1',
+        formId: '18',
+        options: [
+          { name: 'folan lab', id: 'fo val' },
+          { name: 'folan lab22', id: 'fo val22' },
+        ],
+        innerTextFieldProps: {
+          sx: {
+            width: '200px',
+          },
+          label: 'autoComplete',
+        },
+      },
+    },
+    {
+      id: 'form-checkbox-1',
+      groupType: 'form',
+      type: 'checkbox',
+      props: {
+        id: 'checkbox-1',
+        formId: '18',
+        label: 'label 1',
+        checkboxProps: {},
+        children: [
+          {
+            id: 'form-checkbox-1-nested-1',
+            groupType: 'form',
+            type: 'checkbox',
+            props: {
+              id: 'checkbox-1-nested-1',
+              formId: '18',
+              label: 'label 2',
+              checkboxProps: {},
+            },
+          },
+          {
+            id: 'form-checkbox-1-nested-13',
+            groupType: 'form',
+            type: 'checkbox',
+            props: {
+              id: 'checkbox-1-nested-13',
+              formId: '18',
+              label: 'label 23',
+              checkboxProps: {},
+            },
+          },
+        ],
+      },
+    },
   ];
 
   return (
