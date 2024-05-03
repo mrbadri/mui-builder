@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Stack, Tab } from '@mui/material';
+import { Tab } from '@mui/material';
 import IconButton from '@mui/material/IconButton';
 import TabsMui from '@mui/material/Tabs';
 
@@ -11,11 +11,11 @@ import useTabs from './useTabs';
 
 const Tabs: React.FC<TabsProps> = (props) => {
   const {
+    AddIcon,
+    addable,
     tabs,
     getTabsProps,
     getTabProps,
-    getDeleteTabProps,
-    showDeleteIcon,
     getAddTabProps,
     getTabPanelProps,
   } = useTabs(props);
@@ -23,21 +23,17 @@ const Tabs: React.FC<TabsProps> = (props) => {
   return (
     <div>
       <TabsMui {...getTabsProps()}>
+        {/* Show List Tabs */}
         {tabs.map((tab, index) => (
-          <Tab
-            {...getTabProps(tab, index)}
-            icon={
-              <div {...getDeleteTabProps(index)}>
-                {showDeleteIcon(index) && 'x'}
-              </div>
-            }
-          />
+          <Tab {...getTabProps(tab, index)} />
         ))}
-        <IconButton {...getAddTabProps()}>+</IconButton>
+        {/* Add New Tab */}
+        {addable && <IconButton {...getAddTabProps()}>{AddIcon}</IconButton>}
       </TabsMui>
 
+      {/* Content of Tabs */}
       {tabs.map((tab, index) => (
-        <TabPanel {...getTabPanelProps(index)}>{tab.content}</TabPanel>
+        <TabPanel {...getTabPanelProps(index)}>{tab.chidlren}</TabPanel>
       ))}
     </div>
   );

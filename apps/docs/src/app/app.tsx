@@ -222,14 +222,14 @@ export function App() {
   ];
 
   const [tabs, setTabs] = useState<TabData[]>([
-    { label: 'Tab 1', content: 'Content for Tab 1' },
+    { label: 'Tab 1', chidlren: <>test</> },
   ]);
 
   return (
     <div>
       <div role="navigation">
         ----
-        <Tabs tabs={tabs} setTabs={setTabs} />
+        <Tabs tabs={tabs} setTabs={setTabs} addable />
         ---
         <ul>
           <li>
