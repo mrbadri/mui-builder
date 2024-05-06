@@ -1,10 +1,14 @@
+import { ColumnDef } from '@tanstack/react-table';
+
 import { useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 
 import { Stack } from '@mui/material';
 
-import Builder, { BuilderProps } from '@mui-builder/core';
+import Builder, { BuilderProps, Table } from '@mui-builder/core';
 import Tabs, { TabData } from '@mui-builder/tab';
+
+import { makeData } from './makeData';
 
 export function App() {
   const children: BuilderProps[] = [
@@ -225,6 +229,107 @@ export function App() {
     { label: 'Tab 1', chidlren: <>test</> },
   ]);
 
+  const columns: ColumnDef<unknown>[] = [
+    // {
+    //   id: 'expander',
+    //   size: 0,
+    //   enableHiding: false,
+    //   enableResizing: false,
+    //   header: () => null,
+    //   cell: ({ row }) => {
+    //     return row.getCanExpand() ? (
+    //       <IconButton
+    //         {...{
+    //           onClick: row.getToggleExpandedHandler(),
+    //           sx: { cursor: 'pointer', transform: row.getIsExpanded() ? 'rotate(180deg)' : '', ml: '2px' }
+    //         }}
+    //       >
+    //         {row.getIsExpanded() ? (
+    //           <Icon name="ArrowDown" size={1} fill="none" stroke={theme.palette.greyTwo[700]} />
+    //         ) : (
+    //           <Icon name="ArrowDown" size={1} fill="none" stroke={theme.palette.greyTwo[700]} />
+    //         )}
+    //       </IconButton>
+    //     ) : (
+    //       <IconButton disabled>
+    //         <Icon name="ArrowDown" size={1} fill="none" stroke={theme.palette.greyTwo[700]} />
+    //       </IconButton>
+    //     );
+    //   }
+    // },
+    // {
+    //   id: 'select',
+    //   size: 0,
+    //   enableHiding: false,
+    //   enableResizing: false,
+    //   header: ({ table }) => (
+    //     <Checkbox
+    //       size="small"
+    //       {...{
+    //         checked: table?.getIsAllRowsSelected(),
+    //         indeterminate: table?.getIsSomeRowsSelected(),
+    //         onChange: table?.getToggleAllRowsSelectedHandler()
+    //       }}
+    //     />
+    //   ),
+    //   cell: ({ row }) => (
+    //     <Checkbox
+    //       size="small"
+    //       {...{
+    //         checked: row?.getIsSelected(),
+    //         disabled: !row.getCanSelect(),
+    //         indeterminate: row.getIsSomeSelected(),
+    //         onChange: row.getToggleSelectedHandler()
+    //       }}
+    //     />
+    //   )
+    // },
+    {
+      id: 'firstName',
+      accessorKey: 'firstName',
+      header: 'نام',
+      cell: (info) => info.getValue(),
+      minSize: 160,
+      size: 160,
+    },
+    {
+      id: 'lastName',
+      accessorKey: 'lastName',
+      header: 'نام خانوادگی',
+      cell: (info) => info.getValue(),
+      minSize: 190,
+      size: 190,
+    },
+    {
+      id: 'age',
+      accessorKey: 'age',
+      header: 'سن',
+      cell: (info) => info.getValue(),
+      minSize: 90,
+      size: 90,
+    },
+    {
+      id: 'visits',
+      accessorKey: 'visits',
+      header: 'تعداد نمایش',
+      cell: (info) => info.getValue(),
+    },
+    {
+      id: 'status',
+      accessorKey: 'status',
+      header: 'وضعیت',
+      cell: (info) => info.getValue(),
+    },
+    {
+      id: 'progress',
+      accessorKey: 'progress',
+      header: 'درصد',
+      cell: (info) => info.getValue(),
+      minSize: 110,
+      size: 110,
+    },
+  ];
+
   return (
     <div>
       <div role="navigation">
@@ -252,6 +357,9 @@ export function App() {
           element={
             <Stack direction="row" alignItems="flex-end">
               <Builder children={children} />
+              <Stack direction="row" alignItems="flex-end">
+                <Table tableId="testy" columns={columns} data={makeData(100)} />
+              </Stack>
             </Stack>
           }
         />
