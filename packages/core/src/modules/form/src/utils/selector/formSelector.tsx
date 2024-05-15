@@ -1,6 +1,7 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
 import { SubmitFieldProps } from '../../components/actions/submit/submit.types';
+import { SelectProps } from '../../components/fields/select/select.types';
 import { TextProps } from '../../components/fields/text/text.types';
 import { FormSelectorProps } from './formSelector.types';
 
@@ -35,6 +36,17 @@ const FormSelector: FC<FormSelectorProps> = ({
       return (
         <Suspense key={fieldProps.id} fallback={<SubmitLoading {...loading} />}>
           <SelectedComponent {...(fieldProps as SubmitFieldProps)} />
+        </Suspense>
+      );
+
+    case 'select':
+      SelectedComponent = lazy(
+        () => import('../../components/fields/select/select')
+      );
+
+      return (
+        <Suspense key={fieldProps.id} fallback={'...loading'}>
+          <SelectedComponent {...(fieldProps as SelectProps)} />
         </Suspense>
       );
 

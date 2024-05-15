@@ -163,6 +163,23 @@ export function App() {
         },
       },
     },
+    {
+      id: 'select-form-1',
+      groupType: 'form',
+      type: 'select',
+      props:{
+        formId: '18',
+        variant: 'contained',
+        menuItemsList:[{
+          title: 'menu 1',
+          value: 'm1'
+        }],
+        formControlProps:{
+          title: 'select input',
+          variant: 'standard'
+        },
+      }
+    }
   ];
 
   return (
