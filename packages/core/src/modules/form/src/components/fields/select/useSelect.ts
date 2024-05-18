@@ -76,7 +76,10 @@ const useSelect = (props: SelectProps) => {
 
   const getSelectProps = (): SelectInputProps => ({
     ...(restSelectProps as SelectInputProps),
-    onChange: (e) => e.target.value
+    ...field,
+    error: error,
+    ...scriptResult,
+    ...newProps,
   });
   const getInputLableProps = () => ({
     children: inputLableProps.title,
@@ -84,10 +87,6 @@ const useSelect = (props: SelectProps) => {
   });
 
   const getFormControlProps = () => ({
-    ...field,
-    error: error,
-    ...scriptResult,
-    ...newProps,
     ...formControlProps,
   });
 
