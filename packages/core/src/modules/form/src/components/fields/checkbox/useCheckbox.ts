@@ -5,30 +5,32 @@ import UseScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
-import { TextProps } from './text.types';
+import { CheckboxProps } from './checkbox.types';
 
 import useForms from '../../../hooks/useForms/useForms';
 import usePropsController from '../../../hooks/usePropsController/usePropsController';
 import useRule from '../../../hooks/useRule/useRule';
 
-const UseText = (props: TextProps) => {
+const useCheckbox = (props: CheckboxProps) => {
   const {
-    formId,
-    script,
+    id,
     api,
+    rule,
+    script,
+    formId,
     show = true,
     dependesies,
-    helperText,
-    defaultValue,
-    ...textFieldProps
+    checkboxProps,
+    ...formControlLabelProps
   } = props;
+
   const { configs, queries } = api || {};
 
   const { forms } = useForms();
   const formMethod = forms?.[formId];
   const { setProps, propsController } = usePropsController();
 
-  const newProps = propsController?.[textFieldProps?.id] || {};
+  const newProps = propsController?.[id] || {};
 
   // Handle Script
   const { scriptResult } = UseScript({
@@ -60,27 +62,29 @@ const UseText = (props: TextProps) => {
     field,
     formState: { errors },
   } = useController({
-    name: textFieldProps.id,
+    name: id,
     control: formMethod.control,
-    disabled: textFieldProps.disabled,
-    rules: useRule(textFieldProps?.rule),
-    defaultValue,
+    disabled: checkboxProps.disabled,
+    defaultValue: !!checkboxProps.checked,
+    rules: useRule(rule),
   });
 
-  const error = errors?.[textFieldProps.id];
+  const error = errors?.[id];
 
   // Props
-  const getFieldProps = () => ({
+  const getFormControlLabelProps = () => ({
     ...field,
-    ...textFieldProps,
-    helperText: error?.message ?? helperText,
-    error: !!error,
-    value: field.value ?? '',
+    error: error,
     ...scriptResult,
     ...newProps,
+    ...formControlLabelProps,
   });
 
-  return { getFieldProps, show };
+  const getCheckboxProps = () => ({
+    ...checkboxProps,
+  });
+
+  return { show, getCheckboxProps, getFormControlLabelProps };
 };
 
-export default UseText;
+export default useCheckbox;

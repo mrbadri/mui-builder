@@ -1,6 +1,11 @@
 import { FC, Fragment, Suspense, lazy } from 'react';
 
 import { SubmitFieldProps } from '../../components/actions/submit/submit.types';
+import {
+  AutoCompleteOptions,
+  AutoCompleteProps,
+} from '../../components/fields/autoComplete/autoComplete.types';
+import { CheckboxProps } from '../../components/fields/checkbox/checkbox.types';
 import { SelectProps } from '../../components/fields/select/select.types';
 import { TextProps } from '../../components/fields/text/text.types';
 import { FormSelectorProps } from './formSelector.types';
@@ -36,6 +41,30 @@ const FormSelector: FC<FormSelectorProps> = ({
       return (
         <Suspense key={fieldProps.id} fallback={<SubmitLoading {...loading} />}>
           <SelectedComponent {...(fieldProps as SubmitFieldProps)} />
+        </Suspense>
+      );
+
+    case 'auto-complete':
+      SelectedComponent = lazy(
+        () => import('../../components/fields/autoComplete/autoComplete')
+      );
+
+      return (
+        <Suspense key={fieldProps.id} fallback={<SubmitLoading {...loading} />}>
+          <SelectedComponent
+            {...(fieldProps as AutoCompleteProps<AutoCompleteOptions>)}
+          />
+        </Suspense>
+      );
+
+    case 'checkbox':
+      SelectedComponent = lazy(
+        () => import('../../components/fields/checkbox/checkbox')
+      );
+
+      return (
+        <Suspense key={fieldProps.id} fallback={<SubmitLoading {...loading} />}>
+          <SelectedComponent {...(fieldProps as CheckboxProps)} />
         </Suspense>
       );
 
