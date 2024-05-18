@@ -9,123 +9,123 @@ import Tabs, { TabData } from '@mui-builder/tab';
 export function App() {
   const children: BuilderProps[] = [
     // Fields
-    {
-      id: 'form-field-1',
-      groupType: 'form',
-      type: 'field-text',
-      props: {
-        id: 'Field-One',
-        formId: '20',
-        label: 'Field One (Form Id: 20)',
-        dependesies: ['FieldTwo'],
-        script: `
-          if(formMethod.getValues()?.FieldTwo === "erfan"){
-            setProps('FieldTwo' , {label:'i can'});
-            return {};
-          }`,
-        api: {
-          configs: {
-            url: `return ("https://jsonplaceholder.typicode.com/todo8888s/" + formMethod.getValues()?.FieldTwo);`,
-            method: 'post',
-            data: {
-              test: '1',
-            },
-          },
-          queries: {
-            enable: `
-            if(formMethod.getValues()?.FieldTwo === 'api'){
-              return true;
-            }
-            return false;
-            `,
-          },
-        },
-        defaultValue: 'default value field one',
-      },
-    },
-    {
-      id: 'form-field-2',
-      groupType: 'form',
-      type: 'field-text',
-      props: {
-        id: 'FieldTwo',
-        formId: '20',
-        label: 'Field Two (Form Id: 20)',
-      },
-    },
+    // {
+    //   id: 'form-field-1',
+    //   groupType: 'form',
+    //   type: 'field-text',
+    //   props: {
+    //     id: 'Field-One',
+    //     formId: '20',
+    //     label: 'Field One (Form Id: 20)',
+    //     dependesies: ['FieldTwo'],
+    //     script: `
+    //       if(formMethod.getValues()?.FieldTwo === "erfan"){
+    //         setProps('FieldTwo' , {label:'i can'});
+    //         return {};
+    //       }`,
+    //     api: {
+    //       configs: {
+    //         url: `return ("https://jsonplaceholder.typicode.com/todo8888s/" + formMethod.getValues()?.FieldTwo);`,
+    //         method: 'post',
+    //         data: {
+    //           test: '1',
+    //         },
+    //       },
+    //       queries: {
+    //         enable: `
+    //         if(formMethod.getValues()?.FieldTwo === 'api'){
+    //           return true;
+    //         }
+    //         return false;
+    //         `,
+    //       },
+    //     },
+    //     defaultValue: 'default value field one',
+    //   },
+    // },
+    // {
+    //   id: 'form-field-2',
+    //   groupType: 'form',
+    //   type: 'field-text',
+    //   props: {
+    //     id: 'FieldTwo',
+    //     formId: '20',
+    //     label: 'Field Two (Form Id: 20)',
+    //   },
+    // },
 
-    {
-      id: 'form-field-273',
-      groupType: 'grid',
-      type: 'container',
-      props: {
-        rowSpacing: 2,
-        columnSpacing: 2,
-        children: [
-          {
-            id: 'form-field-4kldjd',
-            groupType: 'grid',
-            type: 'item',
-            props: {
-              children: {
-                id: 'form-field-4',
-                groupType: 'form',
-                type: 'field-text',
-                props: {
-                  id: 'Field4',
-                  formId: '20',
-                  label: 'Field 4 (Form Id: 20)',
-                },
-              },
-            },
-          },
+    // {
+    //   id: 'form-field-273',
+    //   groupType: 'grid',
+    //   type: 'container',
+    //   props: {
+    //     rowSpacing: 2,
+    //     columnSpacing: 2,
+    //     children: [
+    //       {
+    //         id: 'form-field-4kldjd',
+    //         groupType: 'grid',
+    //         type: 'item',
+    //         props: {
+    //           children: {
+    //             id: 'form-field-4',
+    //             groupType: 'form',
+    //             type: 'field-text',
+    //             props: {
+    //               id: 'Field4',
+    //               formId: '20',
+    //               label: 'Field 4 (Form Id: 20)',
+    //             },
+    //           },
+    //         },
+    //       },
 
-          {
-            id: 'form-field-5',
-            groupType: 'grid',
-            type: 'item',
-            props: {
-              children: {
-                id: 'form-field-4',
-                groupType: 'form',
-                type: 'field-text',
-                props: {
-                  id: 'Field4',
-                  formId: '20',
-                  label: 'Field 5 (Form Id: 20)',
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
+    //       {
+    //         id: 'form-field-5',
+    //         groupType: 'grid',
+    //         type: 'item',
+    //         props: {
+    //           children: {
+    //             id: 'form-field-4',
+    //             groupType: 'form',
+    //             type: 'field-text',
+    //             props: {
+    //               id: 'Field4',
+    //               formId: '20',
+    //               label: 'Field 5 (Form Id: 20)',
+    //             },
+    //           },
+    //         },
+    //       },
+    //     ],
+    //   },
+    // },
 
-    {
-      id: 'form-field-3',
-      groupType: 'form',
-      type: 'field-text',
-      props: {
-        id: 'Field-Three',
-        formId: '21',
-        label: 'Field Three (Form Id: 21)',
-        // helperText: 'Helper Text',
-        rule: {
-          // required: {
-          //   message: 'this is required',
-          //   value: true,
-          // },
-          // validate: (value, formValues) => {
-          //   if(value === 'val')
-          //   return 'rule validate';
-          // },
-          validate: `
-          if(value === 'val')
-            return 'rule validate';
-          `,
-        },
-      },
-    },
+    // {
+    //   id: 'form-field-3',
+    //   groupType: 'form',
+    //   type: 'field-text',
+    //   props: {
+    //     id: 'Field-Three',
+    //     formId: '21',
+    //     label: 'Field Three (Form Id: 21)',
+    //     // helperText: 'Helper Text',
+    //     rule: {
+    //       // required: {
+    //       //   message: 'this is required',
+    //       //   value: true,
+    //       // },
+    //       // validate: (value, formValues) => {
+    //       //   if(value === 'val')
+    //       //   return 'rule validate';
+    //       // },
+    //       validate: `
+    //       if(value === 'val')
+    //         return 'rule validate';
+    //       `,
+    //     },
+    //   },
+    // },
 
     // Actions
     {
@@ -219,14 +219,27 @@ export function App() {
         ],
       },
     },
-    // {
-    //   id: 'select-form-1',
-    //   groupType: 'form',
-    //   type: 'select',
-    //   props: {
-
-    //   }
-    // }
+    {
+      id: 'select-form-1',
+      groupType: 'form',
+      type: 'select',
+      props: {
+        formId: '20',
+        children: 'child',
+        id: 'select-1',
+        sx:{width: '200px', mx: '10px'},
+        fullWidth: true,
+        // multiple: true,
+        defaultValue: '',
+        inputLableProps: {
+          title: 'select label',
+        },
+        menuItemsList: [
+          {value: 'first value', title: 'first', id: '1'},
+          {value: 'second value', title: 'second', id: '2'},
+        ]
+      }
+    }
   //   id: 'select-form-1',
   //   groupType: 'form',
   //   type: 'select',
@@ -253,7 +266,7 @@ export function App() {
     <div>
       <div role="navigation">
         ----
-        <Tabs tabs={tabs} setTabs={setTabs} addable />
+        {/* <Tabs tabs={tabs} setTabs={setTabs} addable /> */}
         ---
         <ul>
           <li>

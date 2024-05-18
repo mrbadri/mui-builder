@@ -24,7 +24,7 @@ const Select: FC<SelectProps> = (props) => {
       <InputLabel {...getInputLableProps()}></InputLabel>
       <MuiSelect {...getSelectProps()}>
         {menuItemsList.map((item) => (
-          <MenuItem key={item.id} {...item}></MenuItem>
+          <MenuItem key={`select-${item.id}`} {...item} >{item.title}</MenuItem>
         ))}
       </MuiSelect>
     </FormControl>
