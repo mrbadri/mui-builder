@@ -12,6 +12,7 @@ import { SelectProps } from './select.types';
 import useForms from '../../../hooks/useForms/useForms';
 import usePropsController from '../../../hooks/usePropsController/usePropsController';
 import useRule from '../../../hooks/useRule/useRule';
+import { InputLabelProps } from '@mui/material';
 
 const useSelect = (props: SelectProps) => {
   const {
@@ -80,9 +81,10 @@ const useSelect = (props: SelectProps) => {
     error: error,
     ...scriptResult,
     ...newProps,
+    label: inputLableProps.children,
+    labelId: inputLableProps.children,
   });
-  const getInputLableProps = () => ({
-    children: inputLableProps.title,
+  const getInputLableProps = (): InputLabelProps => ({
     ...inputLableProps,
   });
 

@@ -227,12 +227,12 @@ export function App() {
         formId: '20',
         children: 'child',
         id: 'select-1',
-        sx:{width: '200px', mx: '10px'},
+        sx:{width: '200px'},
         fullWidth: true,
         // multiple: true,
         defaultValue: '',
         inputLableProps: {
-          title: 'select label',
+          children: 'select label',
         },
         menuItemsList: [
           {value: 'first value', title: 'first', id: '1'},
