@@ -15,11 +15,15 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
+      "@mui-builder/builder": [
+        "packages/core/src/modules/builder/src/index.ts"
+      ],
       "@mui-builder/core": ["packages/core/src/index.ts"],
       "@mui-builder/form": ["packages/core/src/modules/form/src/index.ts"],
       "@mui-builder/grid": ["packages/core/src/modules/grid/src/index.ts"],
-      "@mui-builder/utils/*": ["packages/core/src/utils/*"],
-      "@mui-builder/types/*": ["packages/core/src/types/*"]
+      "@mui-builder/tab": ["packages/tab/src/index.ts"],
+      "@mui-builder/types/*": ["packages/core/src/types/*"],
+      "@mui-builder/utils/*": ["packages/core/src/utils/*"]
     }
   },
   "exclude": ["node_modules", "tmp"]

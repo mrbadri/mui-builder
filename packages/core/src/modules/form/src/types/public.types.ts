@@ -1,6 +1,11 @@
 import { SkeletonOwnProps } from '@mui/material';
 
 import { SubmitFieldProps } from '../components/actions/submit/submit.types';
+import {
+  AutoCompleteOptions,
+  AutoCompleteProps,
+} from '../components/fields/autoComplete/autoComplete.types';
+import { CheckboxProps } from '../components/fields/checkbox/checkbox.types';
 import { RadioGroupProps } from '../components/fields/radio/radio.types';
 import { TextProps } from '../components/fields/text/text.types';
 import { Form } from '../hooks/useForms/useForms.types';
@@ -11,9 +16,19 @@ export type Forms = Record<string, Form>;
 
 export type Id = string;
 
-export type FormTypes = 'field-text' | 'action-submit' | 'radio';
+export type FormTypes =
+  | 'field-text'
+  | 'action-submit'
+  | 'auto-complete'
+  | 'checkbox'
+  | 'radio';
 
-export type FieldProps = TextProps | SubmitFieldProps | RadioGroupProps;
+export type FieldProps =
+  | TextProps
+  | SubmitFieldProps
+  | AutoCompleteProps<AutoCompleteOptions>
+  | CheckboxProps
+  | RadioGroupProps;
 
 export type Dependesies = string[];
 

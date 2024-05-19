@@ -1,8 +1,10 @@
+import { useState } from 'react';
 import { Link, Route, Routes } from 'react-router-dom';
 
 import { Stack } from '@mui/material';
 
 import Builder, { BuilderProps } from '@mui-builder/core';
+import Tabs, { TabData } from '@mui-builder/tab';
 
 export function App() {
   const children: BuilderProps[] = [
@@ -164,11 +166,30 @@ export function App() {
       },
     },
     {
+      id: 'form-auto-complete-1',
+      groupType: 'form',
+      type: 'auto-complete',
+      props: {
+        id: 'auto-complete-1',
+        formId: '18',
+        options: [
+          { name: 'folan lab', id: 'fo val' },
+          { name: 'folan lab22', id: 'fo val22' },
+        ],
+        innerTextFieldProps: {
+          sx: {
+            width: '200px',
+          },
+          label: 'autoComplete',
+        },
+      },
+    },
+    {
       id: 'form-radio-1',
       groupType: 'form',
       type: 'radio',
       props: {
-        formId: '18',
+        formId: '20',
         id: 'radio-1',
         name: 'fol',
         defaultValue: '2',
@@ -178,26 +199,32 @@ export function App() {
         ],
       },
     },
+    {
+      id: 'form-checkbox-1',
+      groupType: 'form',
+      type: 'checkbox',
+      props: {
+        id: 'checkbox-1',
+        formId: '18',
+        label: 'label 1',
+        checkboxProps: {},
+      },
+    },
   ];
+
+  const [tabs, setTabs] = useState<TabData[]>([
+    { label: 'Tab 1', chidlren: <>test</> },
+  ]);
 
   return (
     <div>
       <div role="navigation">
+        ----
+        <Tabs tabs={tabs} setTabs={setTabs} addable />
+        ---
         <ul>
           <li>
             <Link to="/">Home</Link>
-          </li>
-          <li>
-            <Link to="/grid">Grid</Link>
-          </li>
-          <li>
-            <Link to="/utils">Utils</Link>
-          </li>
-          <li>
-            <Link to="/form">Form</Link>
-          </li>
-          <li>
-            <Link to="/core">Core</Link>
           </li>
         </ul>
       </div>
