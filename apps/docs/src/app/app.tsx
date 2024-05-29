@@ -185,6 +185,21 @@ export function App() {
       },
     },
     {
+      id: 'form-radio-1',
+      groupType: 'form',
+      type: 'radio',
+      props: {
+        formId: '20',
+        id: 'radio-1',
+        name: 'fol',
+        defaultValue: '2',
+        radioInputsList: [
+          { label: 'radio-num-1', value: '1' },
+          { label: 'radio-num-2', value: '2' },
+        ],
+      },
+    },
+    {
       id: 'form-checkbox-1',
       groupType: 'form',
       type: 'checkbox',
@@ -193,30 +208,6 @@ export function App() {
         formId: '18',
         label: 'label 1',
         checkboxProps: {},
-        children: [
-          {
-            id: 'form-checkbox-1-nested-1',
-            groupType: 'form',
-            type: 'checkbox',
-            props: {
-              id: 'checkbox-1-nested-1',
-              formId: '18',
-              label: 'label 2',
-              checkboxProps: {},
-            },
-          },
-          {
-            id: 'form-checkbox-1-nested-13',
-            groupType: 'form',
-            type: 'checkbox',
-            props: {
-              id: 'checkbox-1-nested-13',
-              formId: '18',
-              label: 'label 23',
-              checkboxProps: {},
-            },
-          },
-        ],
       },
     },
   ];

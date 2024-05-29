@@ -6,6 +6,7 @@ import {
   AutoCompleteProps,
 } from '../components/fields/autoComplete/autoComplete.types';
 import { CheckboxProps } from '../components/fields/checkbox/checkbox.types';
+import { RadioGroupProps } from '../components/fields/radio/radio.types';
 import { TextProps } from '../components/fields/text/text.types';
 import { Form } from '../hooks/useForms/useForms.types';
 
@@ -19,13 +20,15 @@ export type FormTypes =
   | 'field-text'
   | 'action-submit'
   | 'auto-complete'
-  | 'checkbox';
+  | 'checkbox'
+  | 'radio';
 
 export type FieldProps =
   | TextProps
   | SubmitFieldProps
   | AutoCompleteProps<AutoCompleteOptions>
-  | CheckboxProps;
+  | CheckboxProps
+  | RadioGroupProps;
 
 export type Dependesies = string[];
 
