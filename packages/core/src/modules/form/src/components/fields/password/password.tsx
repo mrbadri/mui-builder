@@ -1,11 +1,11 @@
 import { FC } from 'react';
 
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 import { IconButton, InputAdornment, TextField } from '@mui/material';
 
 import { PasswordProps } from './password.types';
 
 import usePassword from './usePassword';
-import { Visibility, VisibilityOff } from '@mui/icons-material';
 
 const Password: FC<PasswordProps> = (props) => {
   const {
