@@ -19,7 +19,8 @@ export type FormTypes =
   | 'field-text'
   | 'action-submit'
   | 'auto-complete'
-  | 'checkbox';
+  | 'checkbox'
+  | 'password';
 
 export type FieldProps =
   | TextProps
