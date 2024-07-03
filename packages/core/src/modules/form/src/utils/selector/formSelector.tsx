@@ -11,6 +11,8 @@ import { FormSelectorProps } from './formSelector.types';
 
 import SubmitLoading from '../../components/actions/submit/submit.loading';
 import TextLoading from '../../components/fields/text/text.loading';
+import { NumberFieldProps } from '../../components/fields/number/number.types';
+import NumberFieldLoading from '../../components/fields/number/number.loading';
 
 const FormSelector: FC<FormSelectorProps> = ({
   fieldType,
@@ -64,6 +66,17 @@ const FormSelector: FC<FormSelectorProps> = ({
       return (
         <Suspense key={fieldProps.id} fallback={<SubmitLoading {...loading} />}>
           <SelectedComponent {...(fieldProps as CheckboxProps)} />
+        </Suspense>
+      );
+
+    case 'number':
+      SelectedComponent = lazy(
+        () => import('../../components/fields/number/number')
+      );
+
+      return (
+        <Suspense key={fieldProps.id} fallback={<NumberFieldLoading {...loading} />}>
+          <SelectedComponent {...(fieldProps as NumberFieldProps)} />
         </Suspense>
       );
 

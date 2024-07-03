@@ -219,6 +219,16 @@ export function App() {
         ],
       },
     },
+    {
+      id: 'form-number',
+      groupType: 'form',
+      type: 'number',
+      props: {
+        id: 'number one',
+        formId: '20',
+        label: 'number field (Form Id: 20)',
+      },
+    },
   ];
 
   const [tabs, setTabs] = useState<TabData[]>([
