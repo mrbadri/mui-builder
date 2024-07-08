@@ -4,7 +4,6 @@ import {
   FormControl,
   InputLabel,
   MenuItem,
-  MenuItemProps,
   Select as MuiSelect,
 } from '@mui/material';
 

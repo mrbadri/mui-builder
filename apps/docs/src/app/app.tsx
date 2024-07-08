@@ -171,7 +171,7 @@ export function App() {
       type: 'auto-complete',
       props: {
         id: 'auto-complete-1',
-        formId: '18',
+        formId: '21',
         options: [
           { name: 'folan lab', id: 'fo val' },
           { name: 'folan lab22', id: 'fo val22' },
@@ -190,7 +190,7 @@ export function App() {
       type: 'checkbox',
       props: {
         id: 'checkbox-1',
-        formId: '18',
+        formId: '21',
         label: 'label 1',
         checkboxProps: {},
         children: [

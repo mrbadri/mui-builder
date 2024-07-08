@@ -1,6 +1,6 @@
 import { useController, useWatch } from 'react-hook-form';
 
-import { InputLabelProps } from '@mui/material';
+import { InputLabelProps, MenuItemProps } from '@mui/material';
 import { SelectInputProps } from '@mui/material/Select/SelectInput';
 
 import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
@@ -93,9 +93,10 @@ const useSelect = (props: SelectProps) => {
     ...formControlProps,
   });
 
-  const getMenuItemProps = (item: Option) => ({
+  const getMenuItemProps = (item: Option): MenuItemProps => ({
     key: `select-${item.id}`,
     id: item.id.toString(),
+    // TODO: adapte with autocomplete value
     value: item.id,
     title: item.name,
   });
