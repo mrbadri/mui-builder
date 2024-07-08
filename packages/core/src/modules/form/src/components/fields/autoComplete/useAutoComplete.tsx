@@ -1,7 +1,7 @@
 import { useController, useWatch } from 'react-hook-form';
 
 import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
-import UseScript from '@mui-builder/utils/useScript/useScript';
+import useScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
@@ -42,7 +42,7 @@ const useAutoComplete = (props: AutoCompleteProps<Option>) => {
     forms,
   });
 
-  // Handle Wtach Fields
+  // Handle Watch Fields
   useWatch({
     control: formMethod.control,
     name: dependencies ?? [],
@@ -63,7 +63,7 @@ const useAutoComplete = (props: AutoCompleteProps<Option>) => {
   const error = errors?.[restAutoCompleteProps.id];
 
   // Handle Script
-  const { scriptResult } = UseScript({
+  const { scriptResult } = useScript({
     script,
     formMethod,
     forms,
@@ -82,7 +82,7 @@ const useAutoComplete = (props: AutoCompleteProps<Option>) => {
     field.onChange(value ?? null);
   };
 
-  const hanldeHelperText = () =>
+  const handleHelperText = () =>
     (error?.message as string) ?? innerTextFieldProps?.helperText ?? null;
 
   // Props
@@ -101,7 +101,7 @@ const useAutoComplete = (props: AutoCompleteProps<Option>) => {
 
   const getInnerTextFieldProps = () => ({
     ...innerTextFieldProps,
-    helperText: hanldeHelperText(),
+    helperText: handleHelperText(),
   });
 
   return { getFieldProps, show, getInnerTextFieldProps };

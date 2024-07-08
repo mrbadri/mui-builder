@@ -1,7 +1,7 @@
 import { useController, useWatch } from 'react-hook-form';
 
 import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
-import UseScript from '@mui-builder/utils/useScript/useScript';
+import useScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
@@ -33,7 +33,7 @@ const useCheckbox = (props: CheckboxProps) => {
   const newProps = propsController?.[id] || {};
 
   // Handle Script
-  const { scriptResult } = UseScript({
+  const { scriptResult } = useScript({
     script,
     formMethod,
     forms,
@@ -41,7 +41,7 @@ const useCheckbox = (props: CheckboxProps) => {
     setProps,
   });
 
-  // Handle Wtach Fields
+  // Handle Watch Fields
   useWatch({
     control: formMethod.control,
     name: dependencies ?? [],

@@ -4,7 +4,7 @@ import { InputLabelProps, MenuItemProps } from '@mui/material';
 import { SelectInputProps } from '@mui/material/Select/SelectInput';
 
 import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
-import UseScript from '@mui-builder/utils/useScript/useScript';
+import useScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
@@ -38,7 +38,8 @@ const useSelect = (props: SelectProps) => {
   const newProps = propsController?.[id] || {};
 
   // Handle Script
-  const { scriptResult } = UseScript({
+
+  const { scriptResult } = useScript({
     script,
     formMethod,
     forms,
@@ -46,7 +47,7 @@ const useSelect = (props: SelectProps) => {
     setProps,
   });
 
-  // Handle Wtach Fields
+  // Handle Watch Fields
   useWatch({
     control: formMethod.control,
     name: dependencies ?? [],
