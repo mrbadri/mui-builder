@@ -235,8 +235,8 @@ export function App() {
           children: 'select label',
         },
         options: [
-          { value: 'first value', title: 'first', id: '1' },
-          { value: 'second value', title: 'second', id: '2' },
+          { name: 'first', id: '1' },
+          { name: 'second', id: '2' },
         ],
       },
     },

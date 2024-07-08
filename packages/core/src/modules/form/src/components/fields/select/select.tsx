@@ -4,6 +4,7 @@ import {
   FormControl,
   InputLabel,
   MenuItem,
+  MenuItemProps,
   Select as MuiSelect,
 } from '@mui/material';
 
@@ -12,17 +13,20 @@ import { SelectProps } from './select.types';
 import useSelect from './useSelect';
 
 const Select: FC<SelectProps> = (props) => {
-  const { getFormControlProps, getInputLableProps, options, getSelectProps } =
-    useSelect(props);
+  const {
+    options,
+    getSelectProps,
+    getMenuItemProps,
+    getInputLableProps,
+    getFormControlProps,
+  } = useSelect(props);
 
   return (
     <FormControl {...getFormControlProps()}>
       <InputLabel {...getInputLableProps()}></InputLabel>
       <MuiSelect {...getSelectProps()}>
         {options.map((item) => (
-          <MenuItem key={`select-${item.id}`} {...item}>
-            {item.title}
-          </MenuItem>
+          <MenuItem {...getMenuItemProps(item)}>{item.name}</MenuItem>
         ))}
       </MuiSelect>
     </FormControl>

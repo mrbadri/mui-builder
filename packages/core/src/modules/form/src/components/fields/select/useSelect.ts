@@ -8,6 +8,7 @@ import UseScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
+import { Option } from '../../../types/public.types';
 import { SelectProps } from './select.types';
 
 import useForms from '../../../hooks/useForms/useForms';
@@ -92,11 +93,19 @@ const useSelect = (props: SelectProps) => {
     ...formControlProps,
   });
 
+  const getMenuItemProps = (item: Option) => ({
+    key: `select-${item.id}`,
+    id: item.id.toString(),
+    value: item.id,
+    title: item.name,
+  });
+
   return {
+    options,
     getSelectProps,
+    getMenuItemProps,
     getInputLableProps,
     getFormControlProps,
-    options,
   };
 };
 
