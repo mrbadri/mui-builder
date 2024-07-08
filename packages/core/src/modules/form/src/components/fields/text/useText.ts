@@ -1,7 +1,7 @@
 import { useController, useWatch } from 'react-hook-form';
 
 import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
-import UseScript from '@mui-builder/utils/useScript/useScript';
+import useScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
@@ -17,7 +17,7 @@ const UseText = (props: TextProps) => {
     script,
     api,
     show = true,
-    dependesies,
+    dependencies,
     helperText,
     defaultValue,
     ...textFieldProps
@@ -31,7 +31,7 @@ const UseText = (props: TextProps) => {
   const newProps = propsController?.[textFieldProps?.id] || {};
 
   // Handle Script
-  const { scriptResult } = UseScript({
+  const { scriptResult } = useScript({
     script,
     formMethod,
     forms,
@@ -39,10 +39,10 @@ const UseText = (props: TextProps) => {
     setProps,
   });
 
-  // Handle Wtach Fields
+  // Handle Watch Fields
   useWatch({
     control: formMethod.control,
-    name: dependesies ?? [],
+    name: dependencies ?? [],
   });
 
   // API Call
