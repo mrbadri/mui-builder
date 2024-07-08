@@ -10,6 +10,7 @@ export type NumberFieldProps = Omit<TextFieldProps, 'onChange'> & {
   value: string;
   onChange: (value: string) => void;
 } & {
+  seperator?: string;
   id: Id;
   formId: FormId;
   script?: Script;

@@ -225,6 +225,8 @@ export function App() {
       type: 'number',
       props: {
         id: 'number one',
+        seperator: ',',
+        defaultValue: '12345',
         formId: '20',
         label: 'number field (Form Id: 20)',
       },

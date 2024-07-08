@@ -21,6 +21,7 @@ const UseNumberField = (props: NumberFieldProps) => {
     helperText,
     defaultValue,
     onChange,
+    seperator,
     ...numberFieldProps
   } = props;
   const { configs, queries } = api || {};
@@ -41,14 +42,20 @@ const UseNumberField = (props: NumberFieldProps) => {
   });
 
   // Function to format the number with thousands separators
-  const formatNumber = (value: string) => {
-    return value.replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+  const formatNumber = (value: string, seperator: string) => {
+    return value.replace(/\B(?=(\d{3})+(?!\d))/g, seperator);
   };
 
   // Handle changes to the input field
   const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    let rawValue = event.target.value;
+
     // Remove existing commas from the input value
-    const rawValue = event.target.value.replace(/,/g, '');
+    if (seperator) {
+      const regex = new RegExp(seperator);
+      rawValue = event.target.value.replace(regex, '');
+    }
+
     // Check if the value is a valid number before calling onChange
     if (!isNaN(Number(rawValue))) {
       formMethod.setValue(numberFieldProps.id, rawValue);
@@ -84,6 +91,9 @@ const UseNumberField = (props: NumberFieldProps) => {
   });
 
   const error = errors?.[numberFieldProps.id];
+  const value = seperator
+    ? formatNumber(field.value ?? '', seperator)
+    : field.value;
 
   // Props
   const getFieldProps = () => ({
@@ -93,7 +103,7 @@ const UseNumberField = (props: NumberFieldProps) => {
     error: !!error,
     ...scriptResult,
     ...newProps,
-    value: formatNumber(field.value ?? ''),
+    value,
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => handleChange(e),
   });
 
