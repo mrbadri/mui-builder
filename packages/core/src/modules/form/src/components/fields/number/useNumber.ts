@@ -57,7 +57,7 @@ const UseNumberField = (props: NumberFieldProps) => {
     }
 
     // Check if the value is a valid number before calling onChange
-    if (!isNaN(Number(rawValue))) {
+    if (!Number.isNaN(Number(rawValue))) {
       formMethod.setValue(numberFieldProps.id, rawValue);
     }
   };

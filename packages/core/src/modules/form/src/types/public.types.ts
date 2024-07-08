@@ -36,6 +36,6 @@ export type FieldProps =
   | NumberFieldProps
   | SelectProps;
 
-export type Dependesies = string[];
+export type Dependencies = string[];
 
 export type LoadingProps = SkeletonOwnProps;
