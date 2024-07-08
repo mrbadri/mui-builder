@@ -18,7 +18,7 @@ const useAutoComplete = (props: AutoCompleteProps<AutoCompleteOptions>) => {
     script,
     api,
     show = true,
-    dependesies,
+    dependencies,
     defaultValue,
     options,
     innerTextFieldProps,
@@ -45,7 +45,7 @@ const useAutoComplete = (props: AutoCompleteProps<AutoCompleteOptions>) => {
   // Handle Wtach Fields
   useWatch({
     control: formMethod.control,
-    name: dependesies ?? [],
+    name: dependencies ?? [],
   });
 
   // Controller

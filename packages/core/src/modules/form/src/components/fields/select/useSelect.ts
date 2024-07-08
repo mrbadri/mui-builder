@@ -1,5 +1,6 @@
 import { useController, useWatch } from 'react-hook-form';
 
+import { InputLabelProps } from '@mui/material';
 import { SelectInputProps } from '@mui/material/Select/SelectInput';
 
 import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
@@ -12,7 +13,6 @@ import { SelectProps } from './select.types';
 import useForms from '../../../hooks/useForms/useForms';
 import usePropsController from '../../../hooks/usePropsController/usePropsController';
 import useRule from '../../../hooks/useRule/useRule';
-import { InputLabelProps } from '@mui/material';
 
 const useSelect = (props: SelectProps) => {
   const {
@@ -21,10 +21,10 @@ const useSelect = (props: SelectProps) => {
     id,
     script,
     rule,
-    dependesies,
+    dependencies,
     formControlProps,
-    inputLableProps,
-    menuItemsList,
+    inputLabelProps,
+    options,
     ...restSelectProps
   } = props;
 
@@ -48,7 +48,7 @@ const useSelect = (props: SelectProps) => {
   // Handle Wtach Fields
   useWatch({
     control: formMethod.control,
-    name: dependesies ?? [],
+    name: dependencies ?? [],
   });
 
   // API Call
@@ -81,11 +81,11 @@ const useSelect = (props: SelectProps) => {
     error: error,
     ...scriptResult,
     ...newProps,
-    label: inputLableProps.children,
-    labelId: inputLableProps.children,
+    label: inputLabelProps.children,
+    labelId: inputLabelProps.children,
   });
   const getInputLableProps = (): InputLabelProps => ({
-    ...inputLableProps,
+    ...inputLabelProps,
   });
 
   const getFormControlProps = () => ({
@@ -96,7 +96,7 @@ const useSelect = (props: SelectProps) => {
     getSelectProps,
     getInputLableProps,
     getFormControlProps,
-    menuItemsList,
+    options,
   };
 };
 

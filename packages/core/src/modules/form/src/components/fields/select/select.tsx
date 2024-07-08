@@ -12,18 +12,14 @@ import { SelectProps } from './select.types';
 import useSelect from './useSelect';
 
 const Select: FC<SelectProps> = (props) => {
-  const {
-    getFormControlProps,
-    getInputLableProps,
-    menuItemsList,
-    getSelectProps,
-  } = useSelect(props);
+  const { getFormControlProps, getInputLableProps, options, getSelectProps } =
+    useSelect(props);
 
   return (
     <FormControl {...getFormControlProps()}>
       <InputLabel {...getInputLableProps()}></InputLabel>
       <MuiSelect {...getSelectProps()}>
-        {menuItemsList.map((item) => (
+        {options.map((item) => (
           <MenuItem key={`select-${item.id}`} {...item}>
             {item.title}
           </MenuItem>

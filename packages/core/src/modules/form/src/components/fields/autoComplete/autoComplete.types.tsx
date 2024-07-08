@@ -29,7 +29,7 @@ export type AutoCompleteProps<
   id: Id;
   formId: FormId;
   script?: Script;
-  dependesies?: Dependesies;
+  dependencies?: Dependesies;
   propsController?: Record<string, any>;
   api?: Api;
   rule?: Rule;

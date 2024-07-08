@@ -17,7 +17,7 @@ export function App() {
     //     id: 'Field-One',
     //     formId: '20',
     //     label: 'Field One (Form Id: 20)',
-    //     dependesies: ['FieldTwo'],
+    //     dependencies: ['FieldTwo'],
     //     script: `
     //       if(formMethod.getValues()?.FieldTwo === "erfan"){
     //         setProps('FieldTwo' , {label:'i can'});
@@ -227,35 +227,35 @@ export function App() {
         formId: '20',
         children: 'child',
         id: 'select-1',
-        sx:{width: '200px'},
+        sx: { width: '200px' },
         fullWidth: true,
         // multiple: true,
         defaultValue: '',
-        inputLableProps: {
+        inputLabelProps: {
           children: 'select label',
         },
-        menuItemsList: [
-          {value: 'first value', title: 'first', id: '1'},
-          {value: 'second value', title: 'second', id: '2'},
-        ]
-      }
-    }
-  //   id: 'select-form-1',
-  //   groupType: 'form',
-  //   type: 'select',
-  //   props:{
-  //     formId: '18',
-  //     variant: 'contained',
-  //     menuItemsList:[{
-  //       title: 'menu 1',
-  //       value: 'm1'
-  //     }],
-  //     formControlProps:{
-  //       title: 'select input',
-  //       variant: 'standard'
-  //     },
-  //   }
-  // }
+        options: [
+          { value: 'first value', title: 'first', id: '1' },
+          { value: 'second value', title: 'second', id: '2' },
+        ],
+      },
+    },
+    //   id: 'select-form-1',
+    //   groupType: 'form',
+    //   type: 'select',
+    //   props:{
+    //     formId: '18',
+    //     variant: 'contained',
+    //     options:[{
+    //       title: 'menu 1',
+    //       value: 'm1'
+    //     }],
+    //     formControlProps:{
+    //       title: 'select input',
+    //       variant: 'standard'
+    //     },
+    //   }
+    // }
   ];
 
   const [tabs, setTabs] = useState<TabData[]>([

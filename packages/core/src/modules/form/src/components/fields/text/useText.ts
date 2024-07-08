@@ -17,7 +17,7 @@ const UseText = (props: TextProps) => {
     script,
     api,
     show = true,
-    dependesies,
+    dependencies,
     helperText,
     defaultValue,
     ...textFieldProps
@@ -42,7 +42,7 @@ const UseText = (props: TextProps) => {
   // Handle Wtach Fields
   useWatch({
     control: formMethod.control,
-    name: dependesies ?? [],
+    name: dependencies ?? [],
   });
 
   // API Call

@@ -14,13 +14,13 @@ import { Rule } from '../../../types/validation.types';
 export type SelectProps = MuiSelectProps & {
   id: Id;
   formId: FormId;
-  dependesies?: Dependesies;
+  dependencies?: Dependesies;
   api?: Api;
   rule?: Rule;
   show?: boolean;
   script?: Script;
   formControlProps: FormControlProps;
-  inputLableProps: InputLabelProps;
-  menuItemsList: MenuItemProps[];
+  inputLabelProps: InputLabelProps;
+  options: MenuItemProps[];
   propsController?: Record<string, any>;
 };
