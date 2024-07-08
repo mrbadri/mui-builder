@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 import { SkeletonOwnProps } from '@mui/material';
 
 import { SubmitFieldProps } from '../components/actions/submit/submit.types';
@@ -20,6 +18,7 @@ export type FormTypes =
   | 'action-submit'
   | 'auto-complete'
   | 'checkbox'
+  | 'password'
   | 'select';
 
 export type Option = {
