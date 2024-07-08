@@ -14,7 +14,7 @@ export type CheckboxProps = Omit<FormControlLabelProps, 'control'> & {
   checkboxProps: MuiCheckboxProps;
   formId: FormId;
   script?: Script;
-  dependesies?: Dependesies;
+  dependencies?: Dependesies;
   propsController?: Record<string, any>;
   api?: Api;
   rule?: Rule;
