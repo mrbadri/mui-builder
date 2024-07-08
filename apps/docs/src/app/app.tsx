@@ -219,7 +219,20 @@ export function App() {
         ],
       },
     },
-    { id: 'form-password-1',
+    {
+      id: 'form-number',
+      groupType: 'form',
+      type: 'number',
+      props: {
+        id: 'number one',
+        seperator: ',',
+        defaultValue: '12345',
+        formId: '20',
+        label: 'number field (Form Id: 20)',
+      },
+    },
+    {
+      id: 'form-password-1',
       groupType: 'form',
       type: 'password',
       props: {
@@ -265,7 +278,6 @@ export function App() {
     //     },
     //   }
     // }
-
   ];
 
   const [tabs, setTabs] = useState<TabData[]>([
