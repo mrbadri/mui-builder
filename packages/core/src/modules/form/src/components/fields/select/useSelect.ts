@@ -1,27 +1,32 @@
 import { useController, useWatch } from 'react-hook-form';
 
+import { InputLabelProps, MenuItemProps } from '@mui/material';
+import { SelectInputProps } from '@mui/material/Select/SelectInput';
+
 import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
 import useScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
-import { CheckboxProps } from './checkbox.types';
+import { Option } from '../../../types/public.types';
+import { SelectProps } from './select.types';
 
 import useForms from '../../../hooks/useForms/useForms';
 import usePropsController from '../../../hooks/usePropsController/usePropsController';
 import useRule from '../../../hooks/useRule/useRule';
 
-const useCheckbox = (props: CheckboxProps) => {
+const useSelect = (props: SelectProps) => {
   const {
-    id,
-    api,
-    rule,
-    script,
     formId,
-    show = true,
+    api,
+    id,
+    script,
+    rule,
     dependencies,
-    checkboxProps,
-    ...formControlLabelProps
+    formControlProps,
+    inputLabelProps,
+    options,
+    ...restSelectProps
   } = props;
 
   const { configs, queries } = api || {};
@@ -33,6 +38,7 @@ const useCheckbox = (props: CheckboxProps) => {
   const newProps = propsController?.[id] || {};
 
   // Handle Script
+
   const { scriptResult } = useScript({
     script,
     formMethod,
@@ -64,27 +70,45 @@ const useCheckbox = (props: CheckboxProps) => {
   } = useController({
     name: id,
     control: formMethod.control,
-    disabled: checkboxProps.disabled,
-    defaultValue: !!checkboxProps.checked,
+    disabled: restSelectProps.disabled,
+    defaultValue: restSelectProps.defaultValue,
     rules: useRule(rule),
   });
 
   const error = errors?.[id];
 
-  // Props
-  const getFormControlLabelProps = () => ({
+  const getSelectProps = (): SelectInputProps => ({
+    ...(restSelectProps as SelectInputProps),
     ...field,
     error: error,
     ...scriptResult,
     ...newProps,
-    ...formControlLabelProps,
+    label: inputLabelProps.children,
+    labelId: inputLabelProps.children,
+  });
+  const getInputLableProps = (): InputLabelProps => ({
+    ...inputLabelProps,
   });
 
-  const getCheckboxProps = () => ({
-    ...checkboxProps,
+  const getFormControlProps = () => ({
+    ...formControlProps,
   });
 
-  return { show, getCheckboxProps, getFormControlLabelProps };
+  const getMenuItemProps = (item: Option): MenuItemProps => ({
+    key: `select-${item.id}`,
+    id: item.id.toString(),
+    // TODO: adapte with autocomplete value
+    value: item.id,
+    title: item.name,
+  });
+
+  return {
+    options,
+    getSelectProps,
+    getMenuItemProps,
+    getInputLableProps,
+    getFormControlProps,
+  };
 };
 
-export default useCheckbox;
+export default useSelect;

@@ -1,24 +1,24 @@
-import { useMemo } from 'react';
 import { useController, useWatch } from 'react-hook-form';
 
 import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
-import UseScript from '@mui-builder/utils/useScript/useScript';
+import useScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
-import { AutoCompleteOptions, AutoCompleteProps } from './autoComplete.types';
+import { Option } from '../../../types/public.types';
+import { AutoCompleteProps } from './autoComplete.types';
 
 import useForms from '../../../hooks/useForms/useForms';
 import usePropsController from '../../../hooks/usePropsController/usePropsController';
 import useRule from '../../../hooks/useRule/useRule';
 
-const useAutoComplete = (props: AutoCompleteProps<AutoCompleteOptions>) => {
+const useAutoComplete = (props: AutoCompleteProps<Option>) => {
   const {
     formId,
     script,
     api,
     show = true,
-    dependesies,
+    dependencies,
     defaultValue,
     options,
     innerTextFieldProps,
@@ -42,10 +42,10 @@ const useAutoComplete = (props: AutoCompleteProps<AutoCompleteOptions>) => {
     forms,
   });
 
-  // Handle Wtach Fields
+  // Handle Watch Fields
   useWatch({
     control: formMethod.control,
-    name: dependesies ?? [],
+    name: dependencies ?? [],
   });
 
   // Controller
@@ -63,7 +63,7 @@ const useAutoComplete = (props: AutoCompleteProps<AutoCompleteOptions>) => {
   const error = errors?.[restAutoCompleteProps.id];
 
   // Handle Script
-  const { scriptResult } = UseScript({
+  const { scriptResult } = useScript({
     script,
     formMethod,
     forms,
@@ -73,21 +73,16 @@ const useAutoComplete = (props: AutoCompleteProps<AutoCompleteOptions>) => {
 
   // Props Methods
   // -- Handle Option
-  const getOptionLabel = (option: AutoCompleteOptions) => option?.name ?? '';
+  const getOptionLabel = (option: Option) => option?.name ?? '';
 
-  const isOptionEqualToValue = (
-    option: AutoCompleteOptions,
-    value: AutoCompleteOptions
-  ) => option.id === value.id;
+  const isOptionEqualToValue = (option: Option, value: Option) =>
+    option.id === value.id;
 
-  const onChange: AutoCompleteProps<AutoCompleteOptions>['onChange'] = (
-    _,
-    value
-  ) => {
+  const onChange: AutoCompleteProps<Option>['onChange'] = (_, value) => {
     field.onChange(value ?? null);
   };
 
-  const hanldeHelperText = () =>
+  const handleHelperText = () =>
     (error?.message as string) ?? innerTextFieldProps?.helperText ?? null;
 
   // Props
@@ -106,7 +101,7 @@ const useAutoComplete = (props: AutoCompleteProps<AutoCompleteOptions>) => {
 
   const getInnerTextFieldProps = () => ({
     ...innerTextFieldProps,
-    helperText: hanldeHelperText(),
+    helperText: handleHelperText(),
   });
 
   return { getFieldProps, show, getInnerTextFieldProps };

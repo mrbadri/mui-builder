@@ -8,13 +8,8 @@ import {
 import { Api } from '@mui-builder/types/api.types';
 import { Script } from '@mui-builder/types/script.types';
 
-import { Dependesies, FormId, Id } from '../../../types/public.types';
+import { Dependencies, FormId, Id, Option } from '../../../types/public.types';
 import { Rule } from '../../../types/validation.types';
-
-export type AutoCompleteOptions = {
-  name: number | string;
-  id: number | string;
-};
 
 export type AutoCompleteProps<
   Value,
@@ -29,12 +24,12 @@ export type AutoCompleteProps<
   id: Id;
   formId: FormId;
   script?: Script;
-  dependesies?: Dependesies;
+  dependencies?: Dependencies;
   propsController?: Record<string, any>;
   api?: Api;
   rule?: Rule;
   show?: boolean;
-  options: AutoCompleteOptions[];
+  options: Option[];
   renderInput?: (params: AutocompleteRenderInputParams) => React.ReactNode;
   innerTextFieldProps?: Partial<TextFieldProps>;
 };

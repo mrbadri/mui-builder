@@ -1,23 +1,26 @@
+import { useState } from 'react';
 import { useController, useWatch } from 'react-hook-form';
 
+import { IconButtonProps, InputAdornmentProps } from '@mui/material';
+
 import useQueryBuilder from '@mui-builder/utils/useQueryBuilder/useQueryBuilder';
-import useScript from '@mui-builder/utils/useScript/useScript';
+import UseScript from '@mui-builder/utils/useScript/useScript';
 
 import axios from 'axios';
 
-import { TextProps } from './text.types';
+import { PasswordProps } from './password.types';
 
 import useForms from '../../../hooks/useForms/useForms';
 import usePropsController from '../../../hooks/usePropsController/usePropsController';
 import useRule from '../../../hooks/useRule/useRule';
 
-const UseText = (props: TextProps) => {
+const UsePassword = (props: PasswordProps) => {
   const {
     formId,
     script,
     api,
     show = true,
-    dependencies,
+    dependesies,
     helperText,
     defaultValue,
     ...textFieldProps
@@ -30,8 +33,15 @@ const UseText = (props: TextProps) => {
 
   const newProps = propsController?.[textFieldProps?.id] || {};
 
+  // eye icon
+  const [showPassword, setShowPassword] = useState(false);
+
+  const handleClickShowPassword = () => {
+    setShowPassword(!showPassword);
+  };
+
   // Handle Script
-  const { scriptResult } = useScript({
+  const { scriptResult } = UseScript({
     script,
     formMethod,
     forms,
@@ -39,10 +49,10 @@ const UseText = (props: TextProps) => {
     setProps,
   });
 
-  // Handle Watch Fields
+  // Handle Wtach Fields
   useWatch({
     control: formMethod.control,
-    name: dependencies ?? [],
+    name: dependesies ?? [],
   });
 
   // API Call
@@ -78,9 +88,20 @@ const UseText = (props: TextProps) => {
     value: field.value ?? '',
     ...scriptResult,
     ...newProps,
+    type: showPassword ? 'text' : 'password',
   });
 
-  return { getFieldProps, show };
+  const getInputAdornmentProps = (): InputAdornmentProps => ({
+    position: 'end',
+  });
+
+  const getIconButtonProps = (): IconButtonProps => ({
+    'aria-label': 'toggle password visibility',
+    onClick: handleClickShowPassword,
+    edge: 'end',
+  });
+
+  return { getFieldProps, show, getInputAdornmentProps, getIconButtonProps, showPassword };
 };
 
-export default UseText;
+export default UsePassword;
