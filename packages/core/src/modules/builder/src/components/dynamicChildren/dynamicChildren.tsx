@@ -2,10 +2,10 @@ import { DynamicChildrenProps } from './dynamicChildren.types';
 
 import Selector from '../selector/selector';
 
-const DynamicChildren = ({ children }: DynamicChildrenProps) => {
-  const childrenList = Array.isArray(children) ? children : [children];
+const DynamicChildren = ({ childs }: DynamicChildrenProps) => {
+  const childsList = Array.isArray(childs) ? childs : [childs];
 
-  return childrenList.map((data) => <Selector key={data.id} {...data} />);
+  return childsList.map((data) => <Selector key={data.id} {...data} />);
 };
 
 export default DynamicChildren;

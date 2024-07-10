@@ -6,9 +6,9 @@ import Action from '../action/action';
 import useSubmit from './useSubmit';
 
 const Submit: FC<SubmitFieldProps> = (props) => {
-  const { children, getActionProps } = useSubmit(props);
+  const { getActionProps } = useSubmit(props);
 
-  return <Action {...getActionProps()}>{children}</Action>;
+  return <Action {...getActionProps()} />;
 };
 
 export default Submit;

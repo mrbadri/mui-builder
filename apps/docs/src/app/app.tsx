@@ -7,7 +7,7 @@ import Builder, { BuilderProps } from '@mui-builder/core';
 import Tabs, { TabData } from '@mui-builder/tab';
 
 export function App() {
-  const children: BuilderProps[] = [
+  const childs: BuilderProps[] = [
     // Fields
     {
       id: 'form-field-1',
@@ -61,13 +61,13 @@ export function App() {
       props: {
         rowSpacing: 2,
         columnSpacing: 2,
-        children: [
+        childs: [
           {
             id: 'form-field-4kldjd',
             groupType: 'grid',
             type: 'item',
             props: {
-              children: {
+              childs: {
                 id: 'form-field-4',
                 groupType: 'form',
                 type: 'field-text',
@@ -85,7 +85,7 @@ export function App() {
             groupType: 'grid',
             type: 'item',
             props: {
-              children: {
+              childs: {
                 id: 'form-field-4',
                 groupType: 'form',
                 type: 'field-text',
@@ -134,7 +134,7 @@ export function App() {
       type: 'action-submit',
       props: {
         formId: '20',
-        children: 'Submit (20)',
+        childs: 'Submit (20)',
         onAction: 'console.log("Form 20: " , values);',
         api: {
           configs: {
@@ -154,7 +154,7 @@ export function App() {
       type: 'action-submit',
       props: {
         formId: '21',
-        children: 'Submit (21)',
+        childs: 'Submit (21)',
         onAction: 'console.log("Form 21: " , values)',
       },
       configs: {
@@ -193,7 +193,7 @@ export function App() {
         formId: '18',
         label: 'label 1',
         checkboxProps: {},
-        children: [
+        childs: [
           {
             id: 'form-checkbox-1-nested-1',
             groupType: 'form',
@@ -251,7 +251,7 @@ export function App() {
           path="/"
           element={
             <Stack direction="row" alignItems="flex-end">
-              <Builder children={children} />
+              <Builder childs={childs} />
             </Stack>
           }
         />

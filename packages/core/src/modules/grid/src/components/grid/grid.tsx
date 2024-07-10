@@ -5,11 +5,11 @@ import DynamicChildren from '@mui-builder/core';
 import { GridProps } from './grid.type';
 
 const Grid = (props: GridProps) => {
-  const { children, ...restProps } = props;
+  const { childs, ...restProps } = props;
 
   return (
     <Grid2 {...restProps}>
-      <DynamicChildren>{children}</DynamicChildren>
+      <DynamicChildren childs={childs}></DynamicChildren>
     </Grid2>
   );
 };

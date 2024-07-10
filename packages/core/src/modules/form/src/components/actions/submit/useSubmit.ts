@@ -11,7 +11,7 @@ import { DynamicAction, SubmitFieldProps } from './submit.types';
 import useForms from '../../../hooks/useForms/useForms';
 
 const useSubmit = (props: SubmitFieldProps) => {
-  const { formId, children, onAction, api, ...submitFieldProps } = props;
+  const { formId, childs, onAction, api, ...submitFieldProps } = props;
   const { configs, queries } = api || {};
 
   const forms = useForms((state) => state.forms);
@@ -52,12 +52,13 @@ const useSubmit = (props: SubmitFieldProps) => {
 
   // props
   const getActionProps = () => ({
+    childs,
     onClick,
     loading: isLoading,
     ...submitFieldProps,
   });
 
-  return { children, getActionProps };
+  return { getActionProps };
 };
 
 export default useSubmit;

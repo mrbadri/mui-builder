@@ -57,5 +57,12 @@
       "dependsOn": ["^build"],
       "inputs": ["default", "^default"]
     }
+  },
+  "tasksRunnerOptions": {
+    "default": {
+      "options": {
+        "cacheableOperations": ["build-storybook"]
+      }
+    }
   }
 }

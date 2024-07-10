@@ -4,8 +4,8 @@ import { LoadingButton } from '@mui/lab';
 
 import { ActionProps } from './action.types';
 
-const Action: FC<ActionProps> = ({ children, ...actionProps }) => {
-  return <LoadingButton {...actionProps}>{children}</LoadingButton>;
+const Action: FC<ActionProps> = ({ childs, ...actionProps }) => {
+  return <LoadingButton {...actionProps}>{childs}</LoadingButton>;
 };
 
 export default Action;

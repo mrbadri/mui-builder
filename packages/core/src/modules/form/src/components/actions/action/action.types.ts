@@ -2,7 +2,7 @@ import { ReactNode } from 'react';
 
 import { LoadingButtonProps } from '@mui/lab';
 
-export type ActionProps = LoadingButtonProps & {
-  children: ReactNode;
+export type ActionProps = Omit<LoadingButtonProps, "children"> & {
+  childs: ReactNode;
   onAction?: string;
 };
