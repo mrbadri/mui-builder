@@ -5,7 +5,7 @@ const useRadio = (props: RadioProps) => {
 
   const getRadioInputProps = () => ({ ...radioInputProps });
 
-  const getFormControlLabelProps = () => ({ ...restRadioProps });
+  const getFormControlLabelProps = () => ({ ...restRadioProps, label: restRadioProps.name });
 
   return { getRadioInputProps, getFormControlLabelProps };
 };

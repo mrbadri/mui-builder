@@ -7,12 +7,13 @@ import {
 import { Api } from '@mui-builder/types/api.types';
 import { Script } from '@mui-builder/types/script.types';
 
-import { Dependencies, FormId, Id } from '../../../types/public.types';
+import { Dependencies, FormId, Id, Option } from '../../../types/public.types';
 import { Rule } from '../../../types/validation.types';
 
-export type RadioProps = Omit<FormControlLabelProps, 'control'> & {
-  radioInputProps?: MuiRadioProps;
-};
+export type RadioProps = Omit<FormControlLabelProps, 'control' | 'label'> &
+  Option & {
+    radioInputProps?: MuiRadioProps;
+  };
 
 export type RadioGroupProps = MuiRadioGroupProps & {
   id: Id;
@@ -23,5 +24,5 @@ export type RadioGroupProps = MuiRadioGroupProps & {
   api?: Api;
   rule?: Rule;
   show?: boolean;
-  radioInputsList: RadioProps[];
+  options: RadioProps[];
 };

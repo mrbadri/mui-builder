@@ -193,9 +193,9 @@ export function App() {
         id: 'radio-1',
         name: 'fol',
         defaultValue: '2',
-        radioInputsList: [
-          { label: 'radio-num-1', value: '1' },
-          { label: 'radio-num-2', value: '2' },
+        options: [
+          { name: 'radio-num-1', value: 'value 1', id: '1' },
+          { name: 'radio-num-2', value: 'value 2', id: '2' },
         ],
       },
     },
@@ -245,7 +245,7 @@ export function App() {
         // multiple: true,
         defaultValue: '',
         inputLabelProps: {
-          children: "input label"
+          children: 'input label',
         },
         options: [
           { name: 'first', id: '1' },

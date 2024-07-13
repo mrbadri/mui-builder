@@ -20,7 +20,7 @@ const useRadioGroup = (props: RadioGroupProps) => {
     show = true,
     dependesies,
     defaultValue,
-    radioInputsList,
+    options,
     ...restRadioGroupProps
   } = props;
 
@@ -78,7 +78,7 @@ const useRadioGroup = (props: RadioGroupProps) => {
     ...newProps,
   });
 
-  return { getRadioGroupProps, radioInputsList };
+  return { getRadioGroupProps, options };
 };
 
 export default useRadioGroup;

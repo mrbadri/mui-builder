@@ -8,11 +8,11 @@ import Radio from './radio';
 import useRadioGroup from './useRadioGroup';
 
 const RadioGroup: FC<RadioGroupProps> = (props) => {
-  const { getRadioGroupProps, radioInputsList } = useRadioGroup(props);
+  const { getRadioGroupProps, options } = useRadioGroup(props);
 
   return (
     <MuiRadioGroup {...getRadioGroupProps()}>
-      {radioInputsList.map((radio) => (
+      {options.map((radio) => (
         <Radio key={radio.id} {...radio} />
       ))}
     </MuiRadioGroup>
