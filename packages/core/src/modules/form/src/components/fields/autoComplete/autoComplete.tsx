@@ -4,11 +4,12 @@ import { Autocomplete, TextField } from '@mui/material';
 
 import ShowIf from '@mui-builder/utils/showIf/showIf';
 
-import { AutoCompleteOptions, AutoCompleteProps } from './autoComplete.types';
+import { Option } from '../../../types/public.types';
+import { AutoCompleteProps } from './autoComplete.types';
 
 import useAutoComplete from './useAutoComplete';
 
-const AutoComplete: FC<AutoCompleteProps<AutoCompleteOptions>> = (props) => {
+const AutoComplete: FC<AutoCompleteProps<Option>> = (props) => {
   const { show, getFieldProps, getInnerTextFieldProps } =
     useAutoComplete(props);
 

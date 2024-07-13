@@ -5,7 +5,7 @@ import convertFn from '@mui-builder/utils/convertFn/convertFn';
 import { ScriptFn } from '../../types/script.types';
 import { UseScriptProps } from './useScript.types';
 
-const UseScript = ({
+const useScript = ({
   script,
   formMethod,
   forms,
@@ -33,4 +33,4 @@ const UseScript = ({
   return { scriptResult: scriptFn(formMethod, forms, formId, setProps) };
 };
 
-export default UseScript;
+export default useScript;
