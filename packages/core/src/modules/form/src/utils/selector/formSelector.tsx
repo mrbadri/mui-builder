@@ -5,6 +5,7 @@ import { AutoCompleteProps } from '../../components/fields/autoComplete/autoComp
 import { CheckboxProps } from '../../components/fields/checkbox/checkbox.types';
 import { NumberFieldProps } from '../../components/fields/number/number.types';
 import { PasswordProps } from '../../components/fields/password/password.types';
+import { RadioGroupProps } from '../../components/fields/radio/radio.types';
 import { SelectProps } from '../../components/fields/select/select.types';
 import { TextProps } from '../../components/fields/text/text.types';
 import { Option } from '../../types/public.types';
@@ -65,6 +66,17 @@ const FormSelector: FC<FormSelectorProps> = ({
       return (
         <Suspense key={fieldProps.id} fallback={<SubmitLoading {...loading} />}>
           <SelectedComponent {...(fieldProps as CheckboxProps)} />
+        </Suspense>
+      );
+
+    case 'radio':
+      SelectedComponent = lazy(
+        () => import('../../components/fields/radio/radioGroup')
+      );
+
+      return (
+        <Suspense key={fieldProps.id} fallback={<SubmitLoading {...loading} />}>
+          <SelectedComponent {...(fieldProps as RadioGroupProps)} />
         </Suspense>
       );
 
