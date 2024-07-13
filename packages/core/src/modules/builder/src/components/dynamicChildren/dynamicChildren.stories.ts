@@ -156,3 +156,86 @@ export const AutoComplete: Story = {
     },
   },
 };
+
+export const Checkbox: Story = {
+  args: {
+    childs: {
+      id: 'form-checkbox-1',
+      groupType: 'form',
+      type: 'checkbox',
+      props: {
+        id: 'checkbox-1',
+        formId: '21',
+        label: 'label 1',
+        checkboxProps: {},
+        childs: [
+          {
+            id: 'form-checkbox-1-nested-1',
+            groupType: 'form',
+            type: 'checkbox',
+            props: {
+              id: 'checkbox-1-nested-1',
+              formId: '18',
+              label: 'label 2',
+              checkboxProps: {},
+            },
+          },
+          {
+            id: 'form-checkbox-1-nested-13',
+            groupType: 'form',
+            type: 'checkbox',
+            props: {
+              id: 'checkbox-1-nested-13',
+              formId: '18',
+              label: 'label 23',
+              checkboxProps: {},
+            },
+          },
+        ],
+      },
+    },
+  },
+};
+
+export const NumberField: Story = {
+  args: {
+    childs: {
+      id: 'form-number',
+      groupType: 'form',
+      type: 'number',
+      props: {
+        id: 'number one',
+        seperator: ',',
+        defaultValue: '12345',
+        formId: '20',
+        label: 'number field (Form Id: 20)',
+      },
+    },
+  },
+};
+
+export const Select: Story = {
+  args: {
+    childs: {
+      id: 'select-form-1',
+      groupType: 'form',
+      type: 'select',
+      props: {
+        formId: '20',
+        children: 'child',
+        id: 'select-1',
+        sx: { width: '200px' },
+        fullWidth: true,
+        // multiple: true,
+        defaultValue: '',
+        inputLabelProps: {
+          children: 'select label',
+        },
+        options: [
+          { name: 'first', id: '1' },
+          { name: 'second', id: '2' },
+        ],
+      },
+    },
+  },
+};
