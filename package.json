@@ -76,6 +76,7 @@
     "prettier": "^2.8.8",
     "react-refresh": "^0.10.0",
     "storybook": "7.6.20",
+    "storybook-addon-deep-controls": "^0.6.2",
     "ts-jest": "^29.1.0",
     "ts-node": "10.9.1",
     "typescript": "~5.3.2",

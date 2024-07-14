@@ -235,34 +235,10 @@ export function App() {
       groupType: 'form',
       type: 'checkbox',
       props: {
-        id: 'checkbox-1',
-        formId: '21',
-        label: 'label 1',
         checkboxProps: {},
-        childs: [
-          {
-            id: 'form-checkbox-1-nested-1',
-            groupType: 'form',
-            type: 'checkbox',
-            props: {
-              id: 'checkbox-1-nested-1',
-              formId: '18',
-              label: 'label 2',
-              checkboxProps: {},
-            },
-          },
-          {
-            id: 'form-checkbox-1-nested-13',
-            groupType: 'form',
-            type: 'checkbox',
-            props: {
-              id: 'checkbox-1-nested-13',
-              formId: '18',
-              label: 'label 23',
-              checkboxProps: {},
-            },
-          },
-        ],
+        formId: '20',
+        id: 'checkbox-1',
+        label: 'checkbox input',
       },
     },
     {
@@ -294,6 +270,8 @@ export function App() {
       props: {
         formId: '20',
         children: 'child',
+        variant: 'outlined',
+        formControlProps: {},
         id: 'select-1',
         sx: { width: '200px' },
         fullWidth: true,

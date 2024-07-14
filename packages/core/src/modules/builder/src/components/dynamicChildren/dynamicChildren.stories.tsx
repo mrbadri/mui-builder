@@ -1,13 +1,76 @@
-import type { Meta, StoryObj } from '@storybook/react';
+import { action } from '@storybook/addon-actions';
+import { withActions } from '@storybook/addon-actions/decorator';
+import type { Decorator, Meta, StoryObj } from '@storybook/react';
+import type { TypeWithDeepControls } from 'storybook-addon-deep-controls';
+
+import { DynamicChildrenProps } from '@mui-builder/builder';
 
 import Builder from './dynamicChildren';
 
+const withSubmitButton: Decorator = (Story) => (
+  <>
+    <Story />
+    <br />
+    <Story
+      args={{
+        childs: {
+          id: 'form-action-1',
+          groupType: 'form',
+          type: 'action-submit',
+          props: {
+            formId: '20',
+            childs: 'Submit (20)',
+            // onAction: 'console.log("Form 20: " , values);',
+            onAction: action('submit clicked!', {
+              allowFunction: true,
+            }),
+            sx: {
+              bgcolor: 'HighlightText',
+            },
+            // api: {
+            //   configs: {
+            //     url: `return ("https://jsonplaceholder.typicode.com/Actions/");`,
+            //     method: 'post',
+            //     data: `return formMethod.getValues();`,
+            //   },
+            //   queries: {
+            //     enable: false,
+            //   },
+            // },
+          },
+        },
+      }}
+    />
+  </>
+);
+
 const meta: Meta<typeof Builder> = {
   component: Builder,
+  parameters: { actions: { argTypesRegex: '^on.*' } },
+  decorators: [withActions],
 };
 
 export default meta;
-type Story = StoryObj<typeof Builder>;
+type Story = TypeWithDeepControls<StoryObj<DynamicChildrenProps>>;
+
+const defaultArgTypes = {
+  'childs.groupType': {
+    control: 'radio',
+    options: ['form', 'grid'],
+  },
+  'childs.type': {
+    control: 'select',
+    options: [
+      'field-text',
+      'action-submit',
+      'auto-complete',
+      'checkbox',
+      'number',
+      'password',
+      'select',
+    ],
+  },
+};
 
 export const TextField: Story = {
   args: {
@@ -19,7 +82,7 @@ export const TextField: Story = {
         id: 'Field-One',
         formId: '20',
         label: 'Field One (Form Id: 20)',
-        dependesies: ['FieldTwo'],
+        // dependesies: ['FieldTwo'],
         script: `
             if(formMethod.getValues()?.FieldTwo === "erfan"){
               setProps('FieldTwo' , {label:'i can'});
@@ -47,8 +110,9 @@ export const TextField: Story = {
     },
   },
   argTypes: {
-    childs: {},
+    ...defaultArgTypes,
   },
+  decorators: [withSubmitButton],
 };
 
 export const Gird: Story = {
@@ -115,6 +179,7 @@ export const ActionSubmit: Story = {
         formId: '20',
         childs: 'Submit (20)',
         onAction: 'console.log("Form 20: " , values);',
+        // onAction: 'console.log("Form 20: " , values);',
         sx: {
           bgcolor: 'HighlightText',
         },
@@ -164,34 +229,10 @@ export const Checkbox: Story = {
       groupType: 'form',
       type: 'checkbox',
       props: {
+        checkboxProps: { disabled: false },
+        formId: '20',
         id: 'checkbox-1',
-        formId: '21',
-        label: 'label 1',
-        checkboxProps: {},
-        childs: [
-          {
-            id: 'form-checkbox-1-nested-1',
-            groupType: 'form',
-            type: 'checkbox',
-            props: {
-              id: 'checkbox-1-nested-1',
-              formId: '18',
-              label: 'label 2',
-              checkboxProps: {},
-            },
-          },
-          {
-            id: 'form-checkbox-1-nested-13',
-            groupType: 'form',
-            type: 'checkbox',
-            props: {
-              id: 'checkbox-1-nested-13',
-              formId: '18',
-              label: 'label 23',
-              checkboxProps: {},
-            },
-          },
-        ],
+        label: 'checkbox input',
       },
     },
   },
@@ -224,6 +265,8 @@ export const Select: Story = {
         formId: '20',
         children: 'child',
         id: 'select-1',
+        variant: 'filled',
+        formControlProps: {},
         sx: { width: '200px' },
         fullWidth: true,
         // multiple: true,

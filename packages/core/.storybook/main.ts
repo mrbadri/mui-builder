@@ -2,7 +2,11 @@ import type { StorybookConfig } from '@storybook/react-webpack5';
 
 const config: StorybookConfig = {
   stories: ['../src/**/*.stories.@(js|jsx|ts|tsx|mdx)'],
-  addons: ['@storybook/addon-essentials', '@nx/react/plugins/storybook'],
+  addons: [
+    '@storybook/addon-essentials',
+    '@nx/react/plugins/storybook',
+    'storybook-addon-deep-controls',
+  ],
   framework: {
     name: '@storybook/react-webpack5',
     options: {},

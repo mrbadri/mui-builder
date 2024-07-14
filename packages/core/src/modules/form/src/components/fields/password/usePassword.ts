@@ -101,7 +101,13 @@ const UsePassword = (props: PasswordProps) => {
     edge: 'end',
   });
 
-  return { getFieldProps, show, getInputAdornmentProps, getIconButtonProps, showPassword };
+  return {
+    getFieldProps,
+    show,
+    getInputAdornmentProps,
+    getIconButtonProps,
+    showPassword,
+  };
 };
 
 export default UsePassword;
