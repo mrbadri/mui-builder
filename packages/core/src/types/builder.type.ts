@@ -30,10 +30,7 @@ type GridChildsTypes =
 
 type ChildsTypes = FormChildsTypes | GridChildsTypes;
 
-export type BuilderProps = {
-  id?: string;
-  configs?: Configs;
-  // groupType: GROUP_TYPE;
-  // type: FormTypes | GridTypes;
-  // props: FieldProps | GridProps;
-} & ChildsTypes;
+// TODO: change Name
+export type DynamicBuilderProps<T> = { id?: string; configs?: Configs } & T;
+
+export type BuilderProps = DynamicBuilderProps<ChildsTypes>;

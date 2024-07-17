@@ -1,9 +1,13 @@
 import { action } from '@storybook/addon-actions';
 import { withActions } from '@storybook/addon-actions/decorator';
 import type { Decorator, Meta, StoryObj } from '@storybook/react';
+import { TextProps } from 'packages/core/src/modules/form/src/components/fields/text/text.types';
 import type { TypeWithDeepControls } from 'storybook-addon-deep-controls';
 
 import { DynamicChildrenProps } from '@mui-builder/builder';
+import FLOW from '@mui-builder/core/src/constant/flow/flow';
+import { DynamicBuilderProps } from '@mui-builder/types/builder.type';
+import extractKeys from '@mui-builder/utils/extractKeys/extractsKeys';
 
 import Builder from './dynamicChildren';
 
@@ -20,23 +24,12 @@ const withSubmitButton: Decorator = (Story) => (
           props: {
             formId: '20',
             childs: 'Submit (20)',
-            // onAction: 'console.log("Form 20: " , values);',
             onAction: action('submit clicked!', {
               allowFunction: true,
             }),
             sx: {
               bgcolor: 'HighlightText',
             },
-            // api: {
-            //   configs: {
-            //     url: `return ("https://jsonplaceholder.typicode.com/Actions/");`,
-            //     method: 'post',
-            //     data: `return formMethod.getValues();`,
-            //   },
-            //   queries: {
-            //     enable: false,
-            //   },
-            // },
           },
         },
       }}
@@ -44,33 +37,13 @@ const withSubmitButton: Decorator = (Story) => (
   </>
 );
 
+type Story = TypeWithDeepControls<StoryObj<DynamicChildrenProps>>;
+
 const meta: Meta<typeof Builder> = {
   component: Builder,
-  parameters: { actions: { argTypesRegex: '^on.*' } },
-  decorators: [withActions],
 };
 
 export default meta;
-type Story = TypeWithDeepControls<StoryObj<DynamicChildrenProps>>;
-
-const defaultArgTypes = {
-  'childs.groupType': {
-    control: 'radio',
-    options: ['form', 'grid'],
-  },
-  'childs.type': {
-    control: 'select',
-    options: [
-      'field-text',
-      'action-submit',
-      'auto-complete',
-      'checkbox',
-      'number',
-      'password',
-      'select',
-    ],
-  },
-};
 
 export const TextField: Story = {
   args: {
@@ -81,8 +54,7 @@ export const TextField: Story = {
       props: {
         id: 'Field-One',
         formId: '20',
-        label: 'Field One (Form Id: 20)',
-        // dependesies: ['FieldTwo'],
+        label: 'Initial Label',
         script: `
             if(formMethod.getValues()?.FieldTwo === "erfan"){
               setProps('FieldTwo' , {label:'i can'});
@@ -109,176 +81,31 @@ export const TextField: Story = {
       },
     },
   },
+  tags: ['autodocs'],
   argTypes: {
-    ...defaultArgTypes,
+    'childs.groupType': {
+      control: 'radio',
+      options: ['form', 'grid'],
+    },
+    'childs.props.label': {
+      if: { arg: 'childs.groupType', eq: 'form' },
+      description: 'Description for the label property',
+      // control: 'text',
+      name: 'label',
+      type: 'string',
+      disable: true,
+    },
+    // 'childs.props': {
+    //   if: { arg: 'childs.groupType', eq: 'form' },
+    //   description: 'Description for the label property',
+    //   // control: 'text',
+    //   name: 'props',
+    //   type: 'string',
+    //   disable: true,
+    // },
   },
   decorators: [withSubmitButton],
 };
 
-export const Gird: Story = {
-  args: {
-    childs: {
-      id: 'form-field-273',
-      groupType: 'grid',
-      type: 'container',
-      props: {
-        rowSpacing: 2,
-        columnSpacing: 2,
-        childs: [
-          {
-            id: 'form-field-4kldjd',
-            groupType: 'grid',
-            type: 'item',
-            props: {
-              childs: {
-                id: 'form-field-4',
-                groupType: 'form',
-                type: 'field-text',
-                props: {
-                  id: 'Field4',
-                  formId: '20',
-                  label: 'Field 4 (Form Id: 20)',
-                },
-              },
-            },
-          },
-
-          {
-            id: 'form-field-5',
-            groupType: 'grid',
-            type: 'item',
-            props: {
-              childs: {
-                id: 'form-field-4',
-                groupType: 'form',
-                type: 'field-text',
-                props: {
-                  id: 'Field4',
-                  formId: '20',
-                  label: 'Field 5 (Form Id: 20)',
-                },
-              },
-            },
-          },
-        ],
-      },
-    },
-  },
-  argTypes: {
-    childs: {},
-  },
-};
-
-export const ActionSubmit: Story = {
-  args: {
-    childs: {
-      id: 'form-action-1',
-      groupType: 'form',
-      type: 'action-submit',
-      props: {
-        formId: '20',
-        childs: 'Submit (20)',
-        onAction: 'console.log("Form 20: " , values);',
-        // onAction: 'console.log("Form 20: " , values);',
-        sx: {
-          bgcolor: 'HighlightText',
-        },
-        api: {
-          configs: {
-            url: `return ("https://jsonplaceholder.typicode.com/Actions/");`,
-            method: 'post',
-            data: `return formMethod.getValues();`,
-          },
-          queries: {
-            enable: false,
-          },
-        },
-      },
-    },
-  },
-};
-
-export const AutoComplete: Story = {
-  args: {
-    childs: {
-      id: 'form-auto-complete-1',
-      groupType: 'form',
-      type: 'auto-complete',
-      props: {
-        id: 'auto-complete-1',
-        formId: '18',
-        options: [
-          { name: 'folan lab', id: 'fo val' },
-          { name: 'folan lab22', id: 'fo val22' },
-        ],
-        innerTextFieldProps: {
-          sx: {
-            width: '200px',
-          },
-          label: 'autoComplete',
-        },
-      },
-    },
-  },
-};
-
-export const Checkbox: Story = {
-  args: {
-    childs: {
-      id: 'form-checkbox-1',
-      groupType: 'form',
-      type: 'checkbox',
-      props: {
-        checkboxProps: { disabled: false },
-        formId: '20',
-        id: 'checkbox-1',
-        label: 'checkbox input',
-      },
-    },
-  },
-};
-
-export const NumberField: Story = {
-  args: {
-    childs: {
-      id: 'form-number',
-      groupType: 'form',
-      type: 'number',
-      props: {
-        id: 'number one',
-        seperator: ',',
-        defaultValue: '12345',
-        formId: '20',
-        label: 'number field (Form Id: 20)',
-      },
-    },
-  },
-};
-
-export const Select: Story = {
-  args: {
-    childs: {
-      id: 'select-form-1',
-      groupType: 'form',
-      type: 'select',
-      props: {
-        formId: '20',
-        children: 'child',
-        id: 'select-1',
-        variant: 'filled',
-        formControlProps: {},
-        sx: { width: '200px' },
-        fullWidth: true,
-        // multiple: true,
-        defaultValue: '',
-        inputLabelProps: {
-          children: 'select label',
-        },
-        options: [
-          { name: 'first', id: '1' },
-          { name: 'second', id: '2' },
-        ],
-      },
-    },
-  },
-};
+const keys = extractKeys(FLOW.form['field-text']);
+console.log(keys);
